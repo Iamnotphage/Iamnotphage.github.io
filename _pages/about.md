@@ -6,7 +6,7 @@ subtitle: A cyberpunk, also a consloe cowboy. Major in Computer Science.
 
 profile:
   align: right
-  image: prof_pic.JPG
+  image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>iamnotphage@163.com</p>
