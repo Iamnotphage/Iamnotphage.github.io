@@ -46,24 +46,59 @@
       "courses": ["Calculus", "Data Structure", "Algorithm", "Operating System", "Computer Network"]
     }
   ],
+  "work": [
+    {
+      "name": "Huawei Technologies Co., Ltd.",
+      "position": "General Software Development Engineer(internship)",
+      "url": "https://www.huawei.com/cn/",
+      "startDate": "2024-07-03",
+      "endDate": "2024-07-03",
+      "summary": "Implement a KDTree in Java, which enhances the performance of KNN search.",
+      "highlights": ["KDTree"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "CS:APP3e Labs",
+      "summary": "Completed hands-on labs from *CS:APP*, focusing on low-level system programming, memory management, and data manipulation.",
+      "highlights": [
+        "Developed a buffer overflow exploit to understand system vulnerabilities",
+        "Built a dynamic memory allocator for efficient memory management"
+      ],
+      "startDate": "2023-01-01",
+      "endDate": "2023-06-01",
+      "url": "http://csapp.cs.cmu.edu/3e/home.html"
+    },
+    {
+      "name": "MIT 6.1810 Labs",
+      "summary": "Gained practical experience in operating system design and implementation through the labs of MIT's Operating System Engineering course.",
+      "highlights": [
+        "Implemented a Unix-like kernel to manage processes, memory, and file systems",
+        "Optimized kernel synchronization to handle concurrent tasks efficiently"
+      ],
+      "startDate": "2023-07-01",
+      "endDate": "2023-12-01",
+      "url": "https://pdos.csail.mit.edu/6.1810/2022/overview.html"
+    },
+    {
+      "name": "Princeton Algorithms I & II Labs",
+      "summary": "Mastered algorithm design and analysis through projects focused on classic data structures and algorithmic problems.",
+      "highlights": [
+        "Built data structures for optimized searching and sorting",
+        "Implemented graph algorithms for pathfinding and connectivity analysis"
+      ],
+      "startDate": "2023-09-01",
+      "endDate": "2024-02-01",
+      "url": "https://algs4.cs.princeton.edu/home/"
+    }
+  ],
   "awards": [
     {
       "title": "CMC First Prize",
       "date": "2022-12",
       "awarder": "Chinese Mathematics Competition.",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
+      "url": "http://www.cmathc.cn",
       "summary": "It's just a math."
-    }
-  ],
-  "work": [
-    {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
     }
   ],
   "volunteer": [
@@ -162,7 +197,7 @@
   ],
   "languages": [
     {
-      "language": "German",
+      "language": "Chinese",
       "fluency": "Native speaker",
       "icon": ""
     },
@@ -196,16 +231,6 @@
       "name": "Professor John Doe",
       "icon": "fa-solid fa-thumbtack",
       "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    }
-  ],
-  "projects": [
-    {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
     }
   ]
 }

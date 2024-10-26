@@ -2,24 +2,30 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: A cyberpunk, also a consloe cowboy. Major in Computer Science.
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: prof_pic.JPG
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>iamnotphage@163.com</p>
+
 
 news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hi, there! Welcome to my personal site—your portal to my projects and code. Currently, I’m a student at **XiDian University**, majoring in **Computer Science**. This site showcases my projects and work in software engineering. For source code, visit my [GitHub](https://github.com/Iamnotphage).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+**INTJ**. **Console Cowboy**. I enjoy coding, gaming (*Counter-Strike, Cyberpunk 2077, Stardew Valley, Minecraft, GTA, Assassin’s Creed*), and competitive challenges—especially swimming, badminton, and cycling. BTW, I can solve a Rubik’s cube in an average of 13 seconds.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+**Tech Stack**
+
+<i class="fa-brands fa-github" style="font-size: 32px; display: inline-block;"></i>
+<i class="fa-brands fa-ubuntu" style="font-size: 32px; display: inline-block;"></i>
+<i class="fa-brands fa-linux" style="font-size: 32px; display: inline-block;"></i>
+<i class="fa-brands fa-docker" style="font-size: 32px; display: inline-block;"></i>
+<i class="fa-brands fa-java" style="font-size: 32px; display: inline-block;"></i>
+<i class="fa-brands fa-python" style="font-size: 32px; display: inline-block;"></i>
