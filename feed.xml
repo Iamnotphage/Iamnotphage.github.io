@@ -1,777 +1,525 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://iamnotphage.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://iamnotphage.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-26T06:26:46+00:00</updated><id>https://iamnotphage.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra</title><link href="https://iamnotphage.github.io/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra/" rel="alternate" type="text/html" title="Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra"/><published>2024-05-14T00:00:00+00:00</published><updated>2024-05-14T00:00:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra/"><![CDATA[]]></content><author><name></name></author><summary type="html"><![CDATA[We’re sharing updates across our Gemini family of models and a glimpse of Project Astra, our vision for the future of AI assistants.]]></summary></entry><entry><title type="html">a post with tabs</title><link href="https://iamnotphage.github.io/blog/2024/tabs/" rel="alternate" type="text/html" title="a post with tabs"/><published>2024-05-01T00:32:13+00:00</published><updated>2024-05-01T00:32:13+00:00</updated><id>https://iamnotphage.github.io/blog/2024/tabs</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/tabs/"><![CDATA[<p>This is how a post with <a href="https://github.com/Ovski4/jekyll-tabs">tabs</a> looks like. Note that the tabs could be used for different purposes, not only for code.</p> <h2 id="first-tabs">First tabs</h2> <p>To add tabs, use the following syntax:</p> <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">tabs</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="cp">%}</span>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://iamnotphage.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://iamnotphage.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-10-27T04:13:55+00:00</updated><id>https://iamnotphage.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">my DBMS</title><link href="https://iamnotphage.github.io/blog/2024/myDBMS/" rel="alternate" type="text/html" title="my DBMS"/><published>2024-05-17T15:59:00+00:00</published><updated>2024-05-17T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/myDBMS</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/myDBMS/"><![CDATA[<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /$$$$$$  /$$   /$$ /$$$$$$$$ /$$   /$$      
+ /$$__  $$| $$  | $$| $$_____/| $$$ | $$      
+| $$  \__/| $$  | $$| $$      | $$$$| $$      
+| $$      | $$$$$$$$| $$$$$   | $$ $$ $$      
+| $$      | $$__  $$| $$__/   | $$  $$$$      
+| $$    $$| $$  | $$| $$      | $$\  $$$      
+|  $$$$$$/| $$  | $$| $$$$$$$$| $$ \  $$      
+ \______/ |__/  |__/|________/|__/  \__/ 
+</code></pre></div></div> <p>设计并实现一个DBMS原型系统，可以接受基本的SQL语句，对其进行词法分析、语法分析，然后解释执行SQL语句，完成对数据库文件的相应操作，实现DBMS的基本功能。</p> <p>ps: 以下<code class="language-plaintext highlighter-rouge">教科书</code>特指<code class="language-plaintext highlighter-rouge">西电出版社的《编译原理》</code></p> <h1 id="效果演示">效果演示</h1> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2024-05-17/demo-480.webp 480w,/assets/img/2024-05-17/demo-800.webp 800w,/assets/img/2024-05-17/demo-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2024-05-17/demo.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <h1 id="环境说明">环境说明</h1> <ul> <li>windows11</li> <li>GCC/G++ 8.1.0</li> <li>Lex(Flex) 2.5.4a</li> <li>YACC(Bison) 2.4.1</li> <li>CLion 2023</li> <li>VSCode 插件<code class="language-plaintext highlighter-rouge">Yash</code>可以高亮Lex和YACC语法</li> </ul> <p>lex和yacc在UNIX中是标配，所以windows用户需要自己去下载，而linux或者macos用户会方便一些。</p> <p>下面贴出GNU官方的下载地址。</p> <p><a href="https://gnuwin32.sourceforge.net/packages/flex.htm">Flex Download</a></p> <p><a href="https://gnuwin32.sourceforge.net/packages/bison.htm">Bison Download</a></p> <p>安装之后需要配置环境变量，将<code class="language-plaintext highlighter-rouge">bin</code>目录添加到系统环境变量就行了。</p> <p>配置好环境变量后，cmd终端能够找到<code class="language-plaintext highlighter-rouge">bison.exe</code>和<code class="language-plaintext highlighter-rouge">flex.exe</code>，所以能够执行命令，查看一下版本号看看配置是否正确。</p> <h1 id="前置知识">前置知识</h1> <ol> <li>CMake相关的前置知识: <a href="https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html">Quick CMake Tutorial</a></li> <li>正则表达式: <a href="https://ftp.gnu.org/old-gnu/Manuals/flex-2.5.4/html_mono/flex.html#SEC7">flex官方说明</a> 或教科书</li> <li>Lex程序基本结构: <a href="https://ftp.gnu.org/old-gnu/Manuals/flex-2.5.4/html_mono/flex.html#SEC5">简单程序演示</a> 或教科书2.5章</li> <li>YACC程序基本结构: <a href="https://www.gnu.org/software/bison/manual/bison.html#Examples">YACC官方文档</a></li> </ol> <h1 id="lex源程序说明">Lex源程序说明</h1> <p>Lex用来生成<code class="language-plaintext highlighter-rouge">词法分析器</code>（词法分析器生成器），能识别正规式，并执行给定的动作。输出的文件是<code class="language-plaintext highlighter-rouge">.yy.c</code>后缀。</p> <h2 id="lex源程序结构">Lex源程序结构</h2> <p>Lex源程序的结构被<code class="language-plaintext highlighter-rouge">%%</code>符号分为三/四部分(查看教科书2.5章):</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="p">{</span>
+<span class="n">Declarations</span>
+<span class="o">%</span><span class="p">}</span>
+<span class="n">Definitions</span>
+<span class="o">%%</span>
+<span class="n">Rules</span>
+<span class="o">%%</span>
+<span class="n">User</span> <span class="n">subroutines</span>
+</code></pre></div></div> <ol> <li>Declarations段包含一些C的头文件，宏定义，函数声明，全局变量声明</li> <li>Definitions段包含一些 <code class="language-plaintext highlighter-rouge">正则表达式</code> 的名字 (比如<code class="language-plaintext highlighter-rouge">digit [0-9]</code>，digit是名字)</li> <li>Rules段定义<code class="language-plaintext highlighter-rouge">{patterns} {actions}</code>每一个模式串（正则表达式）对应一个动作（C代码片段）</li> <li>User subroutines段可以定义函数</li> </ol> <p>比如上述文件名为<code class="language-plaintext highlighter-rouge">lex.l</code></p> <p>通过命令<code class="language-plaintext highlighter-rouge">flex lex.l</code>生成<code class="language-plaintext highlighter-rouge">lex.yy.c</code>文件，再<code class="language-plaintext highlighter-rouge">gcc</code>编译生成<code class="language-plaintext highlighter-rouge">.exe</code>文件，就能对输入记号流进行词法分析。</p> <h2 id="全局变量函数">全局变量/函数</h2> <p><strong>分析源码，需要注意Lex程序中常用的几个全局变量和函数</strong></p> <table> <thead> <tr> <th>全局变量/函数</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>char *yytext</td> <td>输入序列(字符串)</td> </tr> <tr> <td>int yyleng</td> <td>输入序列的长度</td> </tr> <tr> <td>int yylex()</td> <td>词法分析驱动器的入口，扫描输入序列后，匹配到<code class="language-plaintext highlighter-rouge">正则表达式</code>(最长的那一条)，执行对应的<code class="language-plaintext highlighter-rouge">C代码</code>，返回代码段返回的值(代码段没写返回值yylex()默认返回0)，也就是每个token的标号。</td> </tr> <tr> <td>int yywrap()</td> <td>词法分析器分析结束时，自动调用yywrap()。如果其返回值为1，则结束分析过程；如果返回值为0，则继续扫描下一个输入。</td> </tr> </tbody> </table> <h2 id="例子">例子</h2> <p>例子（或参考编译原理2.5章节）：</p> <p><strong>识别输入序列，输出记号类型:</strong></p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="p">{</span>
+    <span class="cp">#define ID 0
+</span>    <span class="cp">#define NUMBER 1
+</span><span class="o">%</span><span class="p">}</span>
 
-<span class="cp">{%</span><span class="w"> </span><span class="nt">tab</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="nv">tab-name-1</span><span class="w"> </span><span class="cp">%}</span>
+<span class="kt">char</span> <span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">zA</span><span class="o">-</span><span class="n">Z</span><span class="p">]</span>
+<span class="n">digit</span> <span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">digits</span> <span class="p">{</span><span class="n">digit</span><span class="p">}</span><span class="o">+</span>
+<span class="n">optional_fraction</span> <span class="p">(</span><span class="s">"."</span><span class="p">{</span><span class="n">digits</span><span class="p">})</span><span class="o">?</span>
+<span class="n">optional_exponent</span> <span class="p">(</span><span class="n">E</span><span class="p">[</span><span class="o">+-</span><span class="p">]</span><span class="o">?</span><span class="p">{</span><span class="n">digits</span><span class="p">})</span><span class="o">?</span>
 
-Content 1
+<span class="o">%%</span>
+<span class="p">{</span><span class="kt">char</span><span class="p">}({</span><span class="kt">char</span><span class="p">}</span><span class="o">|</span><span class="p">{</span><span class="n">digit</span><span class="p">})</span><span class="o">*</span> <span class="p">{</span><span class="n">printf</span><span class="p">(</span><span class="s">"identified a ID %s: length: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">yytext</span><span class="p">,</span> <span class="n">yyleng</span><span class="p">);</span>
+                         <span class="k">return</span> <span class="n">ID</span><span class="p">;}</span>
 
-<span class="cp">{%</span><span class="w"> </span><span class="nt">endtab</span><span class="w"> </span><span class="cp">%}</span>
+<span class="p">{</span><span class="n">digits</span><span class="p">}{</span><span class="n">optional_fraction</span><span class="p">}{</span><span class="n">optional_exponent</span><span class="p">}</span> <span class="p">{</span><span class="n">printf</span><span class="p">(</span><span class="s">"identified a NUMBER %s: length: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">yytext</span><span class="p">,</span> <span class="n">yyleng</span><span class="p">);</span>
+                                                <span class="k">return</span> <span class="n">NUMBER</span><span class="p">;}</span>
 
-<span class="cp">{%</span><span class="w"> </span><span class="nt">tab</span><span class="w"> </span><span class="nv">group-name</span><span class="w"> </span><span class="nv">tab-name-2</span><span class="w"> </span><span class="cp">%}</span>
+<span class="o">%%</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Done, token type: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">yylex</span><span class="p">());</span>
+<span class="p">}</span>
 
-Content 2
+<span class="kt">int</span> <span class="nf">yywrap</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>文件名为<code class="language-plaintext highlighter-rouge">mylexer.l</code>，运行步骤(Windows):</p> <ol> <li>lex源程序编译: <code class="language-plaintext highlighter-rouge">flex .\mylexer.l</code></li> <li>对生成的C源文件<code class="language-plaintext highlighter-rouge">lex.yy.c</code>编译: <code class="language-plaintext highlighter-rouge">gcc lex.yy.c</code></li> <li>运行编译完的可执行文件<code class="language-plaintext highlighter-rouge">a.exe</code>: <code class="language-plaintext highlighter-rouge">.\a.exe</code></li> </ol> <p>程序可以识别两类记号，一种是标识符，一种是数字.</p> <p>若识别到正则表达式对应的字符串，执行对应的C代码.</p> <p>main()函数将自动调用生成的yylex()函数。</p> <p>yylex()执行完之后询问yywrap()，是否需要再扫描后续输入。</p> <h1 id="yacc源程序说明">YACC源程序说明</h1> <p>Yet Another Compiler Compiler.</p> <p>语法分析器生成器。识别手工设计的产生式(Productions)执行对应的语义动作。文件后缀<code class="language-plaintext highlighter-rouge">.y</code>，输出文件后缀<code class="language-plaintext highlighter-rouge">.tab.c</code></p> <h2 id="yacc源程序结构">YACC源程序结构</h2> <p>YACC源程序的结构也是类似的三/四段(查看教科书3.5章)</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="p">{</span>
+<span class="n">Declarations</span>
+<span class="o">%</span><span class="p">}</span>
+<span class="n">Definitions</span>
+<span class="o">%%</span>
+<span class="n">Productions</span>
+<span class="o">%%</span>
+<span class="n">User</span> <span class="n">subroutines</span>
+</code></pre></div></div> <p>这里<code class="language-plaintext highlighter-rouge">Declarations</code>和<code class="language-plaintext highlighter-rouge">User subroutines</code>和lex源程序是一样的作用。</p> <p>特别说明的是<code class="language-plaintext highlighter-rouge">Definitions</code>段和<code class="language-plaintext highlighter-rouge">Productions</code>段。</p> <p>前者比lex源码多了一些YACC转有的变量，后者是定义语法产生式(一说文法，都是grammar)，并且与手写的符号不太一样。</p> <h2 id="关于definitions段">关于Definitions段</h2> <p><strong>改变yylval的默认类型</strong></p> <p>查看下面的表格，yylval默认类型其实是int，但是在yacc源文件中可以这样定义他的union从而实现自定义。</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="k">union</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">intval</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">chval</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>yacc允许yylex()通过yylval传递值：</p> <p>yacc定义了yylval的union，它将会把yylval的定义写到<code class="language-plaintext highlighter-rouge">y.tab.h</code>中，所以当<code class="language-plaintext highlighter-rouge">.l</code>文件中引用了<code class="language-plaintext highlighter-rouge">.tab.h</code>头文件之后，能够给yylval赋值。（详情查看后续lex和yacc联合使用）</p> <p><strong>非终结符</strong></p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">type</span><span class="o">&lt;</span><span class="n">chval</span><span class="o">&gt;</span> <span class="n">tableName</span> <span class="c1">// 这里chval是上述联合体中定义的char *chval</span>
+</code></pre></div></div> <p>在后续语法定义中tableName将作为非终结符，这意味着他可以进一步推导。</p> <p><strong>终结符</strong></p> <p>用<code class="language-plaintext highlighter-rouge">token</code>定义</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">token</span> <span class="n">NUMBER</span>
+</code></pre></div></div> <p><strong>结合性和优先级</strong></p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">left</span> <span class="sc">'+'</span> <span class="sc">'-'</span>
+<span class="o">%</span><span class="n">left</span> <span class="sc">'*'</span> <span class="sc">'/'</span>
+</code></pre></div></div> <p>变量<code class="language-plaintext highlighter-rouge">left</code>代表左结合，同一行的符号优先级相同。下面行的优先级比上面行的高。</p> <h2 id="关于productions段">关于Productions段</h2> <p>除了一般的文法，还要注意YACC默认把第一条产生式当作开始的产生式。</p> <p><strong>这一点非常重要！</strong></p> <p>下面举例说明：</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Productions段</span>
+<span class="n">createStatement</span><span class="o">:</span>
+    <span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">tableName</span> <span class="sc">';'</span>
+    <span class="p">;</span>
 
-<span class="cp">{%</span><span class="w"> </span><span class="nt">endtab</span><span class="w"> </span><span class="cp">%}</span>
+<span class="n">queryStatement</span><span class="o">:</span>
+    <span class="n">SELECT</span> <span class="n">columnName</span> <span class="n">FROM</span> <span class="n">tableName</span> <span class="sc">';'</span>
+    <span class="p">;</span>
+    
+<span class="c1">//如果后面还有文法产生式，也将因为无法从S推导，而无法识别</span>
+</code></pre></div></div> <p>如果先读取到了<code class="language-plaintext highlighter-rouge">SELECT</code>语句，将无法识别，因为一切语法分析要从第一条产生式开始。</p> <p>所以在上述例子中，最好是这样定义Productions段:</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Productions段</span>
+<span class="n">statements</span><span class="o">:</span>
+    <span class="n">createStatement</span>
+    <span class="o">|</span> <span class="n">queryStatement</span>
+    <span class="p">;</span>
 
-<span class="cp">{%</span><span class="w"> </span><span class="nt">endtabs</span><span class="w"> </span><span class="cp">%}</span>
-</code></pre></div></div> <p>With this you can generate visualizations like:</p> <ul id="log" class="tab" data-tab="36712aca-6707-4aad-af7a-fb18f1522c28" data-name="log"> <li class="active" id="log-php"> <a href="#">php </a> </li> <li id="log-js"> <a href="#">js </a> </li> <li id="log-ruby"> <a href="#">ruby </a> </li> </ul> <ul class="tab-content" id="36712aca-6707-4aad-af7a-fb18f1522c28" data-name="log"> <li class="active"> <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
-</code></pre></div></div> </li> <li> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">);</span>
-</code></pre></div></div> </li> <li> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pputs</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span>
-</code></pre></div></div> </li> </ul> <h2 id="another-example">Another example</h2> <ul id="data-struct" class="tab" data-tab="7ee146ac-03b2-4836-a0e4-e90d6814660c" data-name="data-struct"> <li class="active" id="data-struct-yaml"> <a href="#">yaml </a> </li> <li id="data-struct-json"> <a href="#">json </a> </li> </ul> <ul class="tab-content" id="7ee146ac-03b2-4836-a0e4-e90d6814660c" data-name="data-struct"> <li class="active"> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s2">"</span><span class="s">whatsup"</span>
-  <span class="pi">-</span> <span class="s2">"</span><span class="s">hi"</span>
-</code></pre></div></div> </li> <li> <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"hello"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"whatsup"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hi"</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div> </li> </ul> <h2 id="tabs-for-something-else">Tabs for something else</h2> <ul id="something-else" class="tab" data-tab="e58d2109-64aa-4e6e-b60c-d7acdceb82c8" data-name="something-else"> <li class="active" id="something-else-text"> <a href="#">text </a> </li> <li id="something-else-quote"> <a href="#">quote </a> </li> <li id="something-else-list"> <a href="#">list </a> </li> </ul> <ul class="tab-content" id="e58d2109-64aa-4e6e-b60c-d7acdceb82c8" data-name="something-else"> <li class="active"> <p>Regular text</p> </li> <li> <blockquote> <p>A quote</p> </blockquote> </li> <li> <p>Hipster list</p> <ul> <li>brunch</li> <li>fixie</li> <li>raybans</li> <li>messenger bag</li> </ul> </li> </ul>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is what included tabs in a post could look like]]></summary></entry><entry><title type="html">a post with typograms</title><link href="https://iamnotphage.github.io/blog/2024/typograms/" rel="alternate" type="text/html" title="a post with typograms"/><published>2024-04-29T23:36:10+00:00</published><updated>2024-04-29T23:36:10+00:00</updated><id>https://iamnotphage.github.io/blog/2024/typograms</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/typograms/"><![CDATA[<p>This is an example post with some <a href="https://github.com/google/typograms/">typograms</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">typograms
-</span><span class="sb">+----+
-|    |---&gt; My first diagram!
-+----+</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-typograms">+----+
-|    |---&gt; My first diagram!
-+----+
-</code></pre> <p>Another example:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">typograms
-</span><span class="sb">.------------------------.
-|.----------------------.|
-||"https://example.com" ||
-|'----------------------'|
-| ______________________ |
-||                      ||
-||   Welcome!           ||
-||                      ||
-||                      ||
-||  .----------------.  ||
-||  | username       |  ||
-||  '----------------'  ||
-||  .----------------.  ||
-||  |"*******"       |  ||
-||  '----------------'  ||
-||                      ||
-||  .----------------.  ||
-||  |   "Sign-up"    |  ||
-||  '----------------'  ||
-||                      ||
-|+----------------------+|
-.------------------------.</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>which generates:</p> <pre><code class="language-typograms">.------------------------.
-|.----------------------.|
-||"https://example.com" ||
-|'----------------------'|
-| ______________________ |
-||                      ||
-||   Welcome!           ||
-||                      ||
-||                      ||
-||  .----------------.  ||
-||  | username       |  ||
-||  '----------------'  ||
-||  .----------------.  ||
-||  |"*******"       |  ||
-||  '----------------'  ||
-||                      ||
-||  .----------------.  ||
-||  |   "Sign-up"    |  ||
-||  '----------------'  ||
-||                      ||
-|+----------------------+|
-.------------------------.
-</code></pre> <p>For more examples, check out the <a href="https://google.github.io/typograms/#examples">typograms documentation</a>.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="diagrams"/><summary type="html"><![CDATA[this is what included typograms code could look like]]></summary></entry><entry><title type="html">a post that can be cited</title><link href="https://iamnotphage.github.io/blog/2024/post-citation/" rel="alternate" type="text/html" title="a post that can be cited"/><published>2024-04-28T15:06:00+00:00</published><updated>2024-04-28T15:06:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/post-citation</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/post-citation/"><![CDATA[<p>This is an example post that can be cited. The content of the post ends here, while the citation information is automatically provided below. The only thing needed is for you to set the <code class="language-plaintext highlighter-rouge">citation</code> key in the front matter to <code class="language-plaintext highlighter-rouge">true</code>.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="citation"/><summary type="html"><![CDATA[this is what a post that can be cited looks like]]></summary></entry><entry><title type="html">a post with pseudo code</title><link href="https://iamnotphage.github.io/blog/2024/pseudocode/" rel="alternate" type="text/html" title="a post with pseudo code"/><published>2024-04-15T00:01:00+00:00</published><updated>2024-04-15T00:01:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/pseudocode</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/pseudocode/"><![CDATA[<p>This is an example post with some pseudo code rendered by <a href="https://github.com/SaswatPadhi/pseudocode.js">pseudocode</a>. The example presented here is the same as the one in the <a href="https://saswat.padhi.me/pseudocode.js/">pseudocode.js</a> documentation, with only one simple but important change: everytime you would use <code class="language-plaintext highlighter-rouge">$</code>, you should use <code class="language-plaintext highlighter-rouge">$$</code> instead. Also, note that the <code class="language-plaintext highlighter-rouge">pseudocode</code> key in the front matter is set to <code class="language-plaintext highlighter-rouge">true</code> to enable the rendering of pseudo code. As an example, using this code:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">pseudocode
-</span><span class="sb">% This quicksort algorithm is extracted from Chapter 7, Introduction to Algorithms (3rd edition)
-\begin{algorithm}
-\caption{Quicksort}
-\begin{algorithmic}
-\PROCEDURE{Quicksort}{$$A, p, r$$}
-    \IF{$$p &lt; r$$}
-        \STATE $$q = $$ \CALL{Partition}{$$A, p, r$$}
-        \STATE \CALL{Quicksort}{$$A, p, q - 1$$}
-        \STATE \CALL{Quicksort}{$$A, q + 1, r$$}
-    \ENDIF
-\ENDPROCEDURE
-\PROCEDURE{Partition}{$$A, p, r$$}
-    \STATE $$x = A[r]$$
-    \STATE $$i = p - 1$$
-    \FOR{$$j = p$$ \TO $$r - 1$$}
-        \IF{$$A[j] &lt; x$$}
-            \STATE $$i = i + 1$$
-            \STATE exchange
-            $$A[i]$$ with $$A[j]$$
-        \ENDIF
-        \STATE exchange $$A[i]$$ with $$A[r]$$
-    \ENDFOR
-\ENDPROCEDURE
-\end{algorithmic}
-\end{algorithm}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Generates:</p> <pre><code class="language-pseudocode">% This quicksort algorithm is extracted from Chapter 7, Introduction to Algorithms (3rd edition)
-\begin{algorithm}
-\caption{Quicksort}
-\begin{algorithmic}
-\PROCEDURE{Quicksort}{$$A, p, r$$}
-    \IF{$$p &lt; r$$}
-        \STATE $$q = $$ \CALL{Partition}{$$A, p, r$$}
-        \STATE \CALL{Quicksort}{$$A, p, q - 1$$}
-        \STATE \CALL{Quicksort}{$$A, q + 1, r$$}
-    \ENDIF
-\ENDPROCEDURE
-\PROCEDURE{Partition}{$$A, p, r$$}
-    \STATE $$x = A[r]$$
-    \STATE $$i = p - 1$$
-    \FOR{$$j = p$$ \TO $$r - 1$$}
-        \IF{$$A[j] &lt; x$$}
-            \STATE $$i = i + 1$$
-            \STATE exchange
-            $$A[i]$$ with $$A[j]$$
-        \ENDIF
-        \STATE exchange $$A[i]$$ with $$A[r]$$
-    \ENDFOR
-\ENDPROCEDURE
-\end{algorithmic}
-\end{algorithm}
-</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is what included pseudo code could look like]]></summary></entry><entry><title type="html">a post with code diff</title><link href="https://iamnotphage.github.io/blog/2024/code-diff/" rel="alternate" type="text/html" title="a post with code diff"/><published>2024-01-27T19:22:00+00:00</published><updated>2024-01-27T19:22:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/code-diff</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/code-diff/"><![CDATA[<p>You can display diff code by using the regular markdown syntax:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">diff
-</span><span class="gh">diff --git a/sample.js b/sample.js
-index 0000001..0ddf2ba
-</span><span class="gd">--- a/sample.js
-</span><span class="gi">+++ b/sample.js
-</span><span class="p">@@ -1 +1 @@</span>
-<span class="gd">-console.log("Hello World!")
-</span><span class="gi">+console.log("Hello from Diff2Html!")</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh">diff --git a/sample.js b/sample.js
-index 0000001..0ddf2ba
-</span><span class="gd">--- a/sample.js
-</span><span class="gi">+++ b/sample.js
-</span><span class="p">@@ -1 +1 @@</span>
-<span class="gd">-console.log("Hello World!")
-</span><span class="gi">+console.log("Hello from Diff2Html!")
-</span></code></pre></div></div> <p>But this is difficult to read, specially if you have a large diff. You can use <a href="https://diff2html.xyz/">diff2html</a> to display a more readable version of the diff. For this, just use <code class="language-plaintext highlighter-rouge">diff2html</code> instead of <code class="language-plaintext highlighter-rouge">diff</code> for the code block language:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">diff2html
-</span><span class="sb">diff --git a/sample.js b/sample.js
-index 0000001..0ddf2ba
---- a/sample.js
-+++ b/sample.js
-@@ -1 +1 @@
--console.log("Hello World!")
-+console.log("Hello from Diff2Html!")</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>If we use a longer example, for example <a href="https://github.com/rtfpessoa/diff2html/commit/c2c253d3e3f8b8b267f551e659f72b44ca2ac927">this commit from diff2html</a>, it will generate the following output:</p> <pre><code class="language-diff2html">From 2aaae31cc2a37bfff83430c2c914b140bee59b6a Mon Sep 17 00:00:00 2001
-From: Rodrigo Fernandes &lt;rtfrodrigo@gmail.com&gt;
-Date: Sun, 9 Oct 2016 16:41:54 +0100
-Subject: [PATCH 1/2] Initial template override support
+<span class="n">createStatement</span><span class="o">:</span>
+    <span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">tableName</span> <span class="sc">';'</span>
+    <span class="p">;</span>
 
----
- scripts/hulk.js                    |  4 ++--
- src/diff2html.js                   |  3 +--
- src/file-list-printer.js           | 11 ++++++++---
- src/hoganjs-utils.js               | 29 +++++++++++++++++------------
- src/html-printer.js                |  6 ++++++
- src/line-by-line-printer.js        |  6 +++++-
- src/side-by-side-printer.js        |  6 +++++-
- test/file-list-printer-tests.js    |  2 +-
- test/hogan-cache-tests.js          | 18 +++++++++++++++---
- test/line-by-line-tests.js         |  3 +--
- test/side-by-side-printer-tests.js |  3 +--
- 11 files changed, 62 insertions(+), 29 deletions(-)
+<span class="n">queryStatement</span><span class="o">:</span>
+    <span class="n">SELECT</span> <span class="n">columnName</span> <span class="n">FROM</span> <span class="n">tableName</span> <span class="sc">';'</span>
+    <span class="p">;</span>
+</code></pre></div></div> <p>这样第一条产生式就可以有多种选择。</p> <h2 id="全局变量函数-1">全局变量/函数</h2> <table> <thead> <tr> <th>全局变量/函数</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>YYSTYPE yylval</td> <td>YYSTYPE类型（其实就是int），默认是int，可以通过union自定义。存储当前词法单元的属性值</td> </tr> <tr> <td>char *yytext</td> <td>同lex中的yytext，指向当前匹配的输入字符串</td> </tr> <tr> <td>int yyleng</td> <td>同lex中的yyleng，表示当前匹配的输入字符串的长度</td> </tr> <tr> <td>int yylex()</td> <td>同lex中的yylex()，词法分析器函数</td> </tr> <tr> <td>int yyparse()</td> <td>语法分析器函数，解析输入内容，并根据语法规则执行对应代码。返回值有三种:YYACCEPT(0)、YYABORT(1)、YYNOMEM(2)分别代表接受、语法错误、内存不足的情况。</td> </tr> <tr> <td>void yyerror()</td> <td>错误处理，用户自定义</td> </tr> <tr> <td>int yywrap()</td> <td>同lex中的yywrap()，返回1表示输入结束，0表示还有输入</td> </tr> </tbody> </table> <p><strong>特别地，在产生式中，对应的动作</strong>（也就是对应的C代码段，原文actions）可以使用<code class="language-plaintext highlighter-rouge">$</code>符号指代产生式的左部或者右部的某个符号。</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span><span class="mi">1</span><span class="err">、$</span><span class="mi">2</span> <span class="err">和</span> <span class="err">$$</span> <span class="err">的使用</span>
+<span class="err">$</span><span class="n">n</span><span class="err">：用于访问产生式右侧第</span> <span class="n">n</span> <span class="err">个符号的值。$</span><span class="mi">1</span> <span class="err">表示第一个符号的值，$</span><span class="mi">2</span> <span class="err">表示第二个符号的值，依此类推。</span>
+<span class="err">$$：用于表示产生式左侧非终结符的值。</span>
 
-diff --git a/scripts/hulk.js b/scripts/hulk.js
-index 5a793c18..a4b1a4d5 100755
---- a/scripts/hulk.js
-+++ b/scripts/hulk.js
-@@ -173,11 +173,11 @@ function namespace(name) {
- // write a template foreach file that matches template extension
- templates = extractFiles(options.argv.remain)
-   .map(function(file) {
--    var openedFile = fs.readFileSync(file, 'utf-8');
-+    var openedFile = fs.readFileSync(file, 'utf-8').trim();
-     var name;
-     if (!openedFile) return;
-     name = namespace(path.basename(file).replace(/\..*$/, ''));
--    openedFile = removeByteOrderMark(openedFile.trim());
-+    openedFile = removeByteOrderMark(openedFile);
-     openedFile = wrap(file, name, openedFile);
-     if (!options.outputdir) return openedFile;
-     fs.writeFileSync(path.join(options.outputdir, name + '.js')
-diff --git a/src/diff2html.js b/src/diff2html.js
-index 21b0119e..64e138f5 100644
---- a/src/diff2html.js
-+++ b/src/diff2html.js
-@@ -7,7 +7,6 @@
+<span class="p">......</span><span class="err">前文省略</span>
+<span class="o">%%</span>
 
- (function() {
-   var diffParser = require('./diff-parser.js').DiffParser;
--  var fileLister = require('./file-list-printer.js').FileListPrinter;
-   var htmlPrinter = require('./html-printer.js').HtmlPrinter;
+<span class="n">expr</span> <span class="o">:</span> <span class="n">expr</span> <span class="sc">'+'</span> <span class="n">expr</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Result: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="err">$</span><span class="mf">1.</span><span class="n">intval</span> <span class="o">+</span> <span class="err">$</span><span class="mf">3.</span><span class="n">intval</span><span class="p">);</span> <span class="p">}</span>
+     <span class="o">|</span> <span class="n">expr</span> <span class="sc">'-'</span> <span class="n">expr</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Result: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="err">$</span><span class="mf">1.</span><span class="n">intval</span> <span class="o">-</span> <span class="err">$</span><span class="mf">3.</span><span class="n">intval</span><span class="p">);</span> <span class="p">}</span>
+     <span class="o">|</span> <span class="n">expr</span> <span class="sc">'*'</span> <span class="n">expr</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Result: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="err">$</span><span class="mf">1.</span><span class="n">intval</span> <span class="o">*</span> <span class="err">$</span><span class="mf">3.</span><span class="n">intval</span><span class="p">);</span> <span class="p">}</span>
+     <span class="o">|</span> <span class="n">expr</span> <span class="sc">'/'</span> <span class="n">expr</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span><span class="s">"Result: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="err">$</span><span class="mf">1.</span><span class="n">intval</span> <span class="o">/</span> <span class="err">$</span><span class="mf">3.</span><span class="n">intval</span><span class="p">);</span> <span class="p">}</span>
+     <span class="o">|</span> <span class="n">NUMBER</span>        <span class="p">{</span> <span class="err">$$</span> <span class="o">=</span> <span class="err">$</span><span class="mf">1.</span><span class="n">intval</span><span class="p">;</span> <span class="p">}</span>
+     <span class="p">;</span>
 
-   function Diff2Html() {
-@@ -43,7 +42,7 @@
+<span class="o">%%</span>
+<span class="p">......</span><span class="err">后文省略</span>
+</code></pre></div></div> <h2 id="例子-1">例子</h2> <p>这里是单个YACC程序，没有配合lex。用户手动输入代替lex词法分析之后产生的token stream.</p> <p>所以手动定义了yylex()，后续lex和YACC配合时，yylex()由lex自动生成。</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="p">{</span>
+    <span class="cp">#include</span><span class="cpf">&lt;ctype.h&gt;</span><span class="cp">
+</span>    <span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>    <span class="kt">int</span> <span class="n">yylex</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">yyerror</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span><span class="p">);</span>
+<span class="o">%</span><span class="p">}</span>
 
-     var fileList = '';
-     if (configOrEmpty.showFiles === true) {
--      fileList = fileLister.generateFileList(diffJson, configOrEmpty);
-+      fileList = htmlPrinter.generateFileListSummary(diffJson, configOrEmpty);
-     }
+<span class="o">%</span><span class="n">token</span> <span class="n">NUMBER</span>
+<span class="o">%</span><span class="n">left</span> <span class="sc">'+'</span> <span class="sc">'-'</span>
+<span class="o">%</span><span class="n">left</span> <span class="sc">'*'</span> <span class="sc">'/'</span>
 
-     var diffOutput = '';
-diff --git a/src/file-list-printer.js b/src/file-list-printer.js
-index e408d9b2..1e0a2c61 100644
---- a/src/file-list-printer.js
-+++ b/src/file-list-printer.js
-@@ -8,11 +8,16 @@
- (function() {
-   var printerUtils = require('./printer-utils.js').PrinterUtils;
+<span class="o">%%</span> <span class="c1">// 这里是产生式 expr是非终结符，NUMBER是终结符</span>
+<span class="n">expr</span> <span class="o">:</span> <span class="n">expr</span> <span class="sc">'+'</span> <span class="n">expr</span>    <span class="p">{</span><span class="n">printf</span><span class="p">(</span><span class="s">"Identified [add].</span><span class="se">\n</span><span class="s">"</span><span class="p">);}</span>
+     <span class="o">|</span> <span class="n">expr</span> <span class="sc">'-'</span> <span class="n">expr</span>    <span class="p">{</span><span class="n">printf</span><span class="p">(</span><span class="s">"Identified [sub].</span><span class="se">\n</span><span class="s">"</span><span class="p">);}</span>
+     <span class="o">|</span> <span class="n">expr</span> <span class="sc">'*'</span> <span class="n">expr</span>    <span class="p">{</span><span class="n">printf</span><span class="p">(</span><span class="s">"Identified [multiply].</span><span class="se">\n</span><span class="s">"</span><span class="p">);}</span>
+     <span class="o">|</span> <span class="n">expr</span> <span class="sc">'/'</span> <span class="n">expr</span>    <span class="p">{</span><span class="n">printf</span><span class="p">(</span><span class="s">"Identified [divide].</span><span class="se">\n</span><span class="s">"</span><span class="p">);}</span>
+     <span class="o">|</span> <span class="sc">'('</span> <span class="n">expr</span> <span class="sc">')'</span>     <span class="p">{</span><span class="n">printf</span><span class="p">(</span><span class="s">"Identified [round bracket].</span><span class="se">\n</span><span class="s">"</span><span class="p">);}</span>
+     <span class="o">|</span> <span class="n">NUMBER</span>           <span class="p">{</span><span class="n">printf</span><span class="p">(</span><span class="s">"Identified [NUMBER].</span><span class="se">\n</span><span class="s">"</span><span class="p">);}</span>
+     <span class="p">;</span>
+<span class="o">%%</span>
 
--  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+  var hoganUtils;
-+
-   var baseTemplatesPath = 'file-summary';
-   var iconsBaseTemplatesPath = 'icon';
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">yyparse</span><span class="p">();</span>
+<span class="p">}</span>
 
--  function FileListPrinter() {
-+  function FileListPrinter(config) {
-+    this.config = config;
-+
-+    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+    hoganUtils = new HoganJsUtils(config);
-   }
+<span class="kt">int</span> <span class="nf">yylex</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">((</span><span class="n">c</span> <span class="o">=</span> <span class="n">getchar</span><span class="p">())</span> <span class="o">==</span> <span class="sc">' '</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">isdigit</span><span class="p">(</span><span class="n">c</span><span class="p">)){</span>
+        <span class="n">ungetc</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">stdin</span><span class="p">);</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">yylval</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">NUMBER</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'\n'</span><span class="p">)</span><span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
 
-   FileListPrinter.prototype.generateFileList = function(diffFiles) {
-@@ -38,5 +43,5 @@
-     });
-   };
+<span class="kt">void</span> <span class="nf">yyerror</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>文件名为<code class="language-plaintext highlighter-rouge">myparser.y</code>，运行步骤(Windows):</p> <ol> <li>编译.y程序: <code class="language-plaintext highlighter-rouge">bison .\myparser.y</code></li> <li>编译生成的C程序: <code class="language-plaintext highlighter-rouge">gcc .\myparser.tab.c</code></li> <li>执行生成的可执行文件: <code class="language-plaintext highlighter-rouge">.\a.exe</code></li> </ol> <p>输入字符串(其实是token stream)，可以识别表达式。</p> <p>这里是main()函数调用yyparse()函数</p> <p>而yyparse()将调用yylex()函数 <em>(这里因为只由一个YACC程序组成，所以yylex()函数是用户自定义的)</em> 获取输入的token，并语法分析</p> <p>匹配到产生式就执行对应的代码段。</p> <h1 id="lex和yacc联合编程">Lex和YACC联合编程</h1> <p>没啥区别，主要在于yylval和yylex()这些变量/函数的链接。</p> <h2 id="yylval在lex程序中的赋值">yylval在Lex程序中的赋值</h2> <p>yylval是在YACC程序中定义的，而yylex()是在Lex程序中自动生成的(也就是{patterns} {actions}里面的actions)</p> <p>当前目录下的<code class="language-plaintext highlighter-rouge">test</code>文件夹中测试了两个文件<code class="language-plaintext highlighter-rouge">test.l</code>和<code class="language-plaintext highlighter-rouge">test.y</code></p> <p>要保证Lex程序中能给<code class="language-plaintext highlighter-rouge">yylval</code>赋值，从而让YACC程序进一步操作，就要在Lex程序中添加YACC程序的头文件（<strong>因为<code class="language-plaintext highlighter-rouge">yylval</code>是在YACC程序中定义的</strong>）</p> <p>所以编译YACC程序就要顺便生成YACC的头文件，以便Lex程序包含，从而使用<code class="language-plaintext highlighter-rouge">yylval</code>变量。</p> <h2 id="yylex在yacc程序中被调用">yylex()在YACC程序中被调用</h2> <p>前文提到过，yylex()是在Lex程序中根据模式串自动生成的函数。</p> <p>YACC程序中，yyparse()将自动调用yylex()程序(这也是为什么YACC单独运行时，需要用户自定义yylex()函数)</p> <p>所以YACC源程序中要声明yylex()函数。</p> <h2 id="例子-2">例子</h2> <p>其次，上述Lex单独运行和YACC单独运行时，都自定义了main函数。</p> <p>下面的例子是main函数定义在<code class="language-plaintext highlighter-rouge">test.y</code>中，当然也可以在其他文件中定义main()，然后调用<code class="language-plaintext highlighter-rouge">yyparse()</code></p> <p><code class="language-plaintext highlighter-rouge">test.l</code>和<code class="language-plaintext highlighter-rouge">test.y</code>(自己写的一个测试样例，内容很简单，只需要理解如何编译他们)</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// in test.l</span>
+<span class="o">%</span><span class="p">{</span>
+<span class="cp">#include</span> <span class="cpf">"test.tab.h"</span><span class="cp">
+</span><span class="o">%</span><span class="p">}</span>
 
--  module.exports.FileListPrinter = new FileListPrinter();
-+  module.exports.FileListPrinter = FileListPrinter;
- })();
-diff --git a/src/hoganjs-utils.js b/src/hoganjs-utils.js
-index 9949e5fa..0dda08d7 100644
---- a/src/hoganjs-utils.js
-+++ b/src/hoganjs-utils.js
-@@ -8,18 +8,19 @@
- (function() {
-   var fs = require('fs');
-   var path = require('path');
--
-   var hogan = require('hogan.js');
+<span class="n">NUM</span> <span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">*|</span><span class="mi">0</span>
 
-   var hoganTemplates = require('./templates/diff2html-templates.js');
+<span class="o">%%</span>
 
--  var templatesPath = path.resolve(__dirname, 'templates');
-+  var extraTemplates;
+<span class="p">{</span><span class="n">NUM</span><span class="p">}</span>		                <span class="k">return</span> <span class="n">NUM</span><span class="p">;</span>
+<span class="p">[</span> <span class="err">\</span><span class="n">t</span><span class="p">]</span><span class="o">+</span>                     <span class="cm">/* ignore whitespace */</span><span class="p">;</span>
+<span class="p">.</span>
 
--  function HoganJsUtils() {
-+  function HoganJsUtils(configuration) {
-+    this.config = configuration || {};
-+    extraTemplates = this.config.templates || {};
-   }
+<span class="o">%%</span>
 
--  HoganJsUtils.prototype.render = function(namespace, view, params, configuration) {
--    var template = this.template(namespace, view, configuration);
-+  HoganJsUtils.prototype.render = function(namespace, view, params) {
-+    var template = this.template(namespace, view);
-     if (template) {
-       return template.render(params);
-     }
-@@ -27,17 +28,16 @@
-     return null;
-   };
 
--  HoganJsUtils.prototype.template = function(namespace, view, configuration) {
--    var config = configuration || {};
-+  HoganJsUtils.prototype.template = function(namespace, view) {
-     var templateKey = this._templateKey(namespace, view);
+<span class="kt">int</span> <span class="nf">yywrap</span><span class="p">(){</span>
+<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>看一下<code class="language-plaintext highlighter-rouge">test.y</code>:</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="p">{</span>
+    <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>    <span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span>    <span class="kt">int</span> <span class="n">yylex</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">yyerror</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>
+<span class="o">%</span><span class="p">}</span>
 
--    return this._getTemplate(templateKey, config);
-+    return this._getTemplate(templateKey);
-   };
+<span class="o">%</span><span class="n">token</span> <span class="n">NUM</span>
 
--  HoganJsUtils.prototype._getTemplate = function(templateKey, config) {
-+  HoganJsUtils.prototype._getTemplate = function(templateKey) {
-     var template;
+<span class="o">%%</span>
+<span class="n">expr</span><span class="o">:</span>
+    <span class="n">NUM</span> <span class="p">{</span><span class="n">printf</span><span class="p">(</span><span class="s">"This is a number.</span><span class="se">\n</span><span class="s">"</span><span class="p">)};</span>
+    <span class="p">;</span>
+<span class="o">%%</span>
+<span class="kt">void</span> <span class="nf">yyerror</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">){</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">"error:%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">str</span><span class="p">);</span>
+<span class="p">}</span>
 
--    if (!config.noCache) {
-+    if (!this.config.noCache) {
-       template = this._readFromCache(templateKey);
-     }
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="c1">// 后续这里可以注释掉，别的地方调用yyparse()</span>
+<span class="p">{</span>
+    <span class="n">yyparse</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>大体上是识别数字。</p> <p>首先要编译<code class="language-plaintext highlighter-rouge">test.l</code>和<code class="language-plaintext highlighter-rouge">test.y</code>文件，下面用Flex和Bison演示。</p> <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flex test.l
+bison <span class="nt">-d</span> test.y
+</code></pre></div></div> <p>不同的点在于bison命令行参数的<code class="language-plaintext highlighter-rouge">-d</code>，这里会生成<code class="language-plaintext highlighter-rouge">test.tab.c</code>和<code class="language-plaintext highlighter-rouge">test.tab.h</code>文件，从而让lex程序包含yylval。</p> <p>接下来两个文件编译</p> <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc <span class="nt">-o</span> <span class="nb">test </span>test.tab.c lex.yy.c
+</code></pre></div></div> <p>这样就能够生成<code class="language-plaintext highlighter-rouge">test.exe</code>文件了，执行是没问题的。(上述是纯C文件的编译)</p> <h2 id="模块化">模块化</h2> <p>问题在于，我并不想在<code class="language-plaintext highlighter-rouge">test.tab.c</code>中就直接进入入口<code class="language-plaintext highlighter-rouge">main()</code>，我可能需要给项目分模块，词法分析、语法分析只是其中一块而已。</p> <p>这时候就需要将<code class="language-plaintext highlighter-rouge">test.y</code>中的<code class="language-plaintext highlighter-rouge">main()</code>删除了，毕竟程序的入口<code class="language-plaintext highlighter-rouge">main()</code>我们需要放在别的地方。</p> <p>这样会有两个新问题：</p> <ol> <li>那在别的文件中，怎么调用词法分析、语法分析这一块内容呢？</li> <li>上述的测试都是在标准输入/输出中进行的，如果我有一个<code class="language-plaintext highlighter-rouge">shell</code>,这个<code class="language-plaintext highlighter-rouge">shell</code>从标准输入中读取字符串，再交给<code class="language-plaintext highlighter-rouge">编译器</code>这个模块来解析，岂不是lex和YACC要传入字符串了（而不是从标准输入中读取）？</li> </ol> <p>其实都是很好解决的问题：</p> <p>Flex官方文档给出了如下说明:</p> <p><code class="language-plaintext highlighter-rouge">Three routines are available for setting up input buffers for scanning in-memory strings instead of files. </code></p> <p>其中一个就是<code class="language-plaintext highlighter-rouge">yy_scan_string(const char *str)</code>，这意味着，可以将指定的字符串作为Lex的输入流，然后yylex()函数将从这个输入流中进行词法分析，再将分析结果传给yyparse().</p> <p>所以，<code class="language-plaintext highlighter-rouge">test.l</code>和<code class="language-plaintext highlighter-rouge">test.y</code>这一个模块，可以被外部调用，只需要利用好<code class="language-plaintext highlighter-rouge">yy_scan_string()</code>和<code class="language-plaintext highlighter-rouge">yyparse()</code>（因为yyparse()内部会调用yylex()）即可。</p> <p>下面是一个例子<code class="language-plaintext highlighter-rouge">main.cpp</code>:</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//很重要</span>
+<span class="kt">int</span> <span class="nf">yyparse</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span> <span class="c1">// 从别的文件找这些函数</span>
+<span class="kt">void</span> <span class="nf">yy_scan_string</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">);</span>
 
-@@ -53,6 +53,7 @@
 
-     try {
-       if (fs.readFileSync) {
-+        var templatesPath = path.resolve(__dirname, 'templates');
-         var templatePath = path.join(templatesPath, templateKey);
-         var templateContent = fs.readFileSync(templatePath + '.mustache', 'utf8');
-         template = hogan.compile(templateContent);
-@@ -66,12 +67,16 @@
-   };
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">inputLine</span><span class="p">;</span>
 
-   HoganJsUtils.prototype._readFromCache = function(templateKey) {
--    return hoganTemplates[templateKey];
-+    return extraTemplates[templateKey] || hoganTemplates[templateKey];
-   };
+    <span class="c1">// 从标准输入读取一行</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">,</span> <span class="n">inputLine</span><span class="p">);</span>
 
-   HoganJsUtils.prototype._templateKey = function(namespace, view) {
-     return namespace + '-' + view;
-   };
+    <span class="c1">// 将输入字符串传递给词法分析器</span>
+    <span class="n">yy_scan_string</span><span class="p">(</span><span class="n">inputLine</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span> <span class="c1">// c风格的string，其实就是char*</span>
 
--  module.exports.HoganJsUtils = new HoganJsUtils();
-+  HoganJsUtils.prototype.compile = function(templateStr) {
-+    return hogan.compile(templateStr);
-+  };
-+
-+  module.exports.HoganJsUtils = HoganJsUtils;
- })();
-diff --git a/src/html-printer.js b/src/html-printer.js
-index 585d5b66..13f83047 100644
---- a/src/html-printer.js
-+++ b/src/html-printer.js
-@@ -8,6 +8,7 @@
- (function() {
-   var LineByLinePrinter = require('./line-by-line-printer.js').LineByLinePrinter;
-   var SideBySidePrinter = require('./side-by-side-printer.js').SideBySidePrinter;
-+  var FileListPrinter = require('./file-list-printer.js').FileListPrinter;
+    <span class="c1">// 调用语法分析器</span>
+    <span class="n">yyparse</span><span class="p">();</span>
 
-   function HtmlPrinter() {
-   }
-@@ -22,5 +23,10 @@
-     return sideBySidePrinter.generateSideBySideJsonHtml(diffFiles);
-   };
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> <p><strong>注意！CPP和C混合编程，C和C++编译器会有不太一样的表现，这里是关于名字改编的问题，上述代码在test文件夹下，用下面的编译命令能够正常运行</strong></p> <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flex test.l
+bison <span class="nt">-d</span> test.y
+g++ <span class="nt">-o</span> lex.yy.c test.tab.c main.cpp
+</code></pre></div></div> <p>在CPP文件中，如果要用到<code class="language-plaintext highlighter-rouge">yyparse()</code>和<code class="language-plaintext highlighter-rouge">yy_scan_string()</code>这些来自C文件的函数，就要加上<code class="language-plaintext highlighter-rouge">extern "C"</code>的关键字。</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//很重要</span>
+<span class="k">extern</span> <span class="s">"C"</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">yyparse</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span> <span class="c1">// 从别的文件找这些函数</span>
+    <span class="kt">void</span> <span class="n">yy_scan_string</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>自己注意就行，总之能够调用这两个函数就可以了。</p> <p>如果要在<code class="language-plaintext highlighter-rouge">parser.y</code>中用到cpp的某些特性，比如类或者某些集合，那么你就需要保证你用<code class="language-plaintext highlighter-rouge">lex</code>和<code class="language-plaintext highlighter-rouge">yacc</code>编译的文件是<code class="language-plaintext highlighter-rouge">.cpp/.hpp</code>的，从而尽量避免C和CPP混合编程带来的<code class="language-plaintext highlighter-rouge">undefine reference</code>的链接问题。</p> <p>要么纯C要么纯CPP，C和CPP混合的话，还是挺麻烦的，除非你能做到完美分离前后端。</p> <p>如果你要纯CPP的话，<code class="language-plaintext highlighter-rouge">flex</code>源文件可以在开头加上<code class="language-plaintext highlighter-rouge">%option outfile = "lex.yy.cpp"</code>，这样<code class="language-plaintext highlighter-rouge">flex lex.l</code>编译出来的文件就是<code class="language-plaintext highlighter-rouge">lex.yy.cpp</code>(可改名)</p> <p>使用<code class="language-plaintext highlighter-rouge">yyparse()</code>和<code class="language-plaintext highlighter-rouge">yy_scan_string()</code>的话，就不用加上<code class="language-plaintext highlighter-rouge">extern "C"</code>的关键字了。</p> <h1 id="数据库设计">数据库设计</h1> <h2 id="mydbms-architecture">myDBMS Architecture</h2> <p>概览如下图:</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2024-05-17/myArchitecture-480.webp 480w,/assets/img/2024-05-17/myArchitecture-800.webp 800w,/assets/img/2024-05-17/myArchitecture-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2024-05-17/myArchitecture.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p><code class="language-plaintext highlighter-rouge">Shell</code>和<code class="language-plaintext highlighter-rouge">Compiler</code>部分属于<code class="language-plaintext highlighter-rouge">Front-End</code>部分。</p> <p><code class="language-plaintext highlighter-rouge">Engine</code>以及后续的部分属于<code class="language-plaintext highlighter-rouge">Back-End</code>部分。</p> <p>这一点参考的官方<a href="https://www.sqlite.org/arch.html">Architecture of SQLite</a></p> <h2 id="编译器设计">编译器设计</h2> <h3 id="tokenizer">Tokenizer</h3> <p>lex程序比较简单，没什么特别需要注意的地方，本人遇到的两个bug需要注意。</p> <p>一个是关于NUMBER的正则表达式，之前使用的是:</p> <p><code class="language-plaintext highlighter-rouge">[-+]?[1-9][0-9]*</code>，其实这个表达式不包含0，一定要注意多测试前端的问题。</p> <p>后续修复这样:</p> <p><code class="language-plaintext highlighter-rouge">[-+]?[0-9]+</code></p> <p>另一个是关于STRING的正则表达式，很容易想到:</p> <p><code class="language-plaintext highlighter-rouge">'.*'</code></p> <p>也就是两个单引号包含一个任意字符闭包。</p> <p>看起来没什么问题，但是实际上如果出现多个字符:</p> <p><code class="language-plaintext highlighter-rouge">SELECT * FROM table WHERE name = 'test' AND money = 'infinity';</code></p> <p>将会出现难以调试的bug。有可能会把<code class="language-plaintext highlighter-rouge">test' AND money = 'infinity</code>作为两个单引号的内容，导致bug。</p> <p>建议改成:</p> <p><code class="language-plaintext highlighter-rouge">"'"[^']*"'"</code></p> <h3 id="parser">Parser</h3> <p>在YACC程序，语法分析主要写一些文法产生式，还有对应的规则。</p> <p>我设计语句如下：</p> <p>开始语句为<code class="language-plaintext highlighter-rouge">startStatement</code>，其语法树如下:</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2024-05-17/startStatement-480.webp 480w,/assets/img/2024-05-17/startStatement-800.webp 800w,/assets/img/2024-05-17/startStatement-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2024-05-17/startStatement.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>分为六大部分，<code class="language-plaintext highlighter-rouge">systemControl</code>,<code class="language-plaintext highlighter-rouge">createStatement</code>,<code class="language-plaintext highlighter-rouge">queryStatement</code>,<code class="language-plaintext highlighter-rouge">insertStatement</code>,<code class="language-plaintext highlighter-rouge">updateStatement</code>,<code class="language-plaintext highlighter-rouge">deleteStatement</code>。</p> <h4 id="systemcontrol">systemControl</h4> <p>主要是对数据库和表进行创建、删除、使用、列举:</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* System-Control Statements */</span>
+<span class="n">systemControl</span><span class="o">:</span>
+	<span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">databaseName</span> <span class="sc">';'</span>	
+	<span class="o">|</span> <span class="n">SHOW</span> <span class="n">DATABASES</span> <span class="sc">';'</span>				
+	<span class="o">|</span> <span class="n">USE</span> <span class="n">databaseName</span> <span class="sc">';'</span>				
+	<span class="o">|</span> <span class="n">DROP</span> <span class="n">DATABASE</span> <span class="n">databaseName</span> <span class="sc">';'</span>	
+	<span class="o">|</span> <span class="n">SHOW</span> <span class="n">TABLES</span> <span class="sc">';'</span>					
+	<span class="o">|</span> <span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">tableName</span> <span class="sc">';'</span>			
+	<span class="p">;</span>
 
-+  HtmlPrinter.prototype.generateFileListSummary = function(diffJson, config) {
-+    var fileListPrinter = new FileListPrinter(config);
-+    return fileListPrinter.generateFileList(diffJson);
-+  };
-+
-   module.exports.HtmlPrinter = new HtmlPrinter();
- })();
-diff --git a/src/line-by-line-printer.js b/src/line-by-line-printer.js
-index b07eb53c..d230bedd 100644
---- a/src/line-by-line-printer.js
-+++ b/src/line-by-line-printer.js
-@@ -11,7 +11,8 @@
-   var utils = require('./utils.js').Utils;
-   var Rematch = require('./rematch.js').Rematch;
+<span class="n">databaseName</span><span class="o">:</span>
+	<span class="n">ID</span>									
+	<span class="p">;</span>
 
--  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+  var hoganUtils;
-+
-   var genericTemplatesPath = 'generic';
-   var baseTemplatesPath = 'line-by-line';
-   var iconsBaseTemplatesPath = 'icon';
-@@ -19,6 +20,9 @@
+<span class="n">tableName</span><span class="o">:</span>
+	<span class="n">ID</span>
+	<span class="p">;</span>
+</code></pre></div></div> <h4 id="createstatement">createStatement</h4> <p>主要是在已经选中的数据库中创建表:</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create Statement.</span>
+<span class="n">createStatement</span><span class="o">:</span>
+	<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">tableName</span> <span class="sc">'('</span><span class="n">columnsDefinition</span><span class="sc">')'</span> <span class="sc">';'</span>
+	<span class="p">;</span>
 
-   function LineByLinePrinter(config) {
-     this.config = config;
-+
-+    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+    hoganUtils = new HoganJsUtils(config);
-   }
+<span class="n">columnsDefinition</span><span class="o">:</span>
+	<span class="n">columnName</span> <span class="n">columnType</span>
+	<span class="o">|</span> <span class="n">columnName</span> <span class="n">columnType</span> <span class="sc">','</span> <span class="n">columnsDefinition</span>
+	<span class="p">;</span>
 
-   LineByLinePrinter.prototype.makeFileDiffHtml = function(file, diffs) {
-diff --git a/src/side-by-side-printer.js b/src/side-by-side-printer.js
-index bbf1dc8d..5e3033b3 100644
---- a/src/side-by-side-printer.js
-+++ b/src/side-by-side-printer.js
-@@ -11,7 +11,8 @@
-   var utils = require('./utils.js').Utils;
-   var Rematch = require('./rematch.js').Rematch;
+<span class="n">columnName</span><span class="o">:</span>
+	<span class="n">ID</span>
+	<span class="p">;</span>
 
--  var hoganUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+  var hoganUtils;
-+
-   var genericTemplatesPath = 'generic';
-   var baseTemplatesPath = 'side-by-side';
-   var iconsBaseTemplatesPath = 'icon';
-@@ -26,6 +27,9 @@
+<span class="n">columnType</span><span class="o">:</span>
+	<span class="n">INT</span>
+	<span class="o">|</span> <span class="n">CHAR</span> <span class="sc">'('</span> <span class="n">NUMBER</span> <span class="sc">')'</span>
+	<span class="p">;</span>
+</code></pre></div></div> <h4 id="querystatement">queryStatement</h4> <p>主要是在已经选中的数据库中进行查询:</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Query Statement.</span>
+<span class="n">queryStatement</span><span class="o">:</span>
+	<span class="n">SELECT</span> <span class="n">columnNames</span> <span class="n">FROM</span> <span class="n">tableNames</span> <span class="sc">';'</span>
+	<span class="o">|</span> <span class="n">SELECT</span> <span class="n">columnNames</span> <span class="n">FROM</span> <span class="n">tableNames</span> <span class="n">WHERE</span> <span class="n">conditions</span> <span class="sc">';'</span>
+	<span class="p">;</span>
 
-   function SideBySidePrinter(config) {
-     this.config = config;
-+
-+    var HoganJsUtils = require('./hoganjs-utils.js').HoganJsUtils;
-+    hoganUtils = new HoganJsUtils(config);
-   }
+<span class="n">columnNames</span><span class="o">:</span>
+	<span class="sc">'*'</span>
+	<span class="o">|</span> <span class="n">columnName</span>
+	<span class="o">|</span> <span class="n">columnName</span> <span class="sc">','</span> <span class="n">columnNames</span>
+	<span class="p">;</span>
 
-   SideBySidePrinter.prototype.makeDiffHtml = function(file, diffs) {
-diff --git a/test/file-list-printer-tests.js b/test/file-list-printer-tests.js
-index a502a46f..60ea3208 100644
---- a/test/file-list-printer-tests.js
-+++ b/test/file-list-printer-tests.js
-@@ -1,6 +1,6 @@
- var assert = require('assert');
+<span class="n">tableNames</span><span class="o">:</span>
+	<span class="n">tableName</span>
+	<span class="o">|</span> <span class="n">tableName</span> <span class="sc">','</span> <span class="n">tableNames</span>
+	<span class="p">;</span>
 
--var fileListPrinter = require('../src/file-list-printer.js').FileListPrinter;
-+var fileListPrinter = new (require('../src/file-list-printer.js').FileListPrinter)();
+<span class="c1">// Top-level conditions rules</span>
+<span class="n">conditions</span><span class="o">:</span>
+    <span class="n">condition</span>
+    <span class="o">|</span> <span class="sc">'('</span> <span class="n">conditions</span> <span class="sc">')'</span>
+    <span class="o">|</span> <span class="n">conditions</span> <span class="n">AND</span> <span class="n">conditions</span>
+    <span class="o">|</span> <span class="n">conditions</span> <span class="n">OR</span> <span class="n">conditions</span>
+    <span class="p">;</span>
 
- describe('FileListPrinter', function() {
-   describe('generateFileList', function() {
-diff --git a/test/hogan-cache-tests.js b/test/hogan-cache-tests.js
-index 190bf6f8..3bb754ac 100644
---- a/test/hogan-cache-tests.js
-+++ b/test/hogan-cache-tests.js
-@@ -1,6 +1,6 @@
- var assert = require('assert');
+<span class="c1">// Single condition rule</span>
+<span class="n">condition</span><span class="o">:</span>
+    <span class="n">columnName</span> <span class="k">operator</span> <span class="n">rightOperand</span>
+    <span class="p">;</span>
 
--var HoganJsUtils = require('../src/hoganjs-utils.js').HoganJsUtils;
-+var HoganJsUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)();
- var diffParser = require('../src/diff-parser.js').DiffParser;
+<span class="c1">// Operator definitions</span>
+<span class="k">operator</span><span class="o">:</span>
+    <span class="sc">'&lt;'</span>
+    <span class="o">|</span> <span class="sc">'&gt;'</span>
+    <span class="o">|</span> <span class="sc">'='</span>
+    <span class="o">|</span> <span class="sc">'!'</span> <span class="sc">'='</span>
+    <span class="o">|</span> <span class="sc">'&lt;'</span> <span class="sc">'&gt;'</span>
+    <span class="p">;</span>
 
- describe('HoganJsUtils', function() {
-@@ -21,16 +21,28 @@ describe('HoganJsUtils', function() {
-       });
-       assert.equal(emptyDiffHtml, result);
-     });
-+
-     it('should render view without cache', function() {
-       var result = HoganJsUtils.render('generic', 'empty-diff', {
-         contentClass: 'd2h-code-line',
-         diffParser: diffParser
-       }, {noCache: true});
--      assert.equal(emptyDiffHtml + '\n', result);
-+      assert.equal(emptyDiffHtml, result);
-     });
-+
-     it('should return null if template is missing', function() {
--      var result = HoganJsUtils.render('generic', 'missing-template', {}, {noCache: true});
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)({noCache: true});
-+      var result = hoganUtils.render('generic', 'missing-template', {});
-       assert.equal(null, result);
-     });
-+
-+    it('should allow templates to be overridden', function() {
-+      var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
-+
-+      var config = {templates: {'generic-empty-diff': emptyDiffTemplate}};
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
-+      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-+      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-+    });
-   });
- });
-diff --git a/test/line-by-line-tests.js b/test/line-by-line-tests.js
-index 1cd92073..8869b3df 100644
---- a/test/line-by-line-tests.js
-+++ b/test/line-by-line-tests.js
-@@ -14,7 +14,7 @@ describe('LineByLinePrinter', function() {
-         '            File without changes\n' +
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
--        '&lt;/tr&gt;\n';
-+        '&lt;/tr&gt;';
+<span class="c1">// Right operand can be a number or a string</span>
+<span class="n">rightOperand</span><span class="o">:</span>
+    <span class="n">NUMBER</span>
+    <span class="o">|</span> <span class="n">STRING</span>
+    <span class="p">;</span>
+</code></pre></div></div> <p>需要特别注意的是conditions的语法树，后续对应的规则比较复杂。</p> <h4 id="insertstatement">insertStatement</h4> <p>主要是在已经选中的数据库中进行插入:</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Insert statement.</span>
+<span class="n">insertStatement</span><span class="o">:</span>
+	<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">tableName</span> <span class="sc">'('</span> <span class="n">columnNames</span> <span class="sc">')'</span> <span class="n">VALUES</span> <span class="sc">'('</span> <span class="n">values</span> <span class="sc">')'</span> <span class="sc">';'</span>
+	<span class="o">|</span> <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">tableName</span> <span class="n">VALUES</span> <span class="sc">'('</span> <span class="n">values</span> <span class="sc">')'</span> <span class="sc">';'</span>
+	<span class="p">;</span>
 
-       assert.equal(expected, fileHtml);
-     });
-@@ -422,7 +422,6 @@ describe('LineByLinePrinter', function() {
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
-         '&lt;/tr&gt;\n' +
--        '\n' +
-         '                &lt;/tbody&gt;\n' +
-         '            &lt;/table&gt;\n' +
-         '        &lt;/div&gt;\n' +
-diff --git a/test/side-by-side-printer-tests.js b/test/side-by-side-printer-tests.js
-index 76625f8e..771daaa5 100644
---- a/test/side-by-side-printer-tests.js
-+++ b/test/side-by-side-printer-tests.js
-@@ -14,7 +14,7 @@ describe('SideBySidePrinter', function() {
-         '            File without changes\n' +
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
--        '&lt;/tr&gt;\n';
-+        '&lt;/tr&gt;';
+<span class="n">values</span><span class="o">:</span>
+	<span class="n">value</span>
+	<span class="o">|</span> <span class="n">value</span> <span class="sc">','</span> <span class="n">values</span>
+	<span class="p">;</span>
 
-       assert.equal(expectedRight, fileHtml.right);
-       assert.equal(expectedLeft, fileHtml.left);
-@@ -324,7 +324,6 @@ describe('SideBySidePrinter', function() {
-         '        &lt;/div&gt;\n' +
-         '    &lt;/td&gt;\n' +
-         '&lt;/tr&gt;\n' +
--        '\n' +
-         '                    &lt;/tbody&gt;\n' +
-         '                &lt;/table&gt;\n' +
-         '            &lt;/div&gt;\n' +
+<span class="n">value</span><span class="o">:</span>
+	<span class="n">NUMBER</span>
+	<span class="o">|</span> <span class="n">STRING</span>
+	<span class="p">;</span>
+</code></pre></div></div> <h4 id="updatestatement">updateStatement</h4> <p>主要是在已经选中的数据库中进行更新:</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Update statement.</span>
+<span class="n">updateStatement</span><span class="o">:</span>
+	<span class="n">UPDATE</span> <span class="n">tableName</span> <span class="n">SET</span> <span class="n">assignments</span> <span class="n">WHERE</span> <span class="n">conditions</span> <span class="sc">';'</span>
+	<span class="p">;</span>
 
-From f3cadb96677d0eb82fc2752dc3ffbf35ca9b5bdb Mon Sep 17 00:00:00 2001
-From: Rodrigo Fernandes &lt;rtfrodrigo@gmail.com&gt;
-Date: Sat, 15 Oct 2016 13:21:22 +0100
-Subject: [PATCH 2/2] Allow uncompiled templates
+<span class="n">assignments</span><span class="o">:</span>
+	<span class="n">assignment</span>
+	<span class="o">|</span> <span class="n">assignment</span> <span class="sc">','</span> <span class="n">assignments</span>
+	<span class="p">;</span>
 
----
- README.md                 |  3 +++
- src/hoganjs-utils.js      |  7 +++++++
- test/hogan-cache-tests.js | 24 +++++++++++++++++++++++-
- 3 files changed, 33 insertions(+), 1 deletion(-)
+<span class="n">assignment</span><span class="o">:</span>
+	<span class="n">columnName</span> <span class="sc">'='</span> <span class="n">value</span>
+	<span class="p">;</span>
+</code></pre></div></div> <h4 id="deletestatement">deleteStatement</h4> <p>主要是在已经选中的数据库中进行删除:</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Delete statement.</span>
+<span class="n">deleteStatement</span><span class="o">:</span>
+	<span class="n">DELETE</span> <span class="n">FROM</span> <span class="n">tableName</span> <span class="sc">';'</span>
+	<span class="o">|</span> <span class="n">DELETE</span> <span class="n">FROM</span> <span class="n">tableName</span> <span class="n">WHERE</span> <span class="n">conditions</span> <span class="sc">';'</span>
+	<span class="p">;</span>
+</code></pre></div></div> <h2 id="后端接口设计">后端接口设计</h2> <p>前端是lex和yacc共同分析输入语句，识别到对应的文法后，执行对应的代码。</p> <p>这里设计<code class="language-plaintext highlighter-rouge">Database.h</code>暴露给前端一些接口用于内核执行数据库语句。</p> <p>在语法分析的同时，将一些链表结构或者树结构创建，所以需要声明一些结点，方便后端执行。</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define STATE_SYS 0
+#define STATE_DB 1 // 选中数据库的状态才能增删改查
+</span>
+<span class="k">struct</span> <span class="nc">columnNode</span><span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">columnName</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">charLength</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">columnNode</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
 
-diff --git a/README.md b/README.md
-index 132c8a28..46909f25 100644
---- a/README.md
-+++ b/README.md
-@@ -98,6 +98,9 @@ The HTML output accepts a Javascript object with configuration. Possible options
-   - `synchronisedScroll`: scroll both panes in side-by-side mode: `true` or `false`, default is `false`
-   - `matchWordsThreshold`: similarity threshold for word matching, default is 0.25
-   - `matchingMaxComparisons`: perform at most this much comparisons for line matching a block of changes, default is `2500`
-+  - `templates`: object with previously compiled templates to replace parts of the html
-+  - `rawTemplates`: object with raw not compiled templates to replace parts of the html
-+  &gt; For more information regarding the possible templates look into [src/templates](https://github.com/rtfpessoa/diff2html/tree/master/src/templates)
+<span class="c1">// for SELECT node;</span>
+<span class="k">struct</span> <span class="nc">tableNode</span><span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">tableName</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">tableNode</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
 
- ## Diff2HtmlUI Helper
+<span class="k">struct</span> <span class="nc">conditionNode</span><span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">columnName</span><span class="p">;</span>
+    <span class="c1">// 如果op是AND或者OR，说明是一个中间结点，有左右子树，cloumnName和value为空。</span>
+    <span class="c1">// 如果这个结点是叶子节点，则代表这是一个表达式结点，columnName op value;</span>
+    <span class="k">enum</span> <span class="n">op</span><span class="p">{</span>
+        <span class="n">AND</span><span class="p">,</span> <span class="n">OR</span><span class="p">,</span> <span class="n">GREATER</span><span class="p">,</span> <span class="n">LESS</span><span class="p">,</span> <span class="n">EQUAL</span><span class="p">,</span> <span class="n">NOT_EQUAL</span>
+    <span class="p">}</span><span class="n">op</span><span class="p">;</span>
+    <span class="k">enum</span> <span class="n">rightOperandType</span><span class="p">{</span>
+        <span class="n">INT</span><span class="p">,</span> <span class="n">STRING</span>
+    <span class="p">}</span><span class="n">rightOperandType</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">intval</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">chval</span><span class="p">;</span>
 
-diff --git a/src/hoganjs-utils.js b/src/hoganjs-utils.js
-index 0dda08d7..b2e9c275 100644
---- a/src/hoganjs-utils.js
-+++ b/src/hoganjs-utils.js
-@@ -17,6 +17,13 @@
-   function HoganJsUtils(configuration) {
-     this.config = configuration || {};
-     extraTemplates = this.config.templates || {};
-+
-+    var rawTemplates = this.config.rawTemplates || {};
-+    for (var templateName in rawTemplates) {
-+      if (rawTemplates.hasOwnProperty(templateName)) {
-+        if (!extraTemplates[templateName]) extraTemplates[templateName] = this.compile(rawTemplates[templateName]);
-+      }
-+    }
-   }
+    <span class="k">struct</span> <span class="nc">conditionNode</span><span class="o">*</span> <span class="n">left</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">conditionNode</span><span class="o">*</span> <span class="n">right</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
 
-   HoganJsUtils.prototype.render = function(namespace, view, params) {
-diff --git a/test/hogan-cache-tests.js b/test/hogan-cache-tests.js
-index 3bb754ac..a34839c0 100644
---- a/test/hogan-cache-tests.js
-+++ b/test/hogan-cache-tests.js
-@@ -36,7 +36,7 @@ describe('HoganJsUtils', function() {
-       assert.equal(null, result);
-     });
+<span class="c1">// SELECT [columnNames] FROM [tables] WHERE [conditions];</span>
+<span class="k">struct</span> <span class="nc">selectNode</span><span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">columnNode</span><span class="o">*</span> <span class="n">columnNames</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">tableNode</span><span class="o">*</span> <span class="n">tables</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">conditionNode</span><span class="o">*</span> <span class="n">conditions</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
 
--    it('should allow templates to be overridden', function() {
-+    it('should allow templates to be overridden with compiled templates', function() {
-       var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
+<span class="c1">// for INSERT node;</span>
+<span class="k">struct</span> <span class="nc">valueNode</span><span class="p">{</span>
+    <span class="k">enum</span> <span class="n">type</span><span class="p">{</span>
+        <span class="n">INT</span><span class="p">,</span> <span class="n">STRING</span>
+    <span class="p">}</span><span class="n">type</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">intval</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">chval</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">valueNode</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
 
-       var config = {templates: {'generic-empty-diff': emptyDiffTemplate}};
-@@ -44,5 +44,27 @@ describe('HoganJsUtils', function() {
-       var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-       assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-     });
-+
-+    it('should allow templates to be overridden with uncompiled templates', function() {
-+      var emptyDiffTemplate = '&lt;p&gt;&lt;/p&gt;';
-+
-+      var config = {rawTemplates: {'generic-empty-diff': emptyDiffTemplate}};
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
-+      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-+      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-+    });
-+
-+    it('should allow templates to be overridden giving priority to compiled templates', function() {
-+      var emptyDiffTemplate = HoganJsUtils.compile('&lt;p&gt;&lt;/p&gt;');
-+      var emptyDiffTemplateUncompiled = '&lt;p&gt;Not used!&lt;/p&gt;';
-+
-+      var config = {
-+        templates: {'generic-empty-diff': emptyDiffTemplate},
-+        rawTemplates: {'generic-empty-diff': emptyDiffTemplateUncompiled}
-+      };
-+      var hoganUtils = new (require('../src/hoganjs-utils.js').HoganJsUtils)(config);
-+      var result = hoganUtils.render('generic', 'empty-diff', {myName: 'Rodrigo Fernandes'});
-+      assert.equal('&lt;p&gt;Rodrigo Fernandes&lt;/p&gt;', result);
-+    });
-   });
- });
-</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is how you can display code diffs]]></summary></entry><entry><title type="html">a post with advanced image components</title><link href="https://iamnotphage.github.io/blog/2024/advanced-images/" rel="alternate" type="text/html" title="a post with advanced image components"/><published>2024-01-27T11:46:00+00:00</published><updated>2024-01-27T11:46:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/advanced-images</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/advanced-images/"><![CDATA[<p>This is an example post with advanced image components.</p> <h2 id="image-slider">Image Slider</h2> <p>This is a simple image slider. It uses the <a href="https://swiperjs.com/">Swiper</a> library. Check the <a href="https://swiperjs.com/demos">examples page</a> for more information of what you can achieve with it.</p> <swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true"> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/9-480.webp 480w,/assets/img/9-800.webp 800w,/assets/img/9-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/9.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/7-480.webp 480w,/assets/img/7-800.webp 800w,/assets/img/7-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/7.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/8-480.webp 480w,/assets/img/8-800.webp 800w,/assets/img/8-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/8.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/10-480.webp 480w,/assets/img/10-800.webp 800w,/assets/img/10-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/10.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> <swiper-slide> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/12-480.webp 480w,/assets/img/12-800.webp 800w,/assets/img/12-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/12.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </swiper-slide> </swiper-container> <h2 id="image-comparison-slider">Image Comparison Slider</h2> <p>This is a simple image comparison slider. It uses the <a href="https://img-comparison-slider.sneas.io/">img-comparison-slider</a> library. Check the <a href="https://img-comparison-slider.sneas.io/examples.html">examples page</a> for more information of what you can achieve with it.</p> <img-comparison-slider> <figure slot="first"> <picture> <source class="responsive-img-srcset" srcset="/assets/img/prof_pic-480.webp 480w,/assets/img/prof_pic-800.webp 800w,/assets/img/prof_pic-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/prof_pic.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> <figure slot="second"> <picture> <source class="responsive-img-srcset" srcset="/assets/img/prof_pic_color-480.webp 480w,/assets/img/prof_pic_color-800.webp 800w,/assets/img/prof_pic_color-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/prof_pic_color.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="lazy" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </img-comparison-slider>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="images"/><summary type="html"><![CDATA[this is what advanced image components could look like]]></summary></entry><entry><title type="html">a post with vega lite</title><link href="https://iamnotphage.github.io/blog/2024/vega-lite/" rel="alternate" type="text/html" title="a post with vega lite"/><published>2024-01-27T00:20:00+00:00</published><updated>2024-01-27T00:20:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/vega-lite</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/vega-lite/"><![CDATA[<p>This is an example post with some <a href="https://vega.github.io/vega-lite/">vega lite</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">vega_lite
-</span><span class="sb">{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A dot plot showing each movie in the database, and the difference from the average movie rating. The display is sorted by year to visualize everything in sequential order. The graph is for all Movies before 2019.",
-  "data": {
-    "url": "https://raw.githubusercontent.com/vega/vega/main/docs/data/movies.json"
-  },
-  "transform": [
-    {"filter": "datum['IMDB Rating'] != null"},
-    {"filter": {"timeUnit": "year", "field": "Release Date", "range": [null, 2019]}},
-    {
-      "joinaggregate": [{
-        "op": "mean",
-        "field": "IMDB Rating",
-        "as": "AverageRating"
-      }]
-    },
-    {
-      "calculate": "datum['IMDB Rating'] - datum.AverageRating",
-      "as": "RatingDelta"
-    }
-  ],
-  "mark": "point",
-  "encoding": {
-    "x": {
-      "field": "Release Date",
-      "type": "temporal"
-    },
-    "y": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "title": "Rating Delta"
-    },
-    "color": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "scale": {"domainMid": 0},
-      "title": "Rating Delta"
-    }
-  }
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-vega_lite">{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A dot plot showing each movie in the database, and the difference from the average movie rating. The display is sorted by year to visualize everything in sequential order. The graph is for all Movies before 2019.",
-  "data": {
-    "url": "https://raw.githubusercontent.com/vega/vega/main/docs/data/movies.json"
-  },
-  "transform": [
-    {"filter": "datum['IMDB Rating'] != null"},
-    {"filter": {"timeUnit": "year", "field": "Release Date", "range": [null, 2019]}},
-    {
-      "joinaggregate": [{
-        "op": "mean",
-        "field": "IMDB Rating",
-        "as": "AverageRating"
-      }]
-    },
-    {
-      "calculate": "datum['IMDB Rating'] - datum.AverageRating",
-      "as": "RatingDelta"
-    }
-  ],
-  "mark": "point",
-  "encoding": {
-    "x": {
-      "field": "Release Date",
-      "type": "temporal"
-    },
-    "y": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "title": "Rating Delta"
-    },
-    "color": {
-      "field": "RatingDelta",
-      "type": "quantitative",
-      "scale": {"domainMid": 0},
-      "title": "Rating Delta"
-    }
-  }
-}
-</code></pre> <p>This plot supports both light and dark themes.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included vega lite code could look like]]></summary></entry><entry><title type="html">a post with geojson</title><link href="https://iamnotphage.github.io/blog/2024/geojson-map/" rel="alternate" type="text/html" title="a post with geojson"/><published>2024-01-26T17:57:00+00:00</published><updated>2024-01-26T17:57:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/geojson-map</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/geojson-map/"><![CDATA[<p>This is an example post with some <a href="https://geojson.org/">geojson</a> code. The support is provided thanks to <a href="https://leafletjs.com/">Leaflet</a>. To create your own visualization, go to <a href="https://geojson.io/">geojson.io</a>.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">geojson
-</span><span class="sb">{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      }
-    }
-  ]
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-geojson">{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "coordinates": [
-          [
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -3.162613728707967
-            ],
-            [
-              -59.820894493858034,
-              -2.904625022183211
-            ],
-            [
-              -60.11363029935569,
-              -2.904625022183211
-            ]
-          ]
-        ],
-        "type": "Polygon"
-      }
-    }
-  ]
-}
-</code></pre>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><category term="maps"/><summary type="html"><![CDATA[this is what included geojson code could look like]]></summary></entry><entry><title type="html">a post with echarts</title><link href="https://iamnotphage.github.io/blog/2024/echarts/" rel="alternate" type="text/html" title="a post with echarts"/><published>2024-01-26T16:03:00+00:00</published><updated>2024-01-26T16:03:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/echarts</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/echarts/"><![CDATA[<p>This is an example post with some <a href="https://echarts.apache.org/">echarts</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">echarts
-</span><span class="sb">{
-  "title": {
-    "text": "ECharts Getting Started Example"
-  },
-  "responsive": true,
-  "tooltip": {},
-  "legend": {
-    "top": "30px",
-    "data": ["sales"]
-  },
-  "xAxis": {
-    "data": ["Shirts", "Cardigans", "Chiffons", "Pants", "Heels", "Socks"]
-  },
-  "yAxis": {},
-  "series": [
-    {
-      "name": "sales",
-      "type": "bar",
-      "data": [5, 20, 36, 10, 10, 20]
-    }
-  ]
-}</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-echarts">{
-  "title": {
-    "text": "ECharts Getting Started Example"
-  },
-  "responsive": true,
-  "tooltip": {},
-  "legend": {
-    "top": "30px",
-    "data": ["sales"]
-  },
-  "xAxis": {
-    "data": ["Shirts", "Cardigans", "Chiffons", "Pants", "Heels", "Socks"]
-  },
-  "yAxis": {},
-  "series": [
-    {
-      "name": "sales",
-      "type": "bar",
-      "data": [5, 20, 36, 10, 10, 20]
-    }
-  ]
-}
-</code></pre> <p>Note that this library offer support for both light and dark themes. You can switch between them using the theme switcher in the top right corner of the page.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="charts"/><summary type="html"><![CDATA[this is what included echarts code could look like]]></summary></entry></feed>
+<span class="c1">// INSERT INTO [table] ([columnNames]) VALUES ([values]);</span>
+<span class="c1">// INSERT INTO [table] VALUES ([values]);</span>
+<span class="k">struct</span> <span class="nc">insertNode</span><span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">tableName</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">columnNode</span><span class="o">*</span> <span class="n">columnNames</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">valueNode</span><span class="o">*</span> <span class="n">values</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// for UPDATE node;</span>
+<span class="k">struct</span> <span class="nc">assignmentNode</span><span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">columnName</span><span class="p">;</span>
+    <span class="k">enum</span> <span class="n">type</span><span class="p">{</span>
+        <span class="n">INT</span><span class="p">,</span> <span class="n">STRING</span>
+    <span class="p">}</span><span class="n">type</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">intval</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">chval</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">assignmentNode</span><span class="o">*</span> <span class="n">next</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// UPDATE [tableName] SET [assignments] WHERE [conditions];</span>
+<span class="k">struct</span> <span class="nc">updateNode</span><span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">tableName</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">assignmentNode</span><span class="o">*</span> <span class="n">assignments</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">conditionNode</span><span class="o">*</span> <span class="n">conditions</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// DELETE FROM [tableName];</span>
+<span class="c1">// DELETE FROM [tableName] WHERE [conditions];</span>
+<span class="k">struct</span> <span class="nc">deleteNode</span><span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">tableName</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">conditionNode</span><span class="o">*</span> <span class="n">conditions</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// API in Databases.h</span>
+<span class="k">class</span> <span class="nc">Database</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="kt">void</span> <span class="n">showDatabases</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">useDatabase</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">databaseName</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">dropDatabase</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">databaseName</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">createDatabase</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">databaseName</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">showTables</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">dropTable</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">tableName</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">createTable</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">tableName</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">columnNode</span><span class="o">*</span> <span class="n">columnHead</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">select</span><span class="p">(</span><span class="k">struct</span> <span class="nc">selectNode</span><span class="o">*</span> <span class="n">node</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">insert</span><span class="p">(</span><span class="k">struct</span> <span class="nc">insertNode</span><span class="o">*</span> <span class="n">node</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="k">struct</span> <span class="nc">updateNode</span><span class="o">*</span> <span class="n">node</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="n">deleteFrom</span><span class="p">(</span><span class="k">struct</span> <span class="nc">deleteNode</span><span class="o">*</span> <span class="n">node</span><span class="p">);</span>
+    
+<span class="nl">private:</span>
+    <span class="kt">int</span> <span class="n">currentState</span><span class="p">;</span> <span class="c1">// 当前系统状态</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">dataPath</span> <span class="o">=</span> <span class="s">"../data"</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">currentDatabase</span><span class="p">;</span> <span class="c1">// 当前选中的数据库</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">tableFiles</span><span class="p">;</span>
+    <span class="n">Pager</span><span class="o">*</span> <span class="n">currentPage</span><span class="p">;</span> <span class="c1">// 当前页 (这里可以改为存放页的某类容器，可以实现LRU)</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>其他结点结构都很简单，都是拉链结构。</p> <p>唯独<code class="language-plaintext highlighter-rouge">conditionNode</code>要特别注意,遍历这个结点相当于LDR遍历二叉树(前序遍历)</p> <p>比如<code class="language-plaintext highlighter-rouge">... WHERE id = 3 AND name = 'chen'</code>，传递给后端的树结构如下:</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2024-05-17/conditionNodeExample-480.webp 480w,/assets/img/2024-05-17/conditionNodeExample-800.webp 800w,/assets/img/2024-05-17/conditionNodeExample-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2024-05-17/conditionNodeExample.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>即，<code class="language-plaintext highlighter-rouge">op</code>的枚举类型是<code class="language-plaintext highlighter-rouge">AND</code>或<code class="language-plaintext highlighter-rouge">OR</code>，则说明这个结点是一个连接的结点，或者说是一个父亲结点。</p> <p>只有叶子结点是有<code class="language-plaintext highlighter-rouge">columnName</code>和<code class="language-plaintext highlighter-rouge">intval</code>或<code class="language-plaintext highlighter-rouge">chval</code>的。</p> <p>这样就能清晰表示条件。</p> <h2 id="存储结构设计">存储结构设计</h2> <p>总体结构如下:</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2024-05-17/memoryArch-480.webp 480w,/assets/img/2024-05-17/memoryArch-800.webp 800w,/assets/img/2024-05-17/memoryArch-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2024-05-17/memoryArch.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>采取分页的思想，一个文件为一张表，一张表内有若干页，一页内有若干行。</p> <p>对于每一个页：</p> <ul> <li>首先要有一个<code class="language-plaintext highlighter-rouge">File Header</code>，除了表明页的信息外，还有两个指针，分别指向上一页和下一页。</li> <li>再来一个<code class="language-plaintext highlighter-rouge">Page Header</code>，存储一些该页的状态信息。</li> <li>再设计一个<code class="language-plaintext highlighter-rouge">Infimum + Supermum</code>，用来记录当前页最小和最大的记录。</li> <li>接下来设计一个<code class="language-plaintext highlighter-rouge">Page Directory</code>，对下文的<code class="language-plaintext highlighter-rouge">User Records</code>做一个简单索引。</li> <li>最后才是<code class="language-plaintext highlighter-rouge">User Records</code>用来存储每一行的数据，数据之间物理上按先后顺序存储，逻辑上按主键顺序形成单链表。</li> </ul> <p>主要在<code class="language-plaintext highlighter-rouge">Pager.h</code>中实现页机制(读入内存的页):</p> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">PAGE_SIZE</span> <span class="o">=</span> <span class="mi">4096</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">FILE_HEADER_SIZE</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">PAGE_HEADER_SIZE</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">RECORDS_SIZE</span> <span class="o">=</span> <span class="n">PAGE_SIZE</span> <span class="o">-</span> <span class="n">FILE_HEADER_SIZE</span> <span class="o">-</span> <span class="n">PAGE_HEADER_SIZE</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">ROW_PER_PAGE</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">RECORDS_SIZE</span> <span class="o">/</span> <span class="mi">64</span><span class="p">;</span> <span class="c1">// 8 + 63 = 71; 大概63行数据，8行头信息</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">DEFAULT_INFIMUM</span> <span class="o">=</span> <span class="mi">99999</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">DEFAULT_SUPERMUM</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="nc">FileHeader</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">pageNumber</span><span class="p">;</span> <span class="c1">// 当前页的页号</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">columnOffset</span><span class="p">;</span> <span class="c1">// 在Records中列名对应的偏移（第几个逗号）</span>
+    <span class="kt">int</span> <span class="n">prevPage</span><span class="p">;</span> <span class="c1">// 上一页偏移 (-PAGE_SIZE)</span>
+    <span class="kt">int</span> <span class="n">nextPage</span><span class="p">;</span> <span class="c1">// 下一页偏移 (+PAGE_SIZE)</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nc">PageHeader</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">recordsCount</span><span class="p">;</span> <span class="c1">// 当前页记录的数目</span>
+    <span class="kt">int</span> <span class="n">pageState</span><span class="p">;</span> <span class="c1">// 页的状态</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nc">Record</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">id</span><span class="p">;</span> <span class="c1">// 主键</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">data</span><span class="p">;</span> <span class="c1">// 数据(逗号分隔)</span>
+    <span class="kt">int</span> <span class="n">nextOffset</span><span class="p">;</span> <span class="c1">// 下一条数据的偏移量</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Pager</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">path</span><span class="p">;</span> <span class="c1">// 当前页所属表名（即文件名）</span>
+    <span class="n">FileHeader</span> <span class="n">fileHeader</span><span class="p">;</span>
+    <span class="n">PageHeader</span> <span class="n">pageHeader</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">Infimum</span><span class="p">;</span> <span class="c1">// 当前页最小记录</span>
+    <span class="kt">int</span> <span class="n">Supermum</span><span class="p">;</span> <span class="c1">// 当前页最大记录</span>
+    <span class="kt">bool</span> <span class="n">isDirty</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pageDirectory</span><span class="p">;</span> <span class="c1">// 页目录存储记录的偏移量</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Record</span><span class="o">&gt;</span> <span class="n">records</span><span class="p">;</span> <span class="c1">// 当前页的记录</span>
+    
+    <span class="n">Pager</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">filePath</span><span class="p">);</span> <span class="c1">// 初始化时从外存读页</span>
+    
+    <span class="n">Pager</span><span class="o">*</span> <span class="n">readPage</span><span class="p">(</span><span class="kt">int</span> <span class="n">ID</span><span class="p">);</span> <span class="c1">// 将页从外存读入内存，这里还没实现BTree，先根据path读文件，遍历页来找目标id所在的页</span>
+    <span class="kt">void</span> <span class="n">writePage</span><span class="p">();</span> <span class="c1">// 页的状态设为DIRTY，并在内存中更新页</span>
+    <span class="kt">bool</span> <span class="n">isFull</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div></div> <h2 id="简单的脏页机制">简单的脏页机制</h2> <p>在频繁IO的程序中，程序的瓶颈往往是IO速率。</p> <p>所以这里简单实现一个脏页机制，只有切换数据库等操作再将脏页写回外存，从而保证数据一致性。</p> <p>这样在频繁对一张表进行操作时，不需要大量IO（比如频繁插入或更新数据后又读数据，在内存的页暂时不写回外存，这样提升效率）</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2024-05-17/IODemo-480.webp 480w,/assets/img/2024-05-17/IODemo-800.webp 800w,/assets/img/2024-05-17/IODemo-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2024-05-17/IODemo.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>在<code class="language-plaintext highlighter-rouge">Pager.h</code>中有一项<code class="language-plaintext highlighter-rouge">bool isDirty</code>,只有进行插入删除更新的操作后，该页标记为<code class="language-plaintext highlighter-rouge">DIRTY</code></p> <p>同时，在<code class="language-plaintext highlighter-rouge">Database.h</code>中有一个当前页<code class="language-plaintext highlighter-rouge">Pager* currentPage</code>指向读入内存的当前页，在选中数据库后的操作都是在内存页完成，直到类似切换数据库的指令调用，再写入外存。同时更新<code class="language-plaintext highlighter-rouge">currentPage</code>的指向。</p> <h1 id="批处理测试">批处理测试</h1> <p>这里采用重定向符号来对程序大量输入测试语句。用的bat（批处理程序）</p> <div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cls</span>
+<span class="nb">cd</span> .\cmake<span class="na">-build-release</span>\
+<span class="nb">cls</span>
+.\myDBMS.exe <span class="o">&lt;</span> ..\commands.txt
+</code></pre></div></div> <p>其中，<code class="language-plaintext highlighter-rouge">commands.txt</code>中的测试数据为:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show databases;
+CREATE DATABASE tmp;
+SHOW DATABASES;
+create database del;
+SHOW DATABASES;
+DROP DATABASE del;
+SHOW DATABASES;
+use demo;
+show tables;
+create table tmp(id INT, testname CHAR(25), sex INT);
+show tables;
+drop table tmp;
+show tables;
+select * from course;
+insert into course(cname, cid) values('TETSCOURSE', 13);
+select * from course;
+select * from student;
+insert into student values('TEST',20,2);
+insert into student values('TEST2',999,2);
+insert into student values('TEST3',999,2);
+insert into student values('TEST4',999,2);
+insert into student values('TEST5',999,2);
+insert into student values('TEST6',999,2);
+select * from student;
+insert into student(sname,sage) values('TEST7',555);
+insert into student(sname,sage) values('TEST8',666);
+select * from student;
+select sname from student;
+select ssex from student;
+select sname,sage from student;
+select sname,sage from student where sage &gt; 20;
+select sname,sage from student where sage &lt; 20;
+select sname,sage from student where sage = 20;
+select sname,sage from student where sage &lt;&gt; 20;
+select sname,sage from student where sage != 20;
+select sname,sage from student where (((sage = 20)));
+select sname,sage from student where sage &gt; 18 and sage &lt; 35;
+select sname,sage from student where (sage &gt; 18) and (sage &lt; 35);
+select sname,sage from student where sage &lt; 18 or sage &gt; 35;
+select sname,sage from student where (sage &lt; 18) or (sage &gt; 35);
+select sname,sage from student where sname = 'chen' and sage = 20;
+select * from student;
+delete from student where sage &gt; 100;
+select * from student;
+delete from student where sname = 'TEST' and sage = 20 and ssex = 2;
+select * from student;
+select * from student where sname = 'chen';
+update student set sage = 21 where sname = 'chen';
+select * from student where sname = 'chen';
+select * from student where sname = 'clay';
+update student set sage = 999 where sname = 'clay';
+select * from student where sname = 'clay';
+exit
+</code></pre></div></div>]]></content><author><name></name></author><category term="sample-posts"/><category term="external-services"/><category term="c"/><category term="cpp"/><category term="compiler"/><category term="sql"/><summary type="html"><![CDATA[西电编译原理大作业:精简SQL编译器实现]]></summary></entry><entry><title type="html">Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra</title><link href="https://iamnotphage.github.io/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra/" rel="alternate" type="text/html" title="Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra"/><published>2024-05-14T00:00:00+00:00</published><updated>2024-05-14T00:00:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/google-gemini-updates-flash-15-gemma-2-and-project-astra/"><![CDATA[]]></content><author><name></name></author><summary type="html"><![CDATA[We’re sharing updates across our Gemini family of models and a glimpse of Project Astra, our vision for the future of AI assistants.]]></summary></entry><entry><title type="html">CMC-SpeedRun</title><link href="https://iamnotphage.github.io/blog/2022/%E9%80%9F%E9%80%9A%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/" rel="alternate" type="text/html" title="CMC-SpeedRun"/><published>2022-12-31T15:59:00+00:00</published><updated>2022-12-31T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2022/%E9%80%9F%E9%80%9A%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2022/%E9%80%9F%E9%80%9A%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"><![CDATA[<p><img src="https://img.shields.io/github/repo-size/Iamnotphage/CMC-SpeedRun" alt=""/> <img src="https://img.shields.io/badge/license-CC0--1.0-blue" alt=""/> <img src="https://img.shields.io/github/stars/Iamnotphage/CMC-SpeedRun?style=social" alt=""/></p> <p>速通<a href="http://www.cmathc.cn/">全国大学生数学竞赛</a>教程(非数学专业)</p> <blockquote> <p>针对🐹🐹的CMC-SpeedRun</p> </blockquote> <h1 id="前言">前言</h1> <h2 id="读者须知">读者须知</h2> <p>本文适用于国内准大学生、大学生对CMC(全国大学生数学竞赛)或其他类似竞赛有准备需要的学生或者🐹🐹。</p> <p>注意是<strong>非数，非数，非数</strong>！鼠鼠是CS学生，所以参加的是非数学类的CMC！本SpeedRun教程也是针对非数的教程。</p> <p>一般CMC比赛时间：初赛每年11月左右，决赛每年3月左右，具体情况具体分析。</p> <p>尤其是刚学完微积分课程的学生来说，知识掌握程度最佳，基本上不用准备也可能拿到初赛的三等奖，当然拿奖与否，跟你报名的赛区也是息息相关。</p> <p>本文加入了适量emoji表情以增加可读性,请见谅。</p> <p>前排：如果Github你下载太慢，欢迎前往以下链接下载 https://www.aliyundrive.com/s/qun3Q7sy5EG</p> <h2 id="情况">🐹🐹情况</h2> <p>下面介绍一下🐹🐹的情况。</p> <p>高考数学全国一卷120(并非你想的那么高) 所以人人都有机会完美速通CMC</p> <p>高数上总评98</p> <p>高数下总评92</p> <p>线代总评97</p> <p>离散数学总评95</p> <p>从课内成绩来看，🐹🐹算是中规中矩，前期的铺垫固然重要，但是要速通CMC，后期的努力更重要。</p> <p>大二参加第十四届全国大学生数学竞赛,初赛66分一等奖 (校内名单，所以有具体分数)</p> <p>张贴在此处以增加🐹🐹文章的信服力,不然大街上随便找坨史也可以写这篇文章。</p> <p>2023年6月补档，的确没有进入决赛，这里给大家一个参考，第十四届初赛66分编号88应该是全省88名没有达到决赛线。</p> <h1 id="如何速通">如何速通</h1> <p>首先必须说明，在本科之前的基础也是重要的，尤其是三角函数、导数等工具的掌握，可能会影响本科课程中微积分的学习，但是影响不算巨大。</p> <p>为了避免部分🐹🐹不知所措，茫然前行，本🐹🐹根据个人经验✍不断完善此库，以便帮助各位实现速通CMC。</p> <p>在下文，我将列出在国内正常高中学习会涉及并且CMC中也会出现的数学工具,接下来是各种扩展知识点的介绍，最后是关于真题和一些资料的建议和推荐。</p> <p>已经在本科学习完微积分课程<strong>并且总评优秀</strong>的可以跳过第零步和第一步。</p> <h2 id="第零步准备工作">第零步：准备工作</h2> <h3 id="三角函数部分">🌟三角函数部分</h3> <p>除了高中必修的三角函数变换、辅助角变换之后，大部分人都对积化和差、和差化积、万能公式不太熟悉，不必要死记硬背，但是遇到题目要能想到这一条退路。</p> <p>下面三组公式常常在CMC中的求极限、求积分等题目中有出奇制胜的效果。</p> <p>推导、记忆技巧等，详见各类辅助教材、网站。</p> <p><strong>积化和差</strong></p> \[{\displaystyle \sin \alpha \cos \beta ={\sin(\alpha +\beta )+\sin(\alpha -\beta ) \over 2}}\] \[{\displaystyle \cos \alpha \sin \beta ={\sin(\alpha +\beta )-\sin(\alpha -\beta ) \over 2}}\] \[{\displaystyle \cos \alpha \cos \beta ={\cos(\alpha +\beta )+\cos(\alpha -\beta ) \over 2}}\] \[{\displaystyle \sin \alpha \sin \beta =-{\cos(\alpha +\beta )-\cos(\alpha -\beta ) \over 2}}\] <p><strong>和差化积</strong></p> \[{\displaystyle \sin \alpha +\sin \beta =2\sin {\frac {\alpha +\beta }{2}}\cos {\frac {\alpha -\beta }{2}}}\] \[{\displaystyle \sin \alpha -\sin \beta =2\cos {\alpha +\beta \over 2}\sin {\alpha -\beta \over 2}}\] \[{\displaystyle \cos \alpha +\cos \beta =2\cos {\frac {\alpha +\beta }{2}}\cos {\frac {\alpha -\beta }{2}}}\] \[{\displaystyle \cos \alpha -\cos \beta =-2\sin {\alpha +\beta \over 2}\sin {\alpha -\beta \over 2}}\] <p><strong>万能公式</strong></p> \[\displaystyle \sin{x}=\frac{2t}{1+t^2}\] \[\displaystyle \cos{x}=\frac{1-t^2}{1+t^2}\] \[{\displaystyle \tan{x}=\frac{2t}{1-t^2}}\] \[{\displaystyle x=2\arctan{t}}\] <h3 id="导数工具部分">🌟导数工具部分</h3> <p>所有初等函数的导数，链式法则，以及最重要的一个，<strong>取对数求导法</strong>。</p> <p>例如，求 \(y=x^x\) 的导数</p> <blockquote> \[\ln y =x\ln x\] </blockquote> <p>再求导,后面的步骤我就不说了。</p> <h3 id="数列部分">🌟数列部分</h3> <p>基本的裂项，不动点法。</p> <h3 id="不等式部分">🌟不等式部分</h3> <p>均值不等式、<strong>柯西不等式</strong>、<strong>常见放缩</strong>。</p> <h3 id="反三角函数部分">🌟反三角函数部分</h3> <p>需要掌握定义、导数、以及<strong>一些常见恒等式</strong></p> \[arctan\frac{a-b}{1+ab}=arctan(a)-arctan(b)\] \[arctanx+arctan\frac{1}{x}=\frac{\pi}{2}\] <h2 id="第一步打好基础">第一步：打好基础</h2> <p>我将在这部分主要叙述各个阶段的应对措施，希望能够帮助到各位🐹🐹</p> <p>教材我们学校用的是同济的高等数学，🐹🐹也有幸溜进交大上过一次微分方程的课，他们用的是高等教育出版社的《工科数学分析基础》，各自教材差别不算特别大，最好还是根据你们上课的教材为主。</p> <p>如果您正在进行微积分课程/高等数学课程/数学分析课程，在能保证目前所学内容掌握良好的情况下，自学后续内容能够更好地帮助实现速通。</p> <p>如果很不幸，您跟不上您正在进行的微积分课程，请参考目录中的<strong>资料库-推荐书籍</strong>进行额外努力，打好基础是速通的必要条件。</p> <p>如果很幸运您恰好学完了微积分课程，并且掌握情况良好，请直接参考第二步，您也不需要基础的辅助教材。</p> <p>具体来说，我没遇到什么特别难的微积分的题目，只要跟着老师或者自学，按部就班学习的话，基本上课内成绩不会太差。</p> <p>其次，要明确 <strong>能力!=分数</strong> ，绝大多数情况下，分数只能做个参考，特别是大部分高校评价成绩都是采用平时和卷面占比来计算成绩，所以请各位🐹🐹不要太放在心上。</p> <h2 id="第二步各章节知识点dlc">第二步：各章节知识点DLC</h2> <p>在打好基础的情况下，也就是你对微积分掌握了绝大部分，但是CMC或者考研会要求更多一点点，在此处，鼠鼠将会详细列出正常课程中没有的内容，也就是俗称<strong>DLC</strong></p> <p>下面🐹🐹按照浦和平的《大学生数学竞赛教程》的目录来进行扩展<strong>进阶</strong>的知识点，注意是<strong>进阶</strong>，所以课内一些基础的、简单的我不会提及。</p> <p>涉及的是扩展内容，不是本体内容。也就是<strong>额外内容(DLC)</strong></p> <p>对于食用DLC，本🐹🐹的建议是结合辅导书，<strong>根据DLC内容进行练习，而不是死记知识点</strong>。</p> <h3 id="1️⃣第一章-函数极限连续">1️⃣第一章 函数、极限、连续</h3> <h4 id="cauchy极限存在准则">🌟<strong>Cauchy极限存在准则</strong></h4> <p>数列 \(x_n\) 收敛的充分必要条件是：</p> <p>对于任意给定的正数 \(\epsilon\) ,存在正整数 \({N}\) ,使得当 \(m&gt;N,n&gt;N\) 时，有 \(\|x_n-x_m|&lt;\epsilon\)</p> <h4 id="cauchy极限公式">🌟<strong>Cauchy极限公式</strong></h4> <p>若 \(\lim\limits_{n\rightarrow\infty}a_n=A\) ,则 \(\lim\limits_{n\rightarrow\infty}{\frac{a_1+a_2+...+a_n}{n}}=A\)</p> <h4 id="奥特曼法">🌟<strong>奥特曼法</strong></h4> <p>百度贴吧流传已久的一种求极限方法，其本质是“抓大头”，也就是变化最快的一个。数学语言描述如下：</p> \[\lim\limits_{n\rightarrow\infty}{\sqrt[n]{a^n+b^n+c^n}}=max{\\{a,b,c\\}}\] <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/outman-480.webp 480w,/assets/img/2022-12-13/outman-800.webp 800w,/assets/img/2022-12-13/outman-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/outman.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <h4 id="stolz定理">🌟<strong>Stolz定理</strong></h4> <p>俗称数列的L’Hospital定理</p> <p>(1) 定理一( \(\frac{*}{\infty}\) 型)</p> <p>设数列 \(a_n,b_n\) 满足:</p> <p>\(b_n\) 严格单调递增</p> <p>且 \(\lim\limits_{n\rightarrow\infty}{b_n}=+\infty\)</p> <p>那么,有 \(\lim\limits_{n\rightarrow\infty}{\frac{a_n}{b_n}}={\lim\limits_{n\rightarrow\infty}\frac{a_{n+1}-a_n}{b_{n+1}-b_n}}=L,\) 其中 \(L\) 可以是有限数、 \(+\infty\) 、 \(-\infty\)</p> <p>(2) 定理二 ( \(\frac{0}{0}\) 型)</p> <p>设数列 \(a_n,b_n\) 满足:</p> <p>\(b_n\) 严格单调递减且趋于零</p> <p>且 \(\lim\limits_{n\rightarrow\infty}{a_n}=0\)</p> <p>那么,有 \(\lim\limits_{n\rightarrow\infty}{\frac{a_n}{b_n}}={\lim\limits_{n\rightarrow\infty}\frac{a_{n+1}-a_n}{b_{n+1}-b_n}}=L,\) 其中 \(L\) 可以是有限数、 \(+\infty\)、 \(-\infty\)</p> <h4 id="中值定理求极限的方法">🌟<strong>中值定理求极限的方法</strong></h4> <p>首先要先掌握一些中值定理，详见第三章DLC。</p> <p>这个只能结合例题来说明；</p> <p>例如，求极限 \(\lim\limits_{x\rightarrow3}\frac{\sin{x^x}-\sin{3^x}}{3^{x^x}-3^{3^x}}\)</p> <p>解: \(\lim\limits_{x\rightarrow3}\frac{\sin{x^x}-\sin{3^x}}{3^{x^x}-3^{3^x}}=\lim\limits_{x\rightarrow3}\frac{\cos{\xi}}{3^\xi\ln 3}\) ,其中 \(\xi\) 介于 \(x^x\) 和 \(3^x\) 之间，</p> <p>所以 \(\lim\limits_{x\rightarrow3}\frac{\sin{x^x}-\sin{3^x}}{3^{x^x}-3^{3^x}}=\lim\limits_{x\rightarrow3}\frac{\cos{\xi}}{3^\xi\ln 3}=\frac{\cos9}{3^9\ln 3}\)</p> <h4 id="stirling公式">🌟<strong>Stirling公式</strong></h4> <p>斯特林公式(Stirling公式)</p> <blockquote> <p>用一坨答辩来逼近 \(n!\)</p> </blockquote> \[\lim\limits_{n\rightarrow\infty}{\frac{e^nn!}{n^n\sqrt{n}}}=\sqrt{2\pi}\] <p>比较少数的CMC题目可以直接用这个公式。</p> <h4 id="无穷大量的比较">🌟<strong>无穷大量的比较</strong></h4> <p>如果学过算法分析，理解起来很容易，其实就是时间复杂度的比较。</p> <p>当 \(n\rightarrow+\infty\) 时，有</p> <p>\(\ln n\) \(&lt;\) \(n^{\alpha}\) \(&lt;\) \(n^{\beta}\) \(&lt;\) \(a^n\) \(&lt;\) \(n!\) \(&lt;\) \(n^n\)</p> \[(0&lt;\alpha&lt;\beta, a&gt;1)\] <p>所以可以直接有：</p> \[\lim\limits_{n\rightarrow\infty}{\frac{n!}{n^n}}=0\] <h4 id="darboux定理">🌟<strong>Darboux定理</strong></h4> <p>\(f(x)\) 的导函数 \(f'(x)\) 在 \([a,b]\) 上不一定连续，</p> <p>若 \(f'(x)=\alpha\) , \(f'(x)=\beta\) ,则 \(\exists\xi\in(a,b)\) 使 \(f'(\xi)\) 介于 \(\alpha,\beta\) 之间</p> <h4 id="一致连续的定义">🌟<strong>一致连续的定义</strong></h4> <p>了解即可。</p> <p>对于任意 \(\epsilon&gt;0\) , \(\exists\delta&gt;0\) 使得对于任意 \(x_1,x_2\in I\) 当满足 \(\|x_1-x_2|&lt;\delta\) 时，有 \(\|f(x_1)-f(x_2)|&lt;\epsilon\) 恒成立，则该函数在区间 \(I\) 上一致连续。</p> <h4 id="lipschitz条件">🌟<strong>Lipschitz条件</strong></h4> <p>了解即可。</p> <p>对于在实数集子集的函数 \(f:D\subseteq R\) ,若 \(\exists\) 常数 \(k\) 对于任意 \(a,b\in D\) 使得 \(\|f(a)-f(b)|\le k\|a-b|\) ,则称 \(f\) 符合Lipschitz条件， \(k_{min}\) 为Lipschitz常数，符合Lipschitz条件的 \(f\) 必然一致连续，反之不一定。</p> <h3 id="2️⃣第二章-一元函数微分学">2️⃣第二章 一元函数微分学</h3> <h4 id="凑导数定义">🌟<strong>凑导数定义</strong></h4> <p>经常需要最原始的导数的定义来解决问题，所以虽然是很基础的内容，但是这里特地提一嘴。</p> \[f'(x_0)=\lim\limits_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}\] <p>或者</p> \[f'(x_0)=\lim\limits_{\Delta x\rightarrow 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\] <h4 id="leibniz公式">🌟<strong>Leibniz公式</strong></h4> <p>非常常见的求高阶导数的公式，使用频率很高。</p> \[(f(n)\cdot g(n))^{(n)}=\sum C_n^i f^{(i)}(x)\cdot g^{(n-i)}(x)\] <h3 id="3️⃣第三章-一元函数积分学">3️⃣第三章 一元函数积分学</h3> <h4 id="区间再现公式">🌟<strong>区间再现公式</strong></h4> <p>1.有 \(\int_{a}^{b}f(x)dx=\int_{a}^{b}f(a+b-x)dx\)</p> <p>2.若 \(f(x)\) 关于 \(x=\frac{a+b}{2}\) 对称，则 \(\int_{a}^{b}xf(x)dx=\frac{a+b}{2}\int_{a}^{b}f(x)dx\)</p> <p>特例，也是常见的公式：</p> \[\int_{0}^{\pi}xf(sinx)dx=\frac{\pi}{2}\int_{0}^{\pi}f(sinx)dx\] <h4 id="wallis公式">🌟<strong>Wallis公式</strong></h4> <p>俗称点火公式/华莱士公式。</p> <p>当 \(n\) 为偶数时，</p> \[\int_{0}^{\frac{\pi}{2}}sin^nxdx=\int_{0}^{\frac{\pi}{2}}cos^nxdx=\frac{n-1}{n}\frac{n-3}{n-2}......\frac{3}{4}\frac{1}{2}\frac{\pi}{2}\] <p>当 \(n\) 为奇数时，</p> \[\int_{0}^{\frac{\pi}{2}}sin^nxdx=\int_{0}^{\frac{\pi}{2}}cos^nxdx=\frac{n-1}{n}\frac{n-3}{n-2}......\frac{2}{3}\] <h4 id="三角函数有关的积分公式">🌟<strong>三角函数有关的积分公式</strong></h4> <p>除了区间再现和Wallis公式之外，还有一些小的积分公式。</p> <p>此外，要常常想起<strong>和差半倍</strong>的一些公式，有利于积分，以及一些分部积分的技巧。</p> <p><strong>公式1</strong>：</p> \[\int_{0}^{\frac{\pi}{2}}f(\sin x)dx=\int_{0}^{\frac{\pi}{2}}f(\cos x)dx\] <p>证明1：</p> <p>令 \(x=\frac{\pi}{2}-t\) ，剩下的你来。</p> <p><strong>公式2</strong>:</p> \[\int_{0}^{\pi}xf(\sin x)dx=\frac{\pi}{2}\int_{0}^{\pi}f(\sin x)dx\] <p>证明2：</p> <p>令 \(x=\pi-t\) ，剩下的你来。</p> <h4 id="积分中值定理">🌟<strong>积分中值定理</strong></h4> <p><strong>积分第一中值定理</strong></p> <p>若 \(f(x)\) 在闭区间 \([a,b]\) 上连续， \(g(x)\) 在 \([a,b]\) 不变号，且 \(g(x)\) 在 \([a,b]\) 上是可积的，则在 \([a,b]\) 上至少存在一个点 \(\epsilon\) ,使得：</p> \[\int_{a}^{b}f(x)g(x)dx=f(\epsilon)\int_{a}^{b}g(x)dx\] <h4 id="组合积分法">🌟<strong>组合积分法</strong></h4> <p>这种积分的方法真要说，可以出一本书来讲。</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/zuhejifen-480.webp 480w,/assets/img/2022-12-13/zuhejifen-800.webp 800w,/assets/img/2022-12-13/zuhejifen-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/zuhejifen.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>不过这里介绍的只是一点点皮毛，主要思路是,观察所求积分的特点，再利用对称的积分或者一些已知的积分，然后用不定积分的加减法来得到线性方程，再接着解方程，从而求得一些复杂积分的解。</p> <p>经典的例子：</p> <p>求积分 \(\int{\frac{\sin x}{\sin x+\cos x}}dx\)</p> <p>解： 记所求积分为 \(I=\int{\frac{\sin x}{\sin x+\cos x}}dx\)</p> <p>考虑另外一个积分 \(J=\int{\frac{\cos x}{\sin x+\cos x}}dx\)</p> <p>则有 \(I+J=\int{\frac{\sin x+\cos x}{\sin x+\cos x}}dx=\int dx=x+C\)</p> <p>又因为 \(J-I=\int{\frac{\cos x-\sin x}{\sin x+\cos x}}dx=\int{\frac{1}{\sin x+\cos x}}d{(\cos x+\sin x)}=\ln{\|\sin x+\cos x|}+C\)</p> <p>上述俩个式子相减，得到 \(2I=x+\ln{\|\sin x+\cos x|}+C\)</p> <p>则 \(I=\frac{x}{2}+\frac{1}{2} \ln{\|\sin x+\cos x|}+C\)</p> <p>更多内容，详见各教辅或其他工具书。</p> <h4 id="积分形式cauchy-schwarz不等式">🌟<strong>积分形式Cauchy-Schwarz不等式</strong></h4> \[(\int f(x)g(x)dx)^2 \le \int f^2(x)dx \cdot \int g^2(x)dx\] <h3 id="4️⃣第四章-多元函数微分学">4️⃣第四章 多元函数微分学</h3> <h4 id="偏导数与连续的关系">🌟<strong>偏导数与连续的关系</strong></h4> <p>按照同济教材的内容，一般都是</p> <p>俩个偏导数在点 \((x,y)\) 存在且连续，则可以推出函数在该点可微。</p> <p><strong>但是</strong>，实际上，只需要一个偏导数存在(不一定连续)，另一个偏导数存在且连续,则可以推出函数在该点可微。</p> <h4 id="二元函数taylor展开">🌟<strong>二元函数Taylor展开</strong></h4> <p>首先引入记号：</p> <p>\((h\frac{\partial }{\partial x}+k\frac{\partial}{\partial y})f(x_0,y_0)\) 表示 \(hf_x(x_0,y_0)+kf_y(x_0,y_0)\)</p> <p>同样的，</p> <p>\((h\frac{\partial }{\partial x}+k\frac{\partial}{\partial y})^2f(x_0,y_0)\) 表示 \(h^2f_{xx}(x_0,y_0)+2hkf_{xy}(x_0,y_0)+k^2f_{xy}(x_0,y_0)\)</p> <p>更一般地，</p> <p>\((h\frac{\partial }{\partial x}+k\frac{\partial}{\partial y})^{m}f(x_0,y_0)\) 表示</p> \[\sum_{p=0}^{m}C_{m}^{p}h^pk^{m-p}\frac{\partial ^mf}{\partial x^p\partial y^{m-p}}|_{(x_0,y_0)}\] <p>设 \(z=f(x,y)\) 在点 \((x_0,y_0)\) 的某一邻域内有直到 \(n+1\) 阶连续偏导数， \((x_0+h,y_0+k)\) 为此邻域内任一点，则有</p> \[f(x_0+h,y_0+k)=f(x_0,y_0)+(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y})f(x_0,y_0)+\frac{1}{2!}(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y})^2f(x_0,y_0)+...+\frac{1}{n!}(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y})^nf(x_0,y_0)+R_n\] <p>其中， \(R_n=\frac{1}{(n+1)!}(h\frac{\partial}{\partial x}+k\frac{\partial}{\partial y})^{n+1}f(x_0+\theta h,y_0+\theta k)\)</p> <p>其中， \((0 \lt \theta \lt 1)\)</p> <p>这就是 \(f\) 在点 \((x_0,y_0)\) 的 \(n\) 阶泰勒展开公式，其中 \(R_n\) 被称为拉格朗日余项。</p> <h3 id="5️⃣第五章-多元数量值函数积分学">5️⃣第五章 多元数量值函数积分学</h3> <h4 id="二重积分的和式极限">🌟<strong>二重积分的和式极限</strong></h4> <p>请类比一元积分的定义，这部分将很好理解。</p> <p>下面用例题来说明；</p> <p><strong>大绿书第五章例3</strong>：</p> <p>计算 \(\lim\limits_{n\rightarrow\infty}\sum_{i=1}^{n}\sum_{j=1}^{2n}{\frac{2}{n^2}[\frac{2i+j}{n}]}\) ,这里 \([x]\) 是不超过 \(x\) 的最大整数.</p> <p>解：</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/ecjfhsjx-480.webp 480w,/assets/img/2022-12-13/ecjfhsjx-800.webp 800w,/assets/img/2022-12-13/ecjfhsjx-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/ecjfhsjx.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/ecjfhsjx2-480.webp 480w,/assets/img/2022-12-13/ecjfhsjx2-800.webp 800w,/assets/img/2022-12-13/ecjfhsjx2-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/ecjfhsjx2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <h4 id="雅可比行列式">🌟<strong>雅可比行列式</strong></h4> <p>重积分换元的必经之路，<strong>雅可比(Jacobi)行列式</strong>。</p> <p>看懂下面的部分需要线性代数基础,并且我只针对下面需要用到的的换元公式来说明该部分，详情请自行查阅、搜索。</p> <p>直观上说，雅可比行列式表示 \(xOy\) 平面上的面积微元和换元后的 \(uOv\) 平面上的面积微元的比值。</p> <p>设 \(x=x(u,v),y=y(u,v)\)</p> <p>则Jacobi行列式</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/Jacobi1-480.webp 480w,/assets/img/2022-12-13/Jacobi1-800.webp 800w,/assets/img/2022-12-13/Jacobi1-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/Jacobi1.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>则有 \(dxdy=|J|dudv\)</p> <p>注意<strong>一定要加绝对值</strong>。</p> <h4 id="二重积分的换元公式">🌟<strong>二重积分的换元公式</strong></h4> <p>下面介绍一般的二重积分换元公式</p> <p>结合上述的Jacobi行列式，换元变得迎刃而解。</p> <p>作换元 \(x=x(u,v),y=y(u,v)\)</p> <p>则 \(\iint_{D}f(x,y)dxdy=\iint_{D'}f[x(u,v),y(u,v)]\cdot {|J|}dudv\)</p> <p>注意<strong>一定要加绝对值</strong>。</p> <p>具体能怎么运用呢？实际上可以参考<strong>大绿书第五章例9的方法2</strong></p> <p>它这题方法2实际上是线性变换，可以参考线性代数里面的线性变换.</p> <h4 id="二重积分的极坐标换元">🌟<strong>二重积分的极坐标换元</strong></h4> <p>一般换元公式的特例之一。</p> <p>只需要将具体的换元代入即可。</p> <p>作换元 \(x=r\cos \theta,y=r\sin \theta\)</p> <p>于是</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/Jacobi2-480.webp 480w,/assets/img/2022-12-13/Jacobi2-800.webp 800w,/assets/img/2022-12-13/Jacobi2-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/Jacobi2.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p>则有 \(dxdy=rdrd\theta\)</p> <p>现在知道极坐标换元的面积微元怎么来的吧~</p> <p>注意<strong>一定要加绝对值</strong>。</p> <h4 id="二重积分的球面坐标换元">🌟<strong>二重积分的球面坐标换元</strong></h4> <p>一般换元公式的特例之一。</p> <h4 id="二重积分的分部积分公式">🌟<strong>二重积分的分部积分公式</strong></h4> <p>把格林(Green)公式中被积函数换成俩函数乘积即可推出二重积分的分部积分公式。</p> \[\iint_{\Omega}f\frac{\partial g}{\partial x}dxdy=\oint_{\partial \Omega}(f\cdot g)dy-\iint_{\Omega}g\frac{\partial f}{\partial x}dxdy\] \[\iint_{\Omega}f\frac{\partial g}{\partial y}dxdy=-\oint_{\partial \Omega}(f\cdot g)dx-\iint_{\Omega}g\frac{\partial f}{\partial y}dxdy\] <h4 id="三重积分换元公式">🌟<strong>三重积分换元公式</strong></h4> <p>类比于二重积分换元公式。</p> <h4 id="三重积分柱面坐标换元">🌟<strong>三重积分柱面坐标换元</strong></h4> <p>类比于二重积分柱面坐标换元。</p> <h4 id="三重积分球面坐标换元">🌟<strong>三重积分球面坐标换元</strong></h4> <p>类比于二重积分球面坐标换元。</p> <h3 id="6️⃣第六章-多元向量值函数积分学">6️⃣第六章 多元向量值函数积分学</h3> <p>其实第六章内容不多，无非就是前面的积分整一整，再多几个向量形式的积分公式而已。</p> <h4 id="green公式">🌟<strong>Green公式</strong></h4> <p>课内已有，不再赘述。</p> <h4 id="stokes公式">🌟<strong>Stokes公式</strong></h4> <p>课内已有，不再赘述。</p> <h4 id="gauss公式">🌟<strong>Gauss公式</strong></h4> <p>课内已有，不再赘述。</p> <h3 id="7️⃣第七章-常微分方程">7️⃣第七章 常微分方程</h3> <p>人类对微分方程的研究其实不多，很多微分方程人类都是解不出来的，所以CMC应该不会出太难的微分方程的题目。</p> <p>这部分DLC不多。</p> <h4 id="可化为齐次方程的微分方程">🌟<strong>可化为齐次方程的微分方程</strong></h4> <h4 id="bernoulli方程">🌟<strong>Bernoulli方程</strong></h4> <p>形如 \(y'+P(x)y=Q(x)y^n\) 的微分方程</p> <p>俩边同时除 \(y^n\) 即可得到</p> \[y^{-n}\frac{dy}{dx}+P(x)y^{1-n}=Q(x)\] <p>之后再换元 \(z=y^{1-n}\)</p> <p>解关于 \(z\) 的一阶线性微分方程即可。</p> <h4 id="euler方程">🌟<strong>Euler方程</strong></h4> <p>以二阶的微分方程为例子（n阶同理）:</p> <p>对于方程 \(x^2y''+pxy'+qy=f(x)\)</p> <p>作变量代换 \(x=e^t\) 或 \(t=\ln x\) ，方程化为二阶常系数线性微分方程</p> \[D(D-1)y+pDy+qy=f(e^t)\] <p>其中， \(D=\frac{d}{dt}\)</p> <h4 id="liouville公式">🌟<strong>Liouville公式</strong></h4> <p>对于二阶线性齐次微分方程</p> \[y''+p(x)y'+q(x)y=0\] <p>已知一个特解 \(y_1\) ,则另一个线性无关的特解为 \(\)y_2=y_1\int{\frac{1}{y_1^2}e^{-\int{p(x)dx}}}dx\(\)</p> <p>证明：</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/liouvilleproof-480.webp 480w,/assets/img/2022-12-13/liouvilleproof-800.webp 800w,/assets/img/2022-12-13/liouvilleproof-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/liouvilleproof.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <h4 id="常数变易法">🌟<strong>常数变易法</strong></h4> <p>第十三届CMC初赛中，大题第三题可以直接用常数变易法解方程，然后再判断有界性，相比给出的奇技淫巧，更为简单粗暴，可以直接求得答案。</p> <p>比如常数变易法求二阶线性方程 \(y''+py'+qy=f(x)\) 的步骤：</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/csbyf-480.webp 480w,/assets/img/2022-12-13/csbyf-800.webp 800w,/assets/img/2022-12-13/csbyf-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/csbyf.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <h3 id="8️⃣第八章-无穷级数">8️⃣第八章 无穷级数</h3> <h4 id="euler常数">🌟<strong>Euler常数</strong></h4> <p>了解即可，一个发散级数带来的常数。</p> \[\sum_{i=1}^{\infty} \frac{1}{n}=\ln n+ \gamma\] <p>其中， \(\gamma \approx 0.57721 56649\) 为欧拉常数。</p> <p>换句话说，</p> \[\sum_{i=1}^{\infty} \frac{1}{n}-\ln n= \gamma\] \[(0&lt;\alpha&lt;\beta, a&gt;1)\] <p>所以可以直接有：</p> \[\lim\limits_{n\rightarrow\infty}{\frac{n!}{n^n}}=0\] <h4 id="拉链定理">🌟<strong>拉链定理</strong></h4> <p>其实这个点也可以放在第一章里面。</p> <p>数列收敛的<strong>充要条件</strong>是其奇、偶子数列收敛于同一极限。</p> <h4 id="cauchy乘积">🌟<strong>Cauchy乘积</strong></h4> <p>也叫做俩数列的离散卷积。</p> <p>Cauchy乘积的定义为：</p> <p>对于俩个级数 \(\sum_{n=0}^{\infty}a_n\) 和 \(\sum_{n=0}^{\infty}b_n\) ,不论其敛散性，其Cauchy乘积为:</p> \[(\sum_{n=0}^{\infty}a_n)\cdot(\sum_{n=0}^{\infty}b_n)=\sum_{n=0}^{\infty}(\sum_{m=0}^{n}a_mb_{n-m})\] <h4 id="cauchy收敛定理">🌟<strong>Cauchy收敛定理</strong></h4> <p>若 \(\sum_{n=0}^{\infty}a_n\) 和 \(\sum_{n=0}^{\infty}b_n\) 绝对收敛，且 \(\sum_{n=0}^{\infty}a_n=A\) , \(\sum_{n=0}^{\infty}b_n=B\) 则其<strong>柯西乘积</strong>绝对收敛，且收敛到 \(A\cdot B\)</p> <p>也就是说， \((\sum_{n=0}^{\infty}a_n)\cdot(\sum_{n=0}^{\infty}b_n)=\sum_{n=0}^{\infty}(\sum_{m=0}^{n}a_mb_{n-m})=A\cdot B\)</p> <h4 id="weierstrass准则">🌟<strong>Weierstrass准则</strong></h4> <p>若存在一个收敛的正项级数 \(\sum_{n=1}^{\infty}M_n\) ，对任意 \(n\in N_{+}\) 以及任意 \(x\in I\) ，恒有 \(|u_n(x) \le M_n|\) 则级数 \(\sum_{n=1}^{\infty}u_n(x)\) 在 \(I\) 上一致收敛。</p> <h4 id="parseval恒等式">🌟<strong>Parseval恒等式</strong></h4> <p>设 \(f(x)\) 是 \([0,2\pi]\) 上的分段连续函数，且 \(f(x)~\frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n \cos {nx}+b_n \sin {nx})\) 则有 \(\frac{1}{\pi}\int_{0}^{2\pi}(f(x))^2dx=\frac{a_0^2}{2}+\sum_{n=1}^{\infty}(a_n^2+b_n^2)\)</p> <h2 id="第三步开始速通真题">第三步：开始速通真题</h2> <p>参考资料库或者其他各种渠道的真题即可。</p> <p><strong>速通建议</strong>：配合本文DLC的知识点，再利用“大绿书”做相应知识点的练习。</p> <p>在完成大部分DLC知识点的巩固后，可以进一步直接做真题，参考资料库中往年的真题汇总和解析即可。</p> <p>这部分大概耗时1个月就可以了，如果想要得到一等奖或者决赛入场券，可以适当延长练习时间，更广泛巩固DLC知识点和本体知识点。</p> <h1 id="资料库">资料库</h1> <p>资料库包含<strong>部分电子版推荐书籍</strong>，<strong>往届真题</strong>，<strong>🐹🐹的笔记</strong>。</p> <p>均上传到了本库中的<strong>source</strong>文件夹中。</p> <h2 id="推荐书籍">推荐书籍</h2> <p><strong>1.数学分析习题集-吉米多维奇著</strong></p> <p>俗称就是吉米多维奇习题集。</p> <p><strong>非常不建议全部做一遍，因为非常多，会耗费大量时间。</strong>（鼠鼠的个人观点）</p> <p>可以偶尔翻两下。</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/jmdwq-480.webp 480w,/assets/img/2022-12-13/jmdwq-800.webp 800w,/assets/img/2022-12-13/jmdwq-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/jmdwq.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p><strong>2.大学生数学竞赛教程-蒲和平著</strong></p> <p>俗称大绿书，鼠鼠当初只用了这一本书，推荐指数🌟🌟🌟</p> <p>对着🐹🐹总结的DLC，做对应知识点的练习题足以速通。</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/sxjsjc-480.webp 480w,/assets/img/2022-12-13/sxjsjc-800.webp 800w,/assets/img/2022-12-13/sxjsjc-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/sxjsjc.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p><strong>3.大学生数学竞赛习题精讲-陈兆斗著</strong></p> <p>没做过，听说还不错。鼠鼠就只用过大绿书，比鼠鼠努力且有时间的可以试试这本。</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/chenzhaodou-480.webp 480w,/assets/img/2022-12-13/chenzhaodou-800.webp 800w,/assets/img/2022-12-13/chenzhaodou-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/chenzhaodou.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p><strong>4.普林斯顿微积分读本</strong></p> <p>略读过，感觉有点cjb了，就是辅导差生学好微积分而已，个人觉得用处不大。</p> <p>因为如果你能在系统的学习下掌握知识，那么这种书对你来说就是鸡肋。</p> <p>推荐的原因是，如果你是小白，那么这本书还是不错的。</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/plsd-480.webp 480w,/assets/img/2022-12-13/plsd-800.webp 800w,/assets/img/2022-12-13/plsd-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/plsd.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <p><strong>5.数学女孩系列</strong></p> <p>神中神，🐹🐹高中时期午休时光的精神食粮，对我来说附带青春buff，而且里面很多数学科普知识跨度很大，从幼儿园到人类前沿，漫游各个领域的数学知识，属于提升素养方面的书籍。</p> <p>放在本速通教程中纯属是🐹🐹个人推荐，对速通CMC或许有着无用之用的用处。</p> <div class="row mt-3"> <div class="col-sm mt-3 mt-md-0"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/2022-12-13/mathgirl-480.webp 480w,/assets/img/2022-12-13/mathgirl-800.webp 800w,/assets/img/2022-12-13/mathgirl-1400.webp 1400w," type="image/webp" sizes="95vw"/> <img src="/assets/img/2022-12-13/mathgirl.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();"/> </picture> </figure> </div> </div> <h2 id="往届真题">往届真题</h2> <p>截止到目前鼠鼠更新本库，一共进行了十四届CMC。</p> <h3 id="初赛">初赛</h3> <p>初赛的题目都是只包含高等数学的内容，考试大纲请参考<a href="http://www.cmathc.cn/">官方网站</a>。</p> <p>资料库索引：</p> <blockquote> <p>sources/真题</p> </blockquote> <h3 id="决赛">决赛</h3> <p>决赛的题目除了包含80%的高等数学内容外，还包含20%的线性代数内容。</p> <p>由于🐹🐹在更新本文时，并不清楚自己是否进入了决赛名单(很有可能没有),所以这部分内容不多。</p> <p>2023年6月补档，的确没有进入决赛，这里给大家一个参考，第十四届初赛66分编号88应该是全省88名没有达到决赛线。</p> <p>资料库索引：</p> <blockquote> <p>sources/真题</p> </blockquote> <h2 id="权威公众号">权威公众号</h2> <p>这里不得不说一个非常权威的公众号：</p> <p><strong>考研竞赛数学</strong></p> <p>里面各种真题、模拟题、每日一题等等等等，内容丰富。</p> <h1 id="的笔记">🐹🐹的笔记</h1> <p>本🐹🐹在数学方面记的东西是少之又少，但是多少还是有点硬通货的，我将会把pdf版本的笔记放在本github库中，以便其他🐹🐹参考学习，请各位斧正。</p> <h1 id="联系">联系🐹🐹</h1> <p>📫邮箱： iamnotphage@gmail.com</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="external-services"/><category term="math"/><summary type="html"><![CDATA[速通全国大学生数学竞赛(非数学专业)教程]]></summary></entry><entry><title type="html">Displaying External Posts on Your al-folio Blog</title><link href="https://iamnotphage.github.io/blog/2022/displaying-external-posts-on-your-al-folio-blog/" rel="alternate" type="text/html" title="Displaying External Posts on Your al-folio Blog"/><published>2022-04-23T23:20:09+00:00</published><updated>2022-04-23T23:20:09+00:00</updated><id>https://iamnotphage.github.io/blog/2022/displaying-external-posts-on-your-al-folio-blog</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2022/displaying-external-posts-on-your-al-folio-blog/"><![CDATA[]]></content><author><name></name></author></entry></feed>
