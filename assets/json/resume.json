@@ -16,9 +16,9 @@
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "",
+        "username": "",
+        "url": ""
       }
     ]
   },
@@ -99,6 +99,13 @@
       "awarder": "Chinese Mathematics Competition.",
       "url": "http://www.cmathc.cn",
       "summary": "It's just a math."
+    },
+    {
+      "title": "The Second Prize Scholarship",
+      "date": "2022-10",
+      "awarder": "XiDian University",
+      "url": "https://en.xidian.edu.cn/",
+      "summary": "scholarship."
     }
   ],
   "volunteer": [
@@ -182,16 +189,22 @@
   ],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
+      "name": "Math",
+      "level": "Noob",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Calculus",
+        "Linear Algebra",
+        "Probability Theory",
+        "Graph Theory"
+      ]
+    },
+    {
+      "name": "Rubike's Cube",
+      "level": "Noob",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "13s on average."
       ]
     }
   ],
@@ -209,28 +222,49 @@
   ],
   "interests": [
     {
+      "name": "Math",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "ANYTHING"
+      ]
+    },
+    {
       "name": "Physics",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "ANYTHING"
+      ]
+    },
+    {
+      "name": "Programing",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "ANYTHING"
+      ]
+    },
+    {
+      "name": "Gaming",
+      "icon": "fa-solid fa-tag",
+      "keywords": [
+        "Minecraft",
+        "Counter-Strike",
+        "GTA series",
+        "Assassin's Creed series",
+        "Stardew Valley",
+        "The Last of US",
+        "Overwatch",
+        "Left 4 Dead series",
+        "PUBG",
+        "Horizen 4",
+        "any other 3A games"
       ]
     }
   ],
   "references": [
     {
-      "name": "Professor John Doe",
+      "name": "",
       "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    },
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+      "reference": ""
     }
   ]
 }
