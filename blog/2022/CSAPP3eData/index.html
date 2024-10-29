@@ -1,0 +1,422 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> CS:APP3e Data Lab | Chen Clay </title> <meta name="author" content="Chen Clay"> <meta name="description" content="Personal Crack on CS:APP3e Data Lab"> <meta name="keywords" content="iamnotphage"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link defer href="/assets/css/bootstrap-toc.min.css?6f5af0bb9aab25d79b2448143cbeaa88" rel="stylesheet"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://iamnotphage.github.io/blog/2022/CSAPP3eData/"> <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>initTheme();</script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Chen</span> Clay </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">cv </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">submenus </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/publications/">publications</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/projects/">projects</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/blog/">blog</a> </div> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="row"> <div class="col-sm-3"> <nav id="toc-sidebar" class="sticky-top"></nav> </div> <div class="col-sm-9"> <div class="post"> <header class="post-header"> <h1 class="post-title">CS:APP3e Data Lab</h1> <p class="post-meta"> Created in May 31, 2022 </p> <p class="post-tags"> <a href="/blog/2022"> <i class="fa-solid fa-calendar fa-sm"></i> 2022 </a>   ·   <a href="/blog/tag/c"> <i class="fa-solid fa-hashtag fa-sm"></i> c</a>   <a href="/blog/tag/csapp"> <i class="fa-solid fa-hashtag fa-sm"></i> csapp</a>   <a href="/blog/tag/bit"> <i class="fa-solid fa-hashtag fa-sm"></i> bit</a>   <a href="/blog/tag/ieee"> <i class="fa-solid fa-hashtag fa-sm"></i> IEEE</a>   <a href="/blog/tag/float"> <i class="fa-solid fa-hashtag fa-sm"></i> float</a>   ·   <a href="/blog/category/csapp"> <i class="fa-solid fa-tag fa-sm"></i> CSAPP</a>   <a href="/blog/category/%E9%A1%B9%E7%9B%AE"> <i class="fa-solid fa-tag fa-sm"></i> 项目</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>环境安装好后的第一个lab</p> <p>位运算实现一些基础函数，加深补码和IEEE浮点数的理解。</p> <p>确保gcc和make成功安装就行</p> <h1 id="implementation">Implementation</h1> <p>太简单就不放详细说明了。具体看注释。</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 
+ * CS:APP Data Lab 
+ * 
+ * &lt;Please put your name and userid here&gt;
+ * 
+ * bits.c - Source file with your solutions to the Lab.
+ *          This is the file you will hand in to your instructor.
+ *
+ * WARNING: Do not include the &lt;stdio.h&gt; header; it confuses the dlc
+ * compiler. You can still use printf for debugging without including
+ * &lt;stdio.h&gt;, although you might get a compiler warning. In general,
+ * it's not good practice to ignore compiler warnings, but in this
+ * case it's OK.  
+ */</span>
+
+<span class="c">#if 0
+/*
+ * Instructions to Students:
+ *
+ * STEP 1: Read the following instructions carefully.
+ */
+
+You will provide your solution to the Data Lab by
+editing the collection of functions in this source file.
+
+INTEGER CODING RULES:
+ 
+  Replace the "return" statement in each function with one
+  or more lines of C code that implements the function. Your code 
+  must conform to the following style:
+ 
+  int Funct(arg1, arg2, ...) {
+      /* brief description of how your implementation works */
+      int var1 = Expr1;
+      ...
+      int varM = ExprM;
+
+      varJ = ExprJ;
+      ...
+      varN = ExprN;
+      return ExprR;
+  }
+
+  Each "Expr" is an expression using ONLY the following:
+  1. Integer constants 0 through 255 (0xFF), inclusive. You are
+      not allowed to use big constants such as 0xffffffff.
+  2. Function arguments and local variables (no global variables).
+  3. Unary integer operations ! ~
+  4. Binary integer operations &amp; ^ | + &lt;&lt; &gt;&gt;
+    
+  Some of the problems restrict the set of allowed operators even further.
+  Each "Expr" may consist of multiple operators. You are not restricted to
+  one operator per line.
+
+  You are expressly forbidden to:
+  1. Use any control constructs such as if, do, while, for, switch, etc.
+  2. Define or use any macros.
+  3. Define any additional functions in this file.
+  4. Call any functions.
+  5. Use any other operations, such as &amp;&amp;, ||, -, or ?:
+  6. Use any form of casting.
+  7. Use any data type other than int.  This implies that you
+     cannot use arrays, structs, or unions.
+
+ 
+  You may assume that your machine:
+  1. Uses 2s complement, 32-bit representations of integers.
+  2. Performs right shifts arithmetically.
+  3. Has unpredictable behavior when shifting if the shift amount
+     is less than 0 or greater than 31.
+
+
+EXAMPLES OF ACCEPTABLE CODING STYLE:
+  /*
+   * pow2plus1 - returns 2^x + 1, where 0 &lt;= x &lt;= 31
+   */
+  int pow2plus1(int x) {
+     /* exploit ability of shifts to compute powers of 2 */
+     return (1 &lt;&lt; x) + 1;
+  }
+
+  /*
+   * pow2plus4 - returns 2^x + 4, where 0 &lt;= x &lt;= 31
+   */
+  int pow2plus4(int x) {
+     /* exploit ability of shifts to compute powers of 2 */
+     int result = (1 &lt;&lt; x);
+     result += 4;
+     return result;
+  }
+
+FLOATING POINT CODING RULES
+
+For the problems that require you to implement floating-point operations,
+the coding rules are less strict.  You are allowed to use looping and
+conditional control.  You are allowed to use both ints and unsigneds.
+You can use arbitrary integer and unsigned constants. You can use any arithmetic,
+logical, or comparison operations on int or unsigned data.
+
+You are expressly forbidden to:
+  1. Define or use any macros.
+  2. Define any additional functions in this file.
+  3. Call any functions.
+  4. Use any form of casting.
+  5. Use any data type other than int or unsigned.  This means that you
+     cannot use arrays, structs, or unions.
+  6. Use any floating point data types, operations, or constants.
+
+
+NOTES:
+  1. Use the dlc (data lab checker) compiler (described in the handout) to 
+     check the legality of your solutions.
+  2. Each function has a maximum number of operations (integer, logical,
+     or comparison) that you are allowed to use for your implementation
+     of the function.  The max operator count is checked by dlc.
+     Note that assignment ('=') is not counted; you may use as many of
+     these as you want without penalty.
+  3. Use the btest test harness to check your functions for correctness.
+  4. Use the BDD checker to formally verify your functions
+  5. The maximum number of ops for each function is given in the
+     header comment for each function. If there are any inconsistencies 
+     between the maximum ops in the writeup and in this file, consider
+     this file the authoritative source.
+
+/*
+ * STEP 2: Modify the following functions according the coding rules.
+ * 
+ *   IMPORTANT. TO AVOID GRADING SURPRISES:
+ *   1. Use the dlc compiler to check that your solutions conform
+ *      to the coding rules.
+ *   2. Use the BDD checker to formally verify that your solutions produce 
+ *      the correct answers.
+ */
+
+
+#endif
+</span><span class="c1">//1</span>
+<span class="cm">/* 
+ * bitXor - x^y using only ~ and &amp; 
+ *   Example: bitXor(4, 5) = 1
+ *   Legal ops: ~ &amp;
+ *   Max ops: 14
+ *   Rating: 1
+ */</span>
+<span class="kt">int</span> <span class="nf">bitXor</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// bitXor：画出真值表，可以由两个与的结果进行或，而或可以利用德摩根律转换</span>
+  <span class="k">return</span> <span class="o">~</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="o">~</span><span class="n">x</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cm">/* 
+ * tmin - return minimum two's complement integer 
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 4
+ *   Rating: 1
+ */</span>
+<span class="kt">int</span> <span class="nf">tmin</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// tmin: 1000 0000 0000 0000 0000 0000 0000 0000</span>
+  <span class="k">return</span> <span class="mh">0x80</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//2</span>
+<span class="cm">/*
+ * isTmax - returns 1 if x is the maximum, two's complement number,
+ *     and 0 otherwise 
+ *   Legal ops: ! ~ &amp; ^ | +
+ *   Max ops: 10
+ *   Rating: 1
+ */</span>
+<span class="kt">int</span> <span class="nf">isTmax</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// isTmax: x如果是tmax, ~x就是tmin, tmin的相反数(~tmin + 1 == tmin)等于本身</span>
+  <span class="c1">// 所以 判断equals(~(~x) + 1, ~x), 同时排除 x == -1 的情况即可</span>
+  <span class="c1">// equals可以用同或，同或可以用 !(A ^ B) 来实现</span>
+  <span class="k">return</span> <span class="o">!!</span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">!</span><span class="p">((</span><span class="o">~</span><span class="n">x</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="cm">/* 
+ * allOddBits - return 1 if all odd-numbered bits in word set to 1
+ *   where bits are numbered from 0 (least significant) to 31 (most significant)
+ *   Examples allOddBits(0xFFFFFFFD) = 0, allOddBits(0xAAAAAAAA) = 1
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 12
+ *   Rating: 2
+ */</span>
+<span class="kt">int</span> <span class="nf">allOddBits</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 利用 0xAA 对x的每个8位判断，按位与的结果仍然是0xaa</span>
+  <span class="c1">// 最后与起来，与0xAA比较是否相等(!(A ^ B))同或</span>
+  <span class="k">return</span> <span class="o">!</span><span class="p">(((</span><span class="mh">0xaa</span> <span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> 
+         <span class="p">(</span><span class="mh">0xaa</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span>
+         <span class="p">(</span><span class="mh">0xaa</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span>
+         <span class="p">(</span><span class="mh">0xaa</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">))</span> <span class="o">^</span> <span class="mh">0xaa</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cm">/* 
+ * negate - return -x 
+ *   Example: negate(1) = -1.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 5
+ *   Rating: 2
+ */</span>
+<span class="kt">int</span> <span class="nf">negate</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">~</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//3</span>
+<span class="cm">/* 
+ * isAsciiDigit - return 1 if 0x30 &lt;= x &lt;= 0x39 (ASCII codes for characters '0' to '9')
+ *   Example: isAsciiDigit(0x35) = 1.
+ *            isAsciiDigit(0x3a) = 0.
+ *            isAsciiDigit(0x05) = 0.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 15
+ *   Rating: 3
+ */</span>
+<span class="kt">int</span> <span class="nf">isAsciiDigit</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 0x30 &lt;= x &lt;= 0x39 : 也就是x等于 0x0011 0??? 或者 0x0011 100?</span>
+  <span class="c1">// ?表示0或1，所以只需要截取前面的来判断即可</span>
+  <span class="c1">// equals(x &gt;&gt; 3, 0x06) | equals(x &gt;&gt; 1, 0x1C)</span>
+  <span class="k">return</span> <span class="o">!</span><span class="p">((</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x06</span><span class="p">)</span> <span class="o">|</span> <span class="o">!</span><span class="p">((</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x1c</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cm">/* 
+ * conditional - same as x ? y : z 
+ *   Example: conditional(2,4,5) = 4
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 16
+ *   Rating: 3
+ */</span>
+<span class="kt">int</span> <span class="nf">conditional</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 先将非0的x统一转为1，也就是 !!x 即可</span>
+  <span class="c1">// !!x是1时，应该构造出 y | 0</span>
+  <span class="c1">// !!x是0时，应该构造出 0 | z</span>
+  <span class="c1">// 可以用 A = (!!x - 1) = (!!x + (-1)) = (!!x + (~1 + 1))</span>
+  <span class="c1">// !!x是1的时候，A = 0，!!x是0的时候，A = -1 = 0xFFFF FFFF</span>
+  <span class="kt">int</span> <span class="n">condition</span> <span class="o">=</span> <span class="o">!!</span><span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="o">~</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">(</span><span class="o">~</span><span class="n">condition</span> <span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">condition</span> <span class="o">&amp;</span> <span class="n">z</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cm">/* 
+ * isLessOrEqual - if x &lt;= y  then return 1, else return 0 
+ *   Example: isLessOrEqual(4,5) = 1.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 24
+ *   Rating: 3
+ */</span>
+<span class="kt">int</span> <span class="nf">isLessOrEqual</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 判断 x &lt;= y, 可以考虑 y - x &gt;= 0</span>
+  <span class="c1">// 但同时，需要考虑 y + (~x + 1) 的溢出情况</span>
+  <span class="c1">// 补码加法判断溢出，两种情况：signX = 0 &amp;&amp; signY = 1 &amp;&amp; signSum = 0</span>
+  <span class="c1">// 或者 signX = 1 &amp;&amp; signY = 0 &amp;&amp; signSum = 1 即可</span>
+  <span class="c1">// (补码加法中，同号相加 获得 异号的和就是溢出了)</span>
+  <span class="c1">// 其余没有溢出的情况，直接判断 y - x 的符号位就行</span>
+  <span class="c1">// 最后借助上面的 conditional(x, y, z) 返回答案</span>
+  <span class="kt">int</span> <span class="n">negativeX</span> <span class="o">=</span> <span class="o">~</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">negativeX</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">signX</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">signY</span> <span class="o">=</span> <span class="n">y</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">signS</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">isOverflow</span> <span class="o">=</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">signX</span> <span class="o">^</span> <span class="n">signS</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">signY</span> <span class="o">^</span> <span class="n">signS</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">isOverflow</span> <span class="o">&amp;</span> <span class="n">signS</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="o">~</span><span class="n">isOverflow</span> <span class="o">&amp;</span> <span class="o">!</span><span class="n">signS</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">//4</span>
+<span class="cm">/* 
+ * logicalNeg - implement the ! operator, using all of 
+ *              the legal operators except !
+ *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1
+ *   Legal ops: ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 12
+ *   Rating: 4 
+ */</span>
+<span class="kt">int</span> <span class="nf">logicalNeg</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 相当于只有全0才输出1，其余输出0</span>
+  <span class="c1">// 可以取反后，全1输出1，其余输出0</span>
+  <span class="c1">// 判断全1，可以利用0xff进行与以及移位操作</span>
+  <span class="c1">// 如果全1，最后得到的仍然是0xff</span>
+  <span class="c1">// 最后的res一定是[0, 255]的8bit数，所以0xff + 1 一定"溢出"一位</span>
+  <span class="c1">// 而 res &lt; 0xff 的情况，res + 1的第8bit一定是0</span>
+  <span class="kt">int</span> <span class="n">reverseX</span> <span class="o">=</span> <span class="o">~</span><span class="n">x</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">reverseX</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">)</span> <span class="o">&amp;</span>
+            <span class="p">(</span><span class="n">reverseX</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span>
+            <span class="p">(</span><span class="n">reverseX</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span>
+            <span class="p">(</span><span class="n">reverseX</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">res</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/* howManyBits - return the minimum number of bits required to represent x in
+ *             two's complement
+ *  Examples: howManyBits(12) = 5
+ *            howManyBits(298) = 10
+ *            howManyBits(-5) = 4
+ *            howManyBits(0)  = 1
+ *            howManyBits(-1) = 1
+ *            howManyBits(0x80000000) = 32
+ *  Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *  Max ops: 90
+ *  Rating: 4
+ */</span>
+<span class="kt">int</span> <span class="nf">howManyBits</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 先对输入的int x判断正负，比如-14 = 0b10010 =&gt; 5bit (~x) = 0b01101</span>
+  <span class="c1">// 而+14 = 0b01110 =&gt; 5bit 可以发现负数可以先按位取反转正数判断</span>
+  <span class="c1">// 对于任意正数，比如298 = 0x0000012a 首个1出现的位置是后面0x12a = 0b 1 0010 1010</span>
+  <span class="c1">// 需要 9 + 1 = 10bit 所以需要找出首个1的位置，最后答案是该长度加一</span>
+  <span class="c1">// 32bit二分查找，先查高16位，如果1在其中，再进一步查这16位的高8位......</span>
+  <span class="c1">// 判断是否存在1很容易,只需要利用 ! 运算 !!x &lt;=&gt; existsOne(x)</span>
+  <span class="c1">// 如果高16位存在1，说明至少长度是16位，可以先加上16，同时低16位不需要考虑，以此类推</span>
+  <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">absx</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">sign</span> <span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">sign</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">x</span><span class="p">);</span>
+  <span class="kt">int</span> <span class="n">b16</span><span class="p">,</span> <span class="n">b8</span><span class="p">,</span> <span class="n">b4</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b0</span><span class="p">;</span>
+
+  <span class="c1">// 高16位如果存在1，那么取x的高16位继续判断，否则x不截取</span>
+  <span class="n">b16</span> <span class="o">=</span> <span class="o">!!</span><span class="p">(</span><span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="n">absx</span> <span class="o">=</span> <span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="n">b16</span><span class="p">;</span>
+
+  <span class="c1">// 高8位如果存在1，那么取x的高8位继续判断，否则x不截取</span>
+  <span class="n">b8</span> <span class="o">=</span> <span class="o">!!</span><span class="p">(</span><span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="n">absx</span> <span class="o">=</span> <span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="n">b8</span><span class="p">;</span>
+
+  <span class="c1">// 高4位如果存在1，那么取x的高4位继续判断，否则x不截取</span>
+  <span class="n">b4</span> <span class="o">=</span> <span class="o">!!</span><span class="p">(</span><span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="n">absx</span> <span class="o">=</span> <span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="n">b4</span><span class="p">;</span>
+
+  <span class="c1">// 高2位如果存在1，那么取x的高2位继续判断，否则x不截取</span>
+  <span class="n">b2</span> <span class="o">=</span> <span class="o">!!</span><span class="p">(</span><span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">absx</span> <span class="o">=</span> <span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="n">b2</span><span class="p">;</span>
+
+  <span class="c1">// 此时，应该只剩两位有效位，并且有至少有一位是1</span>
+  <span class="n">b1</span> <span class="o">=</span> <span class="o">!!</span><span class="p">(</span><span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n">absx</span> <span class="o">=</span> <span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="n">b1</span><span class="p">;</span>
+  
+  <span class="n">b0</span> <span class="o">=</span> <span class="n">absx</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="n">b16</span> <span class="o">+</span> <span class="n">b8</span> <span class="o">+</span> <span class="n">b4</span> <span class="o">+</span> <span class="n">b2</span> <span class="o">+</span> <span class="n">b1</span> <span class="o">+</span> <span class="n">b0</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//float</span>
+<span class="cm">/* 
+ * floatScale2 - Return bit-level equivalent of expression 2*f for
+ *   floating point argument f.
+ *   Both the argument and result are passed as unsigned int's, but
+ *   they are to be interpreted as the bit-level representation of
+ *   single-precision floating point values.
+ *   When argument is NaN, return argument
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
+ *   Max ops: 30
+ *   Rating: 4
+ */</span>
+<span class="kt">unsigned</span> <span class="nf">floatScale2</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">uf</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// float: 32bit表示 =&gt; sign exp frac =&gt; V = (-1)^s * 2^E * M</span>
+  <span class="c1">// sign 1bit; exp 8bit; frac 23bit;</span>
+  <span class="c1">// 如果是规格化的数，那么 E = exp - bias, M = 1 + f; 那么乘2相当于 exp + 1 即可</span>
+  <span class="c1">// 如果是非规格化的数，那么 E = 1 - bias, M = f; 那么乘2相当于 [exp frac] 左移1位</span>
+  <span class="c1">// 如果是NaN或者infinity, 那么exp == 255则直接返回 uf 即可</span>
+  <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">uf</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">exp</span> <span class="o">=</span> <span class="p">(</span><span class="n">uf</span> <span class="o">&amp;</span> <span class="mh">0x7f800000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">23</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="n">exp</span> <span class="o">&amp;&amp;</span> <span class="o">!!</span><span class="p">(</span><span class="n">exp</span> <span class="o">^</span> <span class="mh">0xff</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// Normalized</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="n">exp</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">uf</span> <span class="o">=</span> <span class="p">(</span><span class="n">uf</span> <span class="o">&amp;</span> <span class="mh">0x807fffff</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">exp</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">exp</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Denormalized</span>
+    <span class="n">uf</span> <span class="o">=</span> <span class="p">(</span><span class="n">uf</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">sign</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">uf</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/* 
+ * floatFloat2Int - Return bit-level equivalent of expression (int) f
+ *   for floating point argument f.
+ *   Argument is passed as unsigned int, but
+ *   it is to be interpreted as the bit-level representation of a
+ *   single-precision floating point value.
+ *   Anything out of range (including NaN and infinity) should return
+ *   0x80000000u.
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
+ *   Max ops: 30
+ *   Rating: 4
+ */</span>
+<span class="kt">int</span> <span class="nf">floatFloat2Int</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">uf</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// NaN和infinity最容易排除，直接判断exp是否等于0xff即可</span>
+  <span class="c1">// 其次是规格化的数，exp 属于 (0, 255)</span>
+  <span class="c1">// V = (-1)^s * M * 2^E</span>
+  <span class="c1">// E = exp - bias 可以根据E的大小来判断是否out of range</span>
+  <span class="c1">// E &lt; 0 则截断即可，直接返回0</span>
+  <span class="c1">// E 属于 [0, 31]则根据符号位返回就行</span>
+  <span class="c1">// E &gt;= 32 一定是溢出int的范围的，所以直接返回0x80000000u</span>
+  <span class="c1">// 对于非规格化的数，一定是 E = 1 - bias &lt; 0 所以直接返回0</span>
+  <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">uf</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">exp</span> <span class="o">=</span> <span class="p">(</span><span class="n">uf</span> <span class="o">&amp;</span> <span class="mh">0x7f800000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">23</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">bias</span> <span class="o">=</span> <span class="mi">127</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">exp</span> <span class="o">^</span> <span class="mh">0xff</span><span class="p">))</span> <span class="k">return</span> <span class="mh">0x80000000u</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="n">exp</span> <span class="o">&amp;</span> <span class="o">!!</span><span class="p">(</span><span class="n">exp</span> <span class="o">^</span> <span class="mh">0xff</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// Normalized</span>
+    <span class="kt">int</span> <span class="n">E</span> <span class="o">=</span> <span class="n">exp</span> <span class="o">-</span> <span class="n">bias</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">E</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">E</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">E</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="p">){</span>
+      <span class="kt">int</span> <span class="n">absRes</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">E</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">sign</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">~</span><span class="n">absRes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">absRes</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="mh">0x80000000u</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Denormalized</span>
+<span class="p">}</span>
+<span class="cm">/* 
+ * floatPower2 - Return bit-level equivalent of the expression 2.0^x
+ *   (2.0 raised to the power x) for any 32-bit integer x.
+ *
+ *   The unsigned value that is returned should have the identical bit
+ *   representation as the single-precision floating-point number 2.0^x.
+ *   If the result is too small to be represented as a denorm, return
+ *   0. If too large, return +INF.
+ * 
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while 
+ *   Max ops: 30 
+ *   Rating: 4
+ */</span>
+<span class="kt">unsigned</span> <span class="nf">floatPower2</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">exp</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">126</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">127</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">127</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">exp</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">126</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mh">0x7f800000</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div> </div> </article> <div id="giscus_thread" style="max-width: 930px; margin: 0 auto;"> <script>let giscusTheme=determineComputedTheme(),giscusAttributes={src:"https://giscus.app/client.js","data-repo":"Iamnotphage/iamnotphage.github.io","data-repo-id":"R_kgDONFoQgA","data-category":"Announcements","data-category-id":"DIC_kwDONFoQgM4CjtJq","data-mapping":"pathname","data-strict":"0","data-reactions-enabled":"1","data-emit-metadata":"0","data-input-position":"bottom","data-theme":giscusTheme,"data-lang":"en",crossorigin:"anonymous",async:""},giscusScript=document.createElement("script");Object.entries(giscusAttributes).forEach(([t,e])=>giscusScript.setAttribute(t,e)),document.getElementById("giscus_thread").appendChild(giscusScript);</script> <noscript>Please enable JavaScript to view the <a href="http://giscus.app/?ref_noscript" rel="external nofollow noopener" target="_blank">comments powered by giscus.</a> </noscript> </div> </div> </div> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2024 Chen Clay. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script defer src="/assets/js/bootstrap-toc.min.js?c82ff4de8b0955d6ff14f5b05eed7eb6"></script> <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script> <script defer src="/assets/js/copy_code.js?12775fdf7f95e901d7119054556e495f" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script type="text/javascript">window.MathJax={tex:{tags:"ams"}};</script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script type="text/javascript">function progressBarSetup(){"max"in document.createElement("progress")?(initializeProgressElement(),$(document).on("scroll",function(){progressBar.attr({value:getCurrentScrollPosition()})}),$(window).on("resize",initializeProgressElement)):(resizeProgressBar(),$(document).on("scroll",resizeProgressBar),$(window).on("resize",resizeProgressBar))}function getCurrentScrollPosition(){return $(window).scrollTop()}function initializeProgressElement(){let e=$("#navbar").outerHeight(!0);$("body").css({"padding-top":e}),$("progress-container").css({"padding-top":e}),progressBar.css({top:e}),progressBar.attr({max:getDistanceToScroll(),value:getCurrentScrollPosition()})}function getDistanceToScroll(){return $(document).height()-$(window).height()}function resizeProgressBar(){progressBar.css({width:getWidthPercentage()+"%"})}function getWidthPercentage(){return getCurrentScrollPosition()/getDistanceToScroll()*100}const progressBar=$("#progress");window.onload=function(){setTimeout(progressBarSetup,50)};</script> <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script> <script>addBackToTop();</script> <script type="module" src="/assets/js/search/ninja-keys.min.js?a3446f084dcaecc5f75aa1757d087dcf"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script>let searchTheme=determineComputedTheme();const ninjaKeys=document.querySelector("ninja-keys");"dark"===searchTheme?ninjaKeys.classList.add("dark"):ninjaKeys.classList.remove("dark");const openSearchModal=()=>{const e=$("#navbarNav");e.hasClass("show")&&e.collapse("hide"),ninjaKeys.open()};</script> <script>const ninja=document.querySelector("ninja-keys");ninja.data=[{id:"nav-about",title:"about",section:"Navigation",handler:()=>{window.location.href="/"}},{id:"nav-blog",title:"blog",description:"",section:"Navigation",handler:()=>{window.location.href="/blog/"}},{id:"nav-publications",title:"publications",description:"publications by categories in reversed chronological order. generated by jekyll-scholar.",section:"Navigation",handler:()=>{window.location.href="/publications/"}},{id:"nav-projects",title:"projects",description:"A growing collection of your cool projects.",section:"Navigation",handler:()=>{window.location.href="/projects/"}},{id:"nav-repositories",title:"repositories",description:"Here are some source codes. Enjoy yourself.",section:"Navigation",handler:()=>{window.location.href="/repositories/"}},{id:"nav-cv",title:"cv",description:"This is my Curriculum Vitae.",section:"Navigation",handler:()=>{window.location.href="/cv/"}},{id:"dropdown-publications",title:"publications",description:"",section:"Dropdown",handler:()=>{window.location.href=""}},{id:"dropdown-projects",title:"projects",description:"",section:"Dropdown",handler:()=>{window.location.href=""}},{id:"dropdown-blog",title:"blog",description:"",section:"Dropdown",handler:()=>{window.location.href="/blog/"}},{id:"post-my-dbms",title:"my DBMS",description:"\u897f\u7535\u7f16\u8bd1\u539f\u7406\u5927\u4f5c\u4e1a:\u7cbe\u7b80SQL\u7f16\u8bd1\u5668\u5b9e\u73b0",section:"Posts",handler:()=>{window.location.href="/blog/2024/myDBMS/"}},{id:"post-princeton-algorithm-i-amp-ii-labs",title:"Princeton Algorithm I &amp; II Labs",description:"\u666e\u6797\u65af\u987f\u7b97\u6cd5\u7b2c\u56db\u7248\u8bfe\u540eLabs",section:"Posts",handler:()=>{window.location.href="/blog/2023/algs4/"}},{id:"post-\u897f\u7535cs\u6838\u5fc3\u8bfe\u7a0b\u6307\u5357",title:"\u897f\u7535CS\u6838\u5fc3\u8bfe\u7a0b\u6307\u5357",description:"\u897f\u7535CS\u751f\u5b58\u6307\u5357(\u8ba1\u7ec4)",section:"Posts",handler:()=>{window.location.href="/blog/2022/CSSurvivalGuide/"}},{id:"post-cmc-speedrun",title:"CMC-SpeedRun",description:"\u901f\u901a\u5168\u56fd\u5927\u5b66\u751f\u6570\u5b66\u7ade\u8d5b(\u975e\u6570\u5b66\u4e13\u4e1a)\u6559\u7a0b",section:"Posts",handler:()=>{window.location.href="/blog/2022/%E9%80%9F%E9%80%9A%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"}},{id:"post-ti-rslk\u81ea\u52a8\u5faa\u8ff9\u5c0f\u8f66",title:"TI-RSLK\u81ea\u52a8\u5faa\u8ff9\u5c0f\u8f66",description:"\u897f\u7535\u53cc\u521b\u5468\u5c0f\u9879\u76ee:\u81ea\u52a8\u5faa\u8ff9\u5c0f\u8f66\u5b9e\u73b0",section:"Posts",handler:()=>{window.location.href="/blog/2022/TI-RSLK%E8%87%AA%E5%8A%A8%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6/"}},{id:"post-cs-app3e-attack-lab",title:"CS:APP3e Attack Lab",description:"Personal Crack on CS:APP3e Attack Lab",section:"Posts",handler:()=>{window.location.href="/blog/2022/CSAPP3eAttack/"}},{id:"post-cs-app3e-bomb-lab",title:"CS:APP3e Bomb Lab",description:"Personal Crack on CS:APP3e Bomb Lab",section:"Posts",handler:()=>{window.location.href="/blog/2022/CSAPP3eBomb/"}},{id:"post-cs-app3e-data-lab",title:"CS:APP3e Data Lab",description:"Personal Crack on CS:APP3e Data Lab",section:"Posts",handler:()=>{window.location.href="/blog/2022/CSAPP3eData/"}},{id:"post-xdoj\u5168\u7f51\u6700\u5168-iamnotphage\u7684\u535a\u5ba2-csdn\u535a\u5ba2",title:'XDOJ\u5168\u7f51\u6700\u5168_Iamnotphage\u7684\u535a\u5ba2-CSDN\u535a\u5ba2 <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',description:"\u6570\u636e\u7ed3\u6784-\u6811,\u6570\u636e\u7ed3\u6784-\u4e32\u3001\u6570\u7ec4\u3001\u5e7f\u4e49\u8868,\u6570\u636e\u7ed3\u6784-\u6808\u548c\u961f\u5217,c\u8bed\u8a00,\u7b97\u6cd5,\u56fe\u8bba",section:"Posts",handler:()=>{window.open("https://blog.csdn.net/phage17/category_11479659.html","_blank")}},{id:"news-eniac-was-born-it-has-nothing-to-do-with-me",title:"ENIAC was born.(It has nothing to do with me.)",description:"",section:"News"},{id:"news-completed-a-internship-at-huawei-tech-co-ltd",title:"Completed a internship at Huawei Tech Co., Ltd.",description:"",section:"News"},{id:"news-received-a-graduate-school-recommendation-for-admission-to-xi-an-jiaotong-university",title:"Received a graduate school recommendation for admission to Xi\u2019an Jiaotong University.",description:"",section:"News"},{id:"projects-project-1",title:"project 1",description:"with background image",section:"Projects",handler:()=>{window.location.href="/projects/1_project/"}},{id:"projects-project-2",title:"project 2",description:"a project with a background image and giscus comments",section:"Projects",handler:()=>{window.location.href="/projects/2_project/"}},{id:"projects-project-3-with-very-long-name",title:"project 3 with very long name",description:"a project that redirects to another website",section:"Projects",handler:()=>{window.location.href="/projects/3_project/"}},{id:"projects-project-4",title:"project 4",description:"another without an image",section:"Projects",handler:()=>{window.location.href="/projects/4_project/"}},{id:"projects-project-5",title:"project 5",description:"a project with a background image",section:"Projects",handler:()=>{window.location.href="/projects/5_project/"}},{id:"projects-project-6",title:"project 6",description:"a project with no image",section:"Projects",handler:()=>{window.location.href="/projects/6_project/"}},{id:"projects-project-7",title:"project 7",description:"with background image",section:"Projects",handler:()=>{window.location.href="/projects/7_project/"}},{id:"projects-project-8",title:"project 8",description:"an other project with a background image and giscus comments",section:"Projects",handler:()=>{window.location.href="/projects/8_project/"}},{id:"projects-project-9",title:"project 9",description:"another project with an image \ud83c\udf89",section:"Projects",handler:()=>{window.location.href="/projects/9_project/"}},{id:"socials-email",title:"Send email",section:"Socials",handler:()=>{window.open("mailto:%69%61%6D%6E%6F%74%70%68%61%67%65@%31%36%33.%63%6F%6D","_blank")}},{id:"socials-google-scholar",title:"Google Scholar",section:"Socials",handler:()=>{window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ","_blank")}},{id:"socials-rss",title:"RSS Feed",section:"Socials",handler:()=>{window.open("/feed.xml","_blank")}},{id:"light-theme",title:"Change theme to light",description:"Change the theme of the site to Light",section:"Theme",handler:()=>{setThemeSetting("light")}},{id:"dark-theme",title:"Change theme to dark",description:"Change the theme of the site to Dark",section:"Theme",handler:()=>{setThemeSetting("dark")}},{id:"system-theme",title:"Use system default theme",description:"Change the theme of the site to System Default",section:"Theme",handler:()=>{setThemeSetting("system")}}];</script> <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script> </body> </html>
