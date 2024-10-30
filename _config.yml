@@ -310,7 +310,7 @@ jekyll-archives:
     category: "/blog/category/:name/"
 
 display_tags: ["c", "cpp", "java", "math", "code", "python"] # these tags will be displayed on the front page of your blog
-display_categories: ["西电相关", "竞赛", "项目"] # these categories will be displayed on the front page of your blog
+display_categories: ["西电相关", "CSAPP", "项目"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
