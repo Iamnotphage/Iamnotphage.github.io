@@ -1,0 +1,517 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> CS:APP3e Arch Lab | Chen Clay </title> <meta name="author" content="Chen Clay"> <meta name="description" content="Personal Crack on CS:APP3e Arch Lab"> <meta name="keywords" content="iamnotphage"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link defer href="/assets/css/bootstrap-toc.min.css?6f5af0bb9aab25d79b2448143cbeaa88" rel="stylesheet"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://iamnotphage.github.io/blog/2022/CSAPP3eArch/"> <script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>initTheme();</script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Chen</span> Clay </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">cv </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">submenus </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/publications/">publications</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/projects/">projects</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/blog/">blog</a> </div> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="ti ti-search"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="row"> <div class="col-sm-3"> <nav id="toc-sidebar" class="sticky-top"></nav> </div> <div class="col-sm-9"> <div class="post"> <header class="post-header"> <h1 class="post-title">CS:APP3e Arch Lab</h1> <p class="post-meta"> Created in June 03, 2022 </p> <p class="post-tags"> <a href="/blog/2022"> <i class="fa-solid fa-calendar fa-sm"></i> 2022 </a>   ·   <a href="/blog/tag/c"> <i class="fa-solid fa-hashtag fa-sm"></i> c</a>   <a href="/blog/tag/assembly"> <i class="fa-solid fa-hashtag fa-sm"></i> assembly</a>   <a href="/blog/tag/csapp"> <i class="fa-solid fa-hashtag fa-sm"></i> csapp</a>   <a href="/blog/tag/gdb"> <i class="fa-solid fa-hashtag fa-sm"></i> gdb</a>   <a href="/blog/tag/pipeline"> <i class="fa-solid fa-hashtag fa-sm"></i> pipeline</a>   ·   <a href="/blog/category/csapp"> <i class="fa-solid fa-tag fa-sm"></i> CSAPP</a>   <a href="/blog/category/%E9%A1%B9%E7%9B%AE"> <i class="fa-solid fa-tag fa-sm"></i> 项目</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>首先是安装好需要的内容。</p> <p><code class="language-plaintext highlighter-rouge">flex</code>, <code class="language-plaintext highlighter-rouge">bison</code></p> <p><code class="language-plaintext highlighter-rouge">gcc</code>和<code class="language-plaintext highlighter-rouge">make</code>就不多说了。</p> <p>然后根据自己情况调整<code class="language-plaintext highlighter-rouge">Makefile</code>(sim各级目录下的<code class="language-plaintext highlighter-rouge">Makefile</code>)</p> <blockquote> <p>笔者遇到-lfl找不到的情况，前往Makefile把LEXLIB = -lfl改成空就行了</p> <p>此外就是GUI mode的情况，我懒得安装tcl/tk直接把Makefile相关的注释就行</p> </blockquote> <p>仔细阅读<code class="language-plaintext highlighter-rouge">writeup</code>和书本<code class="language-plaintext highlighter-rouge">chapter 4</code></p> <h1 id="part-a">Part A</h1> <p>工作在<code class="language-plaintext highlighter-rouge">arch/sim/misc</code>目录下</p> <p>仿照书本<code class="language-plaintext highlighter-rouge">figure 4-7</code>并对照<code class="language-plaintext highlighter-rouge">example.c</code>容易写出<code class="language-plaintext highlighter-rouge">sum.ys</code>:</p> <p>(最后一行空行构成EOF)</p> <p>然后<code class="language-plaintext highlighter-rouge">./yas sum.ys</code>和<code class="language-plaintext highlighter-rouge">./yis sum.yo</code>检查<code class="language-plaintext highlighter-rouge">Status</code>和<code class="language-plaintext highlighter-rouge">%rax</code>是否正常</p> <pre><code class="language-asm"># Execution begins at address 0
+        .pos 0
+        irmovq stack, %rsp
+        call main
+        halt
+
+# Sample linked list
+.align 8
+ele1:
+        .quad 0x00a
+        .quad ele2
+ele2:
+        .quad 0x0b0
+        .quad ele3
+ele3:
+        .quad 0xc00
+        .quad 0
+
+main:
+        irmovq  ele1, %rdi
+        call    sum_list
+        ret
+
+# long sum_list(list_ptr ls)
+# ls in %rdi
+sum_list:
+        xorq    %rax, %rax      # long val = 0;
+loop:
+        andq    %rdi, %rdi      # stop when %rdi == 0
+        je      exit
+        mrmovq  (%rdi), %r10
+        addq    %r10, %rax      # val += ls -&gt; val;
+        mrmovq  8(%rdi), %rdi
+        jmp     loop
+exit:   
+        ret
+
+# Stack starts here and grows to lower addresses
+	    .pos 0x200
+stack:
+
+</code></pre> <p>然后是<code class="language-plaintext highlighter-rouge">rsum.ys</code>:</p> <pre><code class="language-asm"># Execution begins at address 0
+        .pos 0
+        irmovq stack, %rsp
+        call main
+        halt
+
+# Sample linked list
+        .align 8
+ele1:
+        .quad 0x00a
+        .quad ele2
+ele2:
+        .quad 0x0b0
+        .quad ele3
+ele3:
+        .quad 0xc00
+        .quad 0
+
+main:
+        irmovq  ele1, %rdi
+        call    rsum_list
+        ret
+
+# long rsum_list(list_ptr ls)
+# ls in %rdi
+rsum_list:
+        pushq   %rbx            # callee saved register
+        xorq    %rax, %rax
+        andq    %rdi, %rdi
+        jne     else
+        xorq    %rax, %rax
+        jmp     exit
+else:
+        mrmovq  (%rdi), %rbx    # %rbx is val
+        mrmovq  8(%rdi), %rdi	# %rdi = %rdi -&gt; next
+        call    rsum_list
+        addq    %rbx, %rax	    # val + rsum_list()
+exit:
+        popq	%rbx
+        ret
+
+# Stack starts here and grows to lower addresses
+	    .pos 0x200
+stack:
+
+</code></pre> <p>最后是<code class="language-plaintext highlighter-rouge">copy.ys</code>也很简单，照着c代码写就行:</p> <pre><code class="language-asm"># Execution begins at address 0
+        .pos 0
+        irmovq stack, %rsp
+        call main
+        halt
+
+        .align 8
+# Source block
+src:
+        .quad 0x00a
+        .quad 0x0b0
+        .quad 0xc00
+# Destination block
+dest:
+        .quad 0x111
+        .quad 0x222
+        .quad 0x333
+
+main:
+        irmovq  src, %rdi
+        irmovq  dest, %rsi
+        irmovq  $3, %rdx
+        call    copy_block
+        ret
+
+# long copy_block(long *src, long *dest, long len)
+# src in %rdi, dest in %rsi, len in %rdx
+copy_block:
+        irmovq  $8, %r9
+        irmovq  $-1, %r10
+        xorq    %rax, %rax
+
+loop:
+        andq    %rdx, %rdx
+        je      exit
+
+        mrmovq  (%rdi), %r8     # %r8 is val
+        addq    %r9, %rdi
+        rmmovq  %r8, (%rsi)
+        addq    %r9, %rsi
+        xorq    %r8, %rax
+        addq    %r10, %rdx
+        jmp     loop
+exit:
+        ret
+
+# Stack starts here and grows to lower addresses
+	    .pos 0x200
+stack:
+
+</code></pre> <p>最后这个<code class="language-plaintext highlighter-rouge">copy.ys</code>经过<code class="language-plaintext highlighter-rouge">./yas</code>编译<code class="language-plaintext highlighter-rouge">./yis</code>运行检查后，<code class="language-plaintext highlighter-rouge">%rax</code>的值仍然是<code class="language-plaintext highlighter-rouge">0xcba</code></p> <p>并且内存的内容相应地也改变。</p> <p>这个part有30分，每个文件10分。</p> <h1 id="part-b">Part B</h1> <p>在进行这部分内容时，请选确保已经阅读CS:APP3e的4.2章节和4.3章节</p> <p>首先通过前面的部分可以知道指令的字节码如下:</p> <p>表格一列代表4bit</p> <table> <thead> <tr> <th>0</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> <th>…</th> <th>19</th> </tr> </thead> <tbody> <tr> <td>icode</td> <td>ifun</td> <td>rA</td> <td>rB</td> <td> </td> <td> </td> <td> </td> <td> </td> </tr> </tbody> </table> <p>后续的空格代表立即数(64bit)</p> <p>其次，要对执行一条指令的几个阶段了解(查看figure 4-18):</p> <ol> <li>取指</li> <li>译码</li> <li>执行</li> <li>访存</li> <li>写回</li> <li>更新PC</li> </ol> <p>所以要实现<code class="language-plaintext highlighter-rouge">iaddq</code>的指令，根据书本的描述:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C 0 F [rB] [V]
+</code></pre></div></div> <p>前面的<code class="language-plaintext highlighter-rouge">icode</code>和<code class="language-plaintext highlighter-rouge">ifun</code>和<code class="language-plaintext highlighter-rouge">rA</code>都是固定的，<code class="language-plaintext highlighter-rouge">V</code>表示立即数。</p> <p>仿照课本的例子，<code class="language-plaintext highlighter-rouge">iaddq</code>的执行阶段也就是:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. icode:ifun &lt;- M1[PC]         # 开始取指
+2. rA:rB      &lt;- M1[PC + 1]
+3. valC       &lt;- M8[PC + 2]     # 64bit立即数
+4. valP       &lt;- PC + 10        # 1B 指令类别 1B寄存器编号 8B立即数
+5. valB       &lt;- R[rB]          # 开始译码
+6. valE       &lt;- valC + valB    # 开始执行
+7. R[rB]      &lt;- valE           # 开始写回
+8. PC         &lt;- valP           # 更新PC
+</code></pre></div></div> <p>到这一步，要确保阅读过<code class="language-plaintext highlighter-rouge">4.3.2</code>已经了解<code class="language-plaintext highlighter-rouge">SEQ</code>的硬件结构，方便对照修改<code class="language-plaintext highlighter-rouge">seq-full.hcl</code>文件</p> <hr> <p>对照<code class="language-plaintext highlighter-rouge">figure 4-27</code>SEQ的取指阶段，修改<code class="language-plaintext highlighter-rouge">seq-full.hcl</code></p> <p>首先<code class="language-plaintext highlighter-rouge">seq-full.hcl</code>已经在42行定义了</p> <p><code class="language-plaintext highlighter-rouge">wordsig IIADDQ 'I_IADDQ'</code></p> <p>我们只需要到<code class="language-plaintext highlighter-rouge">fetch stage</code>修改对应的内容，修改它为valid指令，同时需要寄存器和常数。</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>################ Fetch Stage     ###################################
+
+# Determine instruction code
+word icode = [
+	imem_error: INOP;
+	1: imem_icode;		# Default: get from instruction memory
+];
+
+# Determine instruction function
+word ifun = [
+	imem_error: FNONE;
+	1: imem_ifun;		# Default: get from instruction memory
+];
+
+bool instr_valid = icode in 
+	{ INOP, IHALT, IRRMOVQ, IIRMOVQ, IRMMOVQ, IMRMOVQ,
+	       IOPQ, IJXX, ICALL, IRET, IPUSHQ, IPOPQ, IIADDQ };
+
+# Does fetched instruction require a regid byte?
+bool need_regids =
+	icode in { IRRMOVQ, IOPQ, IPUSHQ, IPOPQ, 
+		     IIRMOVQ, IRMMOVQ, IMRMOVQ, IIADDQ };
+
+# Does fetched instruction require a constant word?
+bool need_valC =
+	icode in { IIRMOVQ, IRMMOVQ, IMRMOVQ, IJXX, ICALL, IIADDQ };
+</code></pre></div></div> <hr> <p>同样地，对照<code class="language-plaintext highlighter-rouge">figure 4-28</code>SEQ的译码和写回阶段，修改<code class="language-plaintext highlighter-rouge">seq-full.hcl</code></p> <p>我们的<code class="language-plaintext highlighter-rouge">iaddq</code>只需要用到<code class="language-plaintext highlighter-rouge">rB</code>表示的寄存器，并且写回<code class="language-plaintext highlighter-rouge">rB</code>寄存器，不需要根据<code class="language-plaintext highlighter-rouge">Cnd</code>条件信号进行操作。</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>################ Decode Stage    ###################################
+
+## What register should be used as the A source?
+word srcA = [
+	icode in { IRRMOVQ, IRMMOVQ, IOPQ, IPUSHQ  } : rA;
+	icode in { IPOPQ, IRET } : RRSP;
+	1 : RNONE; # Don't need register
+];
+
+## What register should be used as the B source?
+word srcB = [
+	icode in { IOPQ, IRMMOVQ, IMRMOVQ, IIADDQ  } : rB;
+	icode in { IPUSHQ, IPOPQ, ICALL, IRET } : RRSP;
+	1 : RNONE;  # Don't need register
+];
+
+## What register should be used as the E destination?
+word dstE = [
+	icode in { IRRMOVQ } &amp;&amp; Cnd : rB;
+	icode in { IIRMOVQ, IOPQ, IIADDQ} : rB;
+	icode in { IPUSHQ, IPOPQ, ICALL, IRET } : RRSP;
+	1 : RNONE;  # Don't write any register
+];
+
+## What register should be used as the M destination?
+word dstM = [
+	icode in { IMRMOVQ, IPOPQ } : rA;
+	1 : RNONE;  # Don't write any register
+];
+</code></pre></div></div> <hr> <p>同样继续，继续<code class="language-plaintext highlighter-rouge">figure 4-29</code>来修改执行阶段的<code class="language-plaintext highlighter-rouge">.hcl</code></p> <p>在ALU的输入口中，A口输入valC, B口输入valC, 同时设定条件码(因为本质上同IOPQ)</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>################ Execute Stage   ###################################
+
+## Select input A to ALU
+word aluA = [
+	icode in { IRRMOVQ, IOPQ } : valA;
+	icode in { IIRMOVQ, IRMMOVQ, IMRMOVQ, IIADDQ } : valC;
+	icode in { ICALL, IPUSHQ } : -8;
+	icode in { IRET, IPOPQ } : 8;
+	# Other instructions don't need ALU
+];
+
+## Select input B to ALU
+word aluB = [
+	icode in { IRMMOVQ, IMRMOVQ, IOPQ, ICALL, 
+		      IPUSHQ, IRET, IPOPQ, IIADDQ } : valB;
+	icode in { IRRMOVQ, IIRMOVQ } : 0;
+	# Other instructions don't need ALU
+];
+
+## Set the ALU function
+word alufun = [
+	icode == IOPQ : ifun;
+	1 : ALUADD;
+];
+
+## Should the condition codes be updated?
+bool set_cc = icode in { IOPQ, IIADDQ };
+</code></pre></div></div> <hr> <p><code class="language-plaintext highlighter-rouge">iaddq</code>不需要访问内存。</p> <p>访存阶段跳过，直接到更新PC:</p> <p>更新PC阶段，发现并不需要修改，因为默认就是通过<code class="language-plaintext highlighter-rouge">valP</code>来更新PC</p> <hr> <p>最后make，测试就行。</p> <p>in <code class="language-plaintext highlighter-rouge">sim/seq</code></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unix <span class="o">&gt;</span> make clean
+unix <span class="o">&gt;</span> make <span class="nv">VERSION</span><span class="o">=</span>full
+unix <span class="o">&gt;</span> ./ssim <span class="nt">-t</span> ../y86-code/asumi.yo <span class="c"># init test</span>
+unix <span class="o">&gt;</span> <span class="nb">cd</span> ../y86-code<span class="p">;</span> make testssim  <span class="c"># benchmark test</span>
+unix <span class="o">&gt;</span> <span class="nb">cd</span> ../ptest<span class="p">;</span> make <span class="nv">SIM</span><span class="o">=</span>../seq/ssim <span class="nv">TFLAGS</span><span class="o">=</span><span class="nt">-i</span> <span class="c"># regression test</span>
+</code></pre></div></div> <p>ALL SUCCEED就行</p> <h1 id="part-c">Part C</h1> <p><code class="language-plaintext highlighter-rouge">Part A</code>熟悉这个模拟的Y86架构</p> <p><code class="language-plaintext highlighter-rouge">Part B</code>熟悉指令顺序执行的情况，包括取指译码执行等操作，但是没有流水线，导致硬件浪费和效率感人。</p> <p>这个<code class="language-plaintext highlighter-rouge">Part</code>将针对流水线进行优化<code class="language-plaintext highlighter-rouge">ncopy.ys</code>的性能。</p> <p>在进行之前，请先确保阅读<code class="language-plaintext highlighter-rouge">4.4</code>和<code class="language-plaintext highlighter-rouge">4.5</code>，了解流水线的概念，SEQ+和SEQ的区别，了解流水线寄存器以及仔细查看<code class="language-plaintext highlighter-rouge">figur 4-41</code>。此外，<code class="language-plaintext highlighter-rouge">writeup</code>说阅读<code class="language-plaintext highlighter-rouge">5.8</code>的<code class="language-plaintext highlighter-rouge">loop unrolling</code>会有帮助。</p> <p>总之，终极目标是优化<code class="language-plaintext highlighter-rouge">ncopy.ys</code>的性能，观察其代码发现</p> <div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nf">You</span> <span class="nv">can</span> <span class="nv">modify</span> <span class="nv">this</span> <span class="nv">portion</span>
+	<span class="err">#</span> <span class="nf">Loop</span> <span class="nv">header</span>
+	<span class="nf">xorq</span> <span class="o">%</span><span class="nb">rax</span><span class="p">,</span><span class="o">%</span><span class="nb">rax</span>		<span class="err">#</span> <span class="nv">count</span> <span class="err">=</span> <span class="mi">0</span><span class="c1">;</span>
+	<span class="nf">andq</span> <span class="o">%</span><span class="nb">rdx</span><span class="p">,</span><span class="o">%</span><span class="nb">rdx</span>		<span class="err">#</span> <span class="nv">len</span> <span class="o">&lt;</span><span class="err">=</span> <span class="mi">0</span><span class="nv">?</span>
+	<span class="nf">jle</span> <span class="nv">Done</span>		<span class="err">#</span> <span class="nv">if</span> <span class="nv">so</span><span class="p">,</span> <span class="nv">goto</span> <span class="nv">Done</span><span class="p">:</span>
+
+<span class="nl">Loop:</span>	<span class="nf">mrmovq</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r10</span>	<span class="err">#</span> <span class="nv">read</span> <span class="nv">val</span> <span class="nv">from</span> <span class="nv">src...</span>
+	<span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r10</span><span class="p">,</span> <span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>	<span class="err">#</span> <span class="nv">...and</span> <span class="nv">store</span> <span class="nv">it</span> <span class="nv">to</span> <span class="nb">ds</span><span class="nv">t</span>
+	<span class="nf">andq</span> <span class="o">%</span><span class="nv">r10</span><span class="p">,</span> <span class="o">%</span><span class="nv">r10</span>		<span class="err">#</span> <span class="nv">val</span> <span class="o">&lt;</span><span class="err">=</span> <span class="mi">0</span><span class="nv">?</span>
+	<span class="nf">jle</span> <span class="nv">Npos</span>		<span class="err">#</span> <span class="nv">if</span> <span class="nv">so</span><span class="p">,</span> <span class="nv">goto</span> <span class="nv">Npos</span><span class="p">:</span>
+	<span class="nf">irmovq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nv">r10</span>
+	<span class="nf">addq</span> <span class="o">%</span><span class="nv">r10</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>		<span class="err">#</span> <span class="nv">count</span><span class="o">++</span>
+<span class="nl">Npos:</span>	<span class="nf">irmovq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nv">r10</span>
+	<span class="nf">subq</span> <span class="o">%</span><span class="nv">r10</span><span class="p">,</span> <span class="o">%</span><span class="nb">rdx</span>		<span class="err">#</span> <span class="nv">len</span><span class="o">--</span>
+	<span class="nf">irmovq</span> <span class="kc">$</span><span class="mi">8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r10</span>
+	<span class="nf">addq</span> <span class="o">%</span><span class="nv">r10</span><span class="p">,</span> <span class="o">%</span><span class="nb">rdi</span>		<span class="err">#</span> <span class="nv">src</span><span class="o">++</span>
+	<span class="nf">addq</span> <span class="o">%</span><span class="nv">r10</span><span class="p">,</span> <span class="o">%</span><span class="nb">rsi</span>		<span class="err">#</span> <span class="nb">ds</span><span class="nv">t</span><span class="o">++</span>
+	<span class="nf">andq</span> <span class="o">%</span><span class="nb">rdx</span><span class="p">,</span><span class="o">%</span><span class="nb">rdx</span>		<span class="err">#</span> <span class="nv">len</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="nv">?</span>
+	<span class="nf">jg</span> <span class="nv">Loop</span>			<span class="err">#</span> <span class="nv">if</span> <span class="nv">so</span><span class="p">,</span> <span class="nv">goto</span> <span class="nv">Loop</span><span class="p">:</span>
+</code></pre></div></div> <p>有多个地方用到了这样的一套招数:</p> <div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">irmovq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nv">r10</span>
+<span class="nf">addq</span>   <span class="o">%</span><span class="nv">r10</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+</code></pre></div></div> <p>因为原本的<code class="language-plaintext highlighter-rouge">OPq</code>不支持立即数直接和寄存器运算。如果我们实现<code class="language-plaintext highlighter-rouge">iaddq</code>会不会有优化呢？(Let’s figure it out.)</p> <h2 id="实现iaddq">实现IADDQ</h2> <p>这里的实现<code class="language-plaintext highlighter-rouge">iaddq</code>和<code class="language-plaintext highlighter-rouge">Part B</code>的差别不大。</p> <p>记得对照<code class="language-plaintext highlighter-rouge">4.5.7 PIPE各个阶段的实现</code>来修改<code class="language-plaintext highlighter-rouge">pipe-full.hcl</code></p> <h3 id="fetch-stage">Fetch Stage</h3> <p>取指阶段修改三个字段的内容，同<code class="language-plaintext highlighter-rouge">Part B</code>一样：<code class="language-plaintext highlighter-rouge">instr_valid</code>, <code class="language-plaintext highlighter-rouge">need_regids</code>, <code class="language-plaintext highlighter-rouge">need_valC</code>(其他没涉及)</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Is instruction valid?
+bool instr_valid = f_icode in 
+	{ INOP, IHALT, IRRMOVQ, IIRMOVQ, IRMMOVQ, IMRMOVQ,
+	  IOPQ, IJXX, ICALL, IRET, IPUSHQ, IPOPQ, IIADDQ };
+
+# Determine status code for fetched instruction
+word f_stat = [
+	imem_error: SADR;
+	!instr_valid : SINS;
+	f_icode == IHALT : SHLT;
+	1 : SAOK;
+];
+
+# Does fetched instruction require a regid byte?
+bool need_regids =
+	f_icode in { IRRMOVQ, IOPQ, IPUSHQ, IPOPQ, 
+		     IIRMOVQ, IRMMOVQ, IMRMOVQ, IIADDQ };
+
+# Does fetched instruction require a constant word?
+bool need_valC =
+	f_icode in { IIRMOVQ, IRMMOVQ, IMRMOVQ, IJXX, ICALL, IIADDQ };
+</code></pre></div></div> <h3 id="decode--write-back-stage">Decode &amp; Write Back Stage</h3> <p>译码阶段，跟<code class="language-plaintext highlighter-rouge">Part B</code>一样，需要<code class="language-plaintext highlighter-rouge">B source</code>和<code class="language-plaintext highlighter-rouge">E destination</code></p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## What register should be used as the B source?
+word d_srcB = [
+	D_icode in { IOPQ, IRMMOVQ, IMRMOVQ, IIADDQ  } : D_rB;
+	D_icode in { IPUSHQ, IPOPQ, ICALL, IRET } : RRSP;
+	1 : RNONE;  # Don't need register
+];
+
+## What register should be used as the E destination?
+word d_dstE = [
+	D_icode in { IRRMOVQ, IIRMOVQ, IOPQ, IIADDQ} : D_rB;
+	D_icode in { IPUSHQ, IPOPQ, ICALL, IRET } : RRSP;
+	1 : RNONE;  # Don't write any register
+];
+</code></pre></div></div> <h3 id="execute-stage">Execute Stage</h3> <p>还是一样，<code class="language-plaintext highlighter-rouge">aluA</code>, <code class="language-plaintext highlighter-rouge">aluB</code>, <code class="language-plaintext highlighter-rouge">set_cc</code>(同正常的<code class="language-plaintext highlighter-rouge">OPq</code>)</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Select input A to ALU
+word aluA = [
+	E_icode in { IRRMOVQ, IOPQ } : E_valA;
+	E_icode in { IIRMOVQ, IRMMOVQ, IMRMOVQ, IIADDQ } : E_valC;
+	E_icode in { ICALL, IPUSHQ } : -8;
+	E_icode in { IRET, IPOPQ } : 8;
+	# Other instructions don't need ALU
+];
+
+## Select input B to ALU
+word aluB = [
+	E_icode in { IRMMOVQ, IMRMOVQ, IOPQ, ICALL, 
+		     IPUSHQ, IRET, IPOPQ, IIADDQ } : E_valB;
+	E_icode in { IRRMOVQ, IIRMOVQ } : 0;
+	# Other instructions don't need ALU
+];
+
+## Set the ALU function
+word alufun = [
+	E_icode == IOPQ : E_ifun;
+	1 : ALUADD;
+];
+
+## Should the condition codes be updated?
+bool set_cc = E_icode in { IOPQ, IIADDQ } &amp;&amp;
+	# State changes only during normal operation
+	!m_stat in { SADR, SINS, SHLT } &amp;&amp; !W_stat in { SADR, SINS, SHLT };
+</code></pre></div></div> <h3 id="memory-stage">Memory Stage</h3> <p><code class="language-plaintext highlighter-rouge">iaddq</code>不涉及。</p> <h3 id="pipeline-register-control">Pipeline Register Control</h3> <p><code class="language-plaintext highlighter-rouge">iaddq</code>因为没有涉及内存访问，所以不会出现加载/使用冒险，所以此处也不涉及。</p> <h3 id="测试pipe-fullhcl">测试pipe-full.hcl</h3> <p>阅读<code class="language-plaintext highlighter-rouge">writeup</code>关于build和run的部分，查看如何测试程序。</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unix <span class="o">&gt;</span> ./psim <span class="nt">-t</span> ../y86-code/asumi.yo
+unix <span class="o">&gt;</span> <span class="nb">cd</span> ../ptest/<span class="p">;</span> make <span class="nv">SIM</span><span class="o">=</span>../pipe/psim <span class="nv">TFLAGS</span><span class="o">=</span><span class="nt">-i</span>
+</code></pre></div></div> <h2 id="优化ncopyys">优化ncopy.ys</h2> <p>在优化之前，先看看我们怎么build和run我们的程序。</p> <p>在<code class="language-plaintext highlighter-rouge">writeup</code>中的<code class="language-plaintext highlighter-rouge">Evaluation</code>中说明了这个部分的目标:</p> <blockquote> <p>You should be able to achieve an average CPE of less than 9.00. Our best version averages 7.48.</p> </blockquote> <p>我们要将CPE(Cycles Per Element)降低到9.0就算合格。</p> <p>先看看0优化的程序。</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unix <span class="o">&gt;</span> ./correctness.pl <span class="nt">-p</span>
+unix <span class="o">&gt;</span> ./benchmark.pl
+</code></pre></div></div> <p>得分为0.0/60.0, Average CPE = 15.18</p> <p>make sense……</p> <p>把我们最初的设想(<code class="language-plaintext highlighter-rouge">iaddq</code>替换原本的内容)实现一下:</p> <div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nf">You</span> <span class="nv">can</span> <span class="nv">modify</span> <span class="nv">this</span> <span class="nv">portion</span>
+	<span class="err">#</span> <span class="nf">Loop</span> <span class="nv">header</span>
+	<span class="nf">xorq</span> <span class="o">%</span><span class="nb">rax</span><span class="p">,</span><span class="o">%</span><span class="nb">rax</span>		<span class="err">#</span> <span class="nv">count</span> <span class="err">=</span> <span class="mi">0</span><span class="c1">;</span>
+	<span class="nf">andq</span> <span class="o">%</span><span class="nb">rdx</span><span class="p">,</span><span class="o">%</span><span class="nb">rdx</span>		<span class="err">#</span> <span class="nv">len</span> <span class="o">&lt;</span><span class="err">=</span> <span class="mi">0</span><span class="nv">?</span>
+	<span class="nf">jle</span> <span class="nv">Done</span>		<span class="err">#</span> <span class="nv">if</span> <span class="nv">so</span><span class="p">,</span> <span class="nv">goto</span> <span class="nv">Done</span><span class="p">:</span>
+
+<span class="nl">Loop:</span>	<span class="nf">mrmovq</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r10</span>	<span class="err">#</span> <span class="nv">read</span> <span class="nv">val</span> <span class="nv">from</span> <span class="nv">src...</span>
+	<span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r10</span><span class="p">,</span> <span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>	<span class="err">#</span> <span class="nv">...and</span> <span class="nv">store</span> <span class="nv">it</span> <span class="nv">to</span> <span class="nb">ds</span><span class="nv">t</span>
+	<span class="nf">andq</span> <span class="o">%</span><span class="nv">r10</span><span class="p">,</span> <span class="o">%</span><span class="nv">r10</span>		<span class="err">#</span> <span class="nv">val</span> <span class="o">&lt;</span><span class="err">=</span> <span class="mi">0</span><span class="nv">?</span>
+	<span class="nf">jle</span> <span class="nv">Npos</span>		<span class="err">#</span> <span class="nv">if</span> <span class="nv">so</span><span class="p">,</span> <span class="nv">goto</span> <span class="nv">Npos</span><span class="p">:</span>
+	<span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>		<span class="err">#</span> <span class="nv">count</span><span class="o">++</span>
+<span class="nl">Npos:</span>
+	<span class="nf">iaddq</span> <span class="kc">$</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rdx</span>		<span class="err">#</span> <span class="nv">len</span><span class="o">--</span>
+	<span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">8</span><span class="p">,</span> <span class="o">%</span><span class="nb">rdi</span>		<span class="err">#</span> <span class="nv">src</span><span class="o">++</span>
+	<span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">8</span><span class="p">,</span> <span class="o">%</span><span class="nb">rsi</span>		<span class="err">#</span> <span class="nb">ds</span><span class="nv">t</span><span class="o">++</span>
+	<span class="nf">andq</span> <span class="o">%</span><span class="nb">rdx</span><span class="p">,</span><span class="o">%</span><span class="nb">rdx</span>		<span class="err">#</span> <span class="nv">len</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="nv">?</span>
+	<span class="nf">jg</span> <span class="nv">Loop</span>			<span class="err">#</span> <span class="nv">if</span> <span class="nv">so</span><span class="p">,</span> <span class="nv">goto</span> <span class="nv">Loop</span><span class="p">:</span>
+</code></pre></div></div> <p>同样测试，得分居然还是0</p> <p>Average CPE = 12.70虽然有提升，但是很少（毕竟只是照抄了Part B）。</p> <hr> <p>好吧，看来光靠<code class="language-plaintext highlighter-rouge">iaddq</code>是无法取得巨大突破，只能求助于第五章节的内容。</p> <p>最直接的修改就是循环展开(<code class="language-plaintext highlighter-rouge">loop unrolling</code>)</p> <p>为什么循环展开能够优化性能？</p> <p>因为循环展开会尽可能降低循环判断分支的次数，以及可以将循环体内的代码并行执行，或者是提高cache hit</p> <p>这里10路展开:</p> <div class="language-nasm highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="o">/*</span> <span class="kc">$</span><span class="nf">begin</span> <span class="nv">ncopy</span><span class="o">-</span><span class="nv">ys</span> <span class="o">*/</span>
+<span class="err">##################################################################</span>
+<span class="err">#</span> <span class="nf">ncopy.ys</span> <span class="o">-</span> <span class="nv">Copy</span> <span class="nv">a</span> <span class="nv">src</span> <span class="nb">bl</span><span class="nv">ock</span> <span class="nv">of</span> <span class="nv">len</span> <span class="kt">word</span><span class="nv">s</span> <span class="nv">to</span> <span class="nb">ds</span><span class="nv">t.</span>
+<span class="err">#</span> <span class="nf">Return</span> <span class="nv">the</span> <span class="nv">number</span> <span class="nv">of</span> <span class="nv">positive</span> <span class="kt">word</span><span class="nv">s</span> <span class="p">(</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="nv">contained</span> <span class="nv">in</span> <span class="nv">src.</span>
+<span class="err">#</span>
+<span class="err">#</span> <span class="nf">Include</span> <span class="nv">your</span> <span class="nv">name</span> <span class="nv">and</span> <span class="nv">ID</span> <span class="nv">here.</span>
+<span class="err">#</span>
+<span class="err">#</span> <span class="nf">Describe</span> <span class="nv">how</span> <span class="nv">and</span> <span class="nv">why</span> <span class="nv">you</span> <span class="nv">modified</span> <span class="nv">the</span> <span class="nv">baseline</span> <span class="nv">code.</span>
+<span class="err">#</span>
+<span class="err">##################################################################</span>
+<span class="err">#</span> <span class="nf">Do</span> <span class="nv">not</span> <span class="nv">modify</span> <span class="nv">this</span> <span class="nv">portion</span>
+<span class="err">#</span> <span class="nf">Function</span> <span class="nv">prologue.</span>
+<span class="err">#</span> <span class="o">%</span><span class="nf">rdi</span> <span class="err">=</span> <span class="nv">src</span><span class="p">,</span> <span class="o">%</span><span class="nb">rsi</span> <span class="err">=</span> <span class="nb">ds</span><span class="nv">t</span><span class="p">,</span> <span class="o">%</span><span class="nb">rdx</span> <span class="err">=</span> <span class="nv">len</span>
+<span class="nl">ncopy:</span>
+
+<span class="err">##################################################################</span>
+<span class="err">#</span> <span class="nf">You</span> <span class="nv">can</span> <span class="nv">modify</span> <span class="nv">this</span> <span class="nv">portion</span>
+        <span class="err">#</span> <span class="nf">Loop</span> <span class="nv">header</span>
+
+<span class="err">#</span> <span class="nf">ten</span><span class="o">-</span><span class="nv">way</span> <span class="nv">loop</span> <span class="nv">unrolling</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">%</span><span class="nb">rdx</span>        <span class="err">#</span> <span class="nv">len</span> <span class="o">-</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="nv">?</span>
+        <span class="nf">jl</span> <span class="nv">L0R9</span>
+<span class="nl">Loop1:</span>
+        <span class="nf">mrmovq</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>      <span class="err">#</span> <span class="nv">val</span> <span class="err">=</span> <span class="o">*</span><span class="nv">src</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>      <span class="err">#</span> <span class="o">*</span><span class="nb">ds</span><span class="nv">t</span> <span class="err">=</span> <span class="nv">val</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>           <span class="err">#</span> <span class="nv">val</span> <span class="o">&lt;</span><span class="err">=</span> <span class="mi">0</span><span class="nv">?</span>
+        <span class="nf">jle</span> <span class="nv">Loop2</span>               <span class="err">#</span> <span class="nv">if</span> <span class="nv">so</span><span class="p">,</span> <span class="nv">goto</span> <span class="nv">Loop2</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>          <span class="err">#</span> <span class="nv">count</span><span class="o">++</span>
+<span class="nl">Loop2:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x8</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x8</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Loop3</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Loop3:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x10</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x10</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Loop4</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Loop4:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x18</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Loop5</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Loop5:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x20</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Loop6</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Loop6:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x28</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x28</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Loop7</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Loop7:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x30</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Loop8</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Loop8:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x38</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Loop9</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Loop9:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x40</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Loop10</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Loop10:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x48</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Step</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Step:</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mh">0x50</span><span class="p">,</span> <span class="o">%</span><span class="nb">rdi</span>		<span class="err">#</span> <span class="nv">i</span> <span class="o">+</span><span class="err">=</span> <span class="mi">10</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mh">0x50</span><span class="p">,</span> <span class="o">%</span><span class="nb">rsi</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">%</span><span class="nb">rdx</span>
+        <span class="nf">jge</span> <span class="nv">Loop1</span>
+
+<span class="err">#</span> <span class="nf">applying</span> <span class="nv">range</span> <span class="nb">ch</span><span class="nv">ecks</span> <span class="nv">to</span> <span class="nv">remainders</span>
+<span class="nl">L0R9:</span>
+        <span class="nf">iaddq</span>   <span class="kc">$</span><span class="mi">7</span><span class="p">,</span><span class="o">%</span><span class="nb">rdx</span>         <span class="err">#</span> <span class="nv">Compare</span> <span class="nv">with</span> <span class="mi">3</span> <span class="p">(</span><span class="nv">len</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="nf">jl</span>      <span class="nv">L0R2</span>            <span class="err">#</span> <span class="nv">len</span> <span class="o">&lt;</span> <span class="mi">3</span>
+        <span class="nf">jg</span>      <span class="nv">L4R9</span>            <span class="err">#</span> <span class="nv">len</span> <span class="o">&gt;</span> <span class="mi">3</span>
+        <span class="nf">je</span>      <span class="nv">Rem3</span>            <span class="err">#</span> <span class="nv">len</span> <span class="err">==</span> <span class="mi">3</span>
+<span class="nl">L0R2:</span>
+        <span class="nf">iaddq</span>   <span class="kc">$</span><span class="mi">2</span><span class="p">,</span><span class="o">%</span><span class="nb">rdx</span>         <span class="err">#</span> <span class="nv">Compare</span> <span class="nv">with</span> <span class="mi">1</span> <span class="p">(</span><span class="nv">len</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="nf">je</span>      <span class="nv">Rem1</span>            <span class="err">#</span> <span class="nv">len</span> <span class="err">==</span> <span class="mi">1</span>
+        <span class="nf">jg</span>      <span class="nv">Rem2</span>            <span class="err">#</span> <span class="nv">len</span> <span class="err">==</span> <span class="mi">2</span>
+        <span class="nf">ret</span>                     <span class="err">#</span> <span class="nv">len</span> <span class="err">==</span> <span class="mi">0</span>
+<span class="nl">L4R6:</span>
+        <span class="nf">iaddq</span>   <span class="kc">$</span><span class="mi">2</span><span class="p">,</span><span class="o">%</span><span class="nb">rdx</span>         <span class="err">#</span> <span class="nv">Compare</span> <span class="nv">with</span> <span class="mi">5</span> <span class="p">(</span><span class="nv">len</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="nf">jl</span>      <span class="nv">Rem4</span>            <span class="err">#</span> <span class="nv">len</span> <span class="err">==</span> <span class="mi">4</span>
+        <span class="nf">je</span>      <span class="nv">Rem5</span>            <span class="err">#</span> <span class="nv">len</span> <span class="err">==</span> <span class="mi">5</span>
+        <span class="nf">jg</span>      <span class="nv">Rem6</span>            <span class="err">#</span> <span class="nv">len</span> <span class="err">==</span> <span class="mi">6</span>
+<span class="nl">L4R9:</span>
+        <span class="nf">iaddq</span>   <span class="kc">$</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">%</span><span class="nb">rdx</span>        <span class="err">#</span> <span class="nv">Compare</span> <span class="nv">with</span> <span class="mi">7</span> <span class="p">(</span><span class="nv">len</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span>
+        <span class="nf">jl</span>      <span class="nv">L4R6</span>            <span class="err">#</span> <span class="nv">len</span> <span class="o">&lt;</span> <span class="mi">7</span>
+        <span class="nf">je</span>      <span class="nv">Rem7</span>            <span class="err">#</span> <span class="nv">len</span> <span class="err">==</span> <span class="mi">7</span>
+<span class="nl">L8R9:</span>
+        <span class="nf">iaddq</span>   <span class="kc">$</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">%</span><span class="nb">rdx</span>        <span class="err">#</span> <span class="nv">Compare</span> <span class="nv">with</span> <span class="mi">8</span> <span class="p">(</span><span class="nv">len</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span>
+        <span class="nf">je</span>      <span class="nv">Rem8</span>            <span class="err">#</span> <span class="nv">len</span> <span class="err">==</span> <span class="mi">8</span>
+
+<span class="err">#</span> <span class="nf">dealing</span> <span class="nv">with</span> <span class="nv">remainders</span>
+<span class="nl">Rem9:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x40</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Rem8</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Rem8:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x38</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Rem7</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Rem7:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x30</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Rem6</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Rem6:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x28</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x28</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Rem5</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Rem5:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x20</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Rem4</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Rem4:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x18</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Rem3</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Rem3:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x10</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x10</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Rem2</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Rem2:</span>
+        <span class="nf">mrmovq</span> <span class="mh">0x8</span><span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="mh">0x8</span><span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Rem1</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+<span class="nl">Rem1:</span>
+        <span class="nf">mrmovq</span> <span class="p">(</span><span class="o">%</span><span class="nb">rdi</span><span class="p">),</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">rmmovq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="p">(</span><span class="o">%</span><span class="nb">rsi</span><span class="p">)</span>
+        <span class="nf">andq</span> <span class="o">%</span><span class="nv">r8</span><span class="p">,</span> <span class="o">%</span><span class="nv">r8</span>
+        <span class="nf">jle</span> <span class="nv">Done</span>
+        <span class="nf">iaddq</span> <span class="kc">$</span><span class="mi">1</span><span class="p">,</span> <span class="o">%</span><span class="nb">rax</span>
+
+<span class="err">##################################################################</span>
+<span class="err">#</span> <span class="nf">Do</span> <span class="nv">not</span> <span class="nv">modify</span> <span class="nv">the</span> <span class="nv">following</span> <span class="nv">section</span> <span class="nv">of</span> <span class="nv">code</span>
+<span class="err">#</span> <span class="nf">Function</span> <span class="nv">epilogue.</span>
+<span class="nl">Done:</span>
+        <span class="nf">ret</span>
+<span class="err">##################################################################</span>
+<span class="err">#</span> <span class="nf">Keep</span> <span class="nv">the</span> <span class="nv">following</span> <span class="nv">label</span> <span class="nv">at</span> <span class="nv">the</span> <span class="nv">end</span> <span class="nv">of</span> <span class="nv">your</span> <span class="nv">function</span>
+<span class="nl">End:</span>
+<span class="err">#</span><span class="o">/*</span> <span class="kc">$</span><span class="nf">end</span> <span class="nv">ncopy</span><span class="o">-</span><span class="nv">ys</span> <span class="o">*/</span>
+
+</code></pre></div></div> <p>接下来进行测试:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./benchmark.pl
+</code></pre></div></div> <p>结果显示:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Average CPE	8.39
+Score	42.3/60.0
+</code></pre></div></div> <p>至少CEP &lt; 9.0 了，如果要更进一步，就得处理某些不必要的load/use冒泡了，就得修改<code class="language-plaintext highlighter-rouge">.hcl</code>文件。</p> <p>笔者在这里已经疲于应对了，暂时这样吧。</p> <h1 id="总结">总结</h1> <p>很像微机原理，这一章走完了微机原理的大部分核心内容。</p> </div> </article> <div id="giscus_thread" style="max-width: 930px; margin: 0 auto;"> <script>let giscusTheme=determineComputedTheme(),giscusAttributes={src:"https://giscus.app/client.js","data-repo":"Iamnotphage/iamnotphage.github.io","data-repo-id":"R_kgDONFoQgA","data-category":"Announcements","data-category-id":"DIC_kwDONFoQgM4CjtJq","data-mapping":"pathname","data-strict":"0","data-reactions-enabled":"1","data-emit-metadata":"0","data-input-position":"bottom","data-theme":giscusTheme,"data-lang":"en",crossorigin:"anonymous",async:""},giscusScript=document.createElement("script");Object.entries(giscusAttributes).forEach(([t,e])=>giscusScript.setAttribute(t,e)),document.getElementById("giscus_thread").appendChild(giscusScript);</script> <noscript>Please enable JavaScript to view the <a href="http://giscus.app/?ref_noscript" rel="external nofollow noopener" target="_blank">comments powered by giscus.</a> </noscript> </div> </div> </div> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2024 Chen Clay. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script> <script defer src="/assets/js/bootstrap-toc.min.js?c82ff4de8b0955d6ff14f5b05eed7eb6"></script> <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"></script> <script defer src="/assets/js/copy_code.js?12775fdf7f95e901d7119054556e495f" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script type="text/javascript">window.MathJax={tex:{tags:"ams"}};</script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script type="text/javascript">function progressBarSetup(){"max"in document.createElement("progress")?(initializeProgressElement(),$(document).on("scroll",function(){progressBar.attr({value:getCurrentScrollPosition()})}),$(window).on("resize",initializeProgressElement)):(resizeProgressBar(),$(document).on("scroll",resizeProgressBar),$(window).on("resize",resizeProgressBar))}function getCurrentScrollPosition(){return $(window).scrollTop()}function initializeProgressElement(){let e=$("#navbar").outerHeight(!0);$("body").css({"padding-top":e}),$("progress-container").css({"padding-top":e}),progressBar.css({top:e}),progressBar.attr({max:getDistanceToScroll(),value:getCurrentScrollPosition()})}function getDistanceToScroll(){return $(document).height()-$(window).height()}function resizeProgressBar(){progressBar.css({width:getWidthPercentage()+"%"})}function getWidthPercentage(){return getCurrentScrollPosition()/getDistanceToScroll()*100}const progressBar=$("#progress");window.onload=function(){setTimeout(progressBarSetup,50)};</script> <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script> <script>addBackToTop();</script> <script type="module" src="/assets/js/search/ninja-keys.min.js?a3446f084dcaecc5f75aa1757d087dcf"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script>let searchTheme=determineComputedTheme();const ninjaKeys=document.querySelector("ninja-keys");"dark"===searchTheme?ninjaKeys.classList.add("dark"):ninjaKeys.classList.remove("dark");const openSearchModal=()=>{const e=$("#navbarNav");e.hasClass("show")&&e.collapse("hide"),ninjaKeys.open()};</script> <script>const ninja=document.querySelector("ninja-keys");ninja.data=[{id:"nav-about",title:"about",section:"Navigation",handler:()=>{window.location.href="/"}},{id:"nav-blog",title:"blog",description:"",section:"Navigation",handler:()=>{window.location.href="/blog/"}},{id:"nav-projects",title:"projects",description:"A growing collection of your cool projects.",section:"Navigation",handler:()=>{window.location.href="/projects/"}},{id:"nav-repositories",title:"repositories",description:"Here are some source codes. Enjoy yourself.",section:"Navigation",handler:()=>{window.location.href="/repositories/"}},{id:"nav-cv",title:"cv",description:"This is my Curriculum Vitae.",section:"Navigation",handler:()=>{window.location.href="/cv/"}},{id:"dropdown-publications",title:"publications",description:"",section:"Dropdown",handler:()=>{window.location.href=""}},{id:"dropdown-projects",title:"projects",description:"",section:"Dropdown",handler:()=>{window.location.href=""}},{id:"dropdown-blog",title:"blog",description:"",section:"Dropdown",handler:()=>{window.location.href="/blog/"}},{id:"post-my-dbms",title:"my DBMS",description:"\u897f\u7535\u7f16\u8bd1\u539f\u7406\u5927\u4f5c\u4e1a:\u7cbe\u7b80SQL\u7f16\u8bd1\u5668\u5b9e\u73b0",section:"Posts",handler:()=>{window.location.href="/blog/2024/myDBMS/"}},{id:"post-princeton-algorithm-i-amp-ii-labs",title:"Princeton Algorithm I &amp; II Labs",description:"\u666e\u6797\u65af\u987f\u7b97\u6cd5\u7b2c\u56db\u7248\u8bfe\u540eLabs",section:"Posts",handler:()=>{window.location.href="/blog/2023/algs4/"}},{id:"post-\u897f\u7535cs\u6838\u5fc3\u8bfe\u7a0b\u6307\u5357",title:"\u897f\u7535CS\u6838\u5fc3\u8bfe\u7a0b\u6307\u5357",description:"\u897f\u7535CS\u751f\u5b58\u6307\u5357(\u8ba1\u7ec4)",section:"Posts",handler:()=>{window.location.href="/blog/2022/CSSurvivalGuide/"}},{id:"post-cmc-speedrun",title:"CMC-SpeedRun",description:"\u901f\u901a\u5168\u56fd\u5927\u5b66\u751f\u6570\u5b66\u7ade\u8d5b(\u975e\u6570\u5b66\u4e13\u4e1a)\u6559\u7a0b",section:"Posts",handler:()=>{window.location.href="/blog/2022/%E9%80%9F%E9%80%9A%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/"}},{id:"post-ti-rslk\u81ea\u52a8\u5faa\u8ff9\u5c0f\u8f66",title:"TI-RSLK\u81ea\u52a8\u5faa\u8ff9\u5c0f\u8f66",description:"\u897f\u7535\u53cc\u521b\u5468\u5c0f\u9879\u76ee:\u81ea\u52a8\u5faa\u8ff9\u5c0f\u8f66\u5b9e\u73b0",section:"Posts",handler:()=>{window.location.href="/blog/2022/TI-RSLK%E8%87%AA%E5%8A%A8%E5%BE%AA%E8%BF%B9%E5%B0%8F%E8%BD%A6/"}},{id:"post-cs-app3e-arch-lab",title:"CS:APP3e Arch Lab",description:"Personal Crack on CS:APP3e Arch Lab",section:"Posts",handler:()=>{window.location.href="/blog/2022/CSAPP3eArch/"}},{id:"post-cs-app3e-attack-lab",title:"CS:APP3e Attack Lab",description:"Personal Crack on CS:APP3e Attack Lab",section:"Posts",handler:()=>{window.location.href="/blog/2022/CSAPP3eAttack/"}},{id:"post-cs-app3e-bomb-lab",title:"CS:APP3e Bomb Lab",description:"Personal Crack on CS:APP3e Bomb Lab",section:"Posts",handler:()=>{window.location.href="/blog/2022/CSAPP3eBomb/"}},{id:"post-cs-app3e-data-lab",title:"CS:APP3e Data Lab",description:"Personal Crack on CS:APP3e Data Lab",section:"Posts",handler:()=>{window.location.href="/blog/2022/CSAPP3eData/"}},{id:"post-xdoj\u5168\u7f51\u6700\u5168-iamnotphage\u7684\u535a\u5ba2-csdn\u535a\u5ba2",title:'XDOJ\u5168\u7f51\u6700\u5168_Iamnotphage\u7684\u535a\u5ba2-CSDN\u535a\u5ba2 <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',description:"\u6570\u636e\u7ed3\u6784-\u6811,\u6570\u636e\u7ed3\u6784-\u4e32\u3001\u6570\u7ec4\u3001\u5e7f\u4e49\u8868,\u6570\u636e\u7ed3\u6784-\u6808\u548c\u961f\u5217,c\u8bed\u8a00,\u7b97\u6cd5,\u56fe\u8bba",section:"Posts",handler:()=>{window.open("https://blog.csdn.net/phage17/category_11479659.html","_blank")}},{id:"news-eniac-was-born-it-has-nothing-to-do-with-me",title:"ENIAC was born.(It has nothing to do with me.)",description:"",section:"News"},{id:"news-completed-a-internship-at-huawei-tech-co-ltd",title:"Completed a internship at Huawei Tech Co., Ltd.",description:"",section:"News"},{id:"news-received-a-graduate-school-recommendation-for-admission-to-xi-an-jiaotong-university",title:"Received a graduate school recommendation for admission to Xi\u2019an Jiaotong University.",description:"",section:"News"},{id:"projects-project-1",title:"project 1",description:"with background image",section:"Projects",handler:()=>{window.location.href="/projects/1_project/"}},{id:"projects-project-2",title:"project 2",description:"a project with a background image and giscus comments",section:"Projects",handler:()=>{window.location.href="/projects/2_project/"}},{id:"projects-project-3-with-very-long-name",title:"project 3 with very long name",description:"a project that redirects to another website",section:"Projects",handler:()=>{window.location.href="/projects/3_project/"}},{id:"projects-project-4",title:"project 4",description:"another without an image",section:"Projects",handler:()=>{window.location.href="/projects/4_project/"}},{id:"projects-project-5",title:"project 5",description:"a project with a background image",section:"Projects",handler:()=>{window.location.href="/projects/5_project/"}},{id:"projects-project-6",title:"project 6",description:"a project with no image",section:"Projects",handler:()=>{window.location.href="/projects/6_project/"}},{id:"projects-project-7",title:"project 7",description:"with background image",section:"Projects",handler:()=>{window.location.href="/projects/7_project/"}},{id:"projects-project-8",title:"project 8",description:"an other project with a background image and giscus comments",section:"Projects",handler:()=>{window.location.href="/projects/8_project/"}},{id:"projects-project-9",title:"project 9",description:"another project with an image \ud83c\udf89",section:"Projects",handler:()=>{window.location.href="/projects/9_project/"}},{id:"socials-email",title:"Send email",section:"Socials",handler:()=>{window.open("mailto:%69%61%6D%6E%6F%74%70%68%61%67%65@%31%36%33.%63%6F%6D","_blank")}},{id:"socials-google-scholar",title:"Google Scholar",section:"Socials",handler:()=>{window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ","_blank")}},{id:"socials-rss",title:"RSS Feed",section:"Socials",handler:()=>{window.open("/feed.xml","_blank")}},{id:"light-theme",title:"Change theme to light",description:"Change the theme of the site to Light",section:"Theme",handler:()=>{setThemeSetting("light")}},{id:"dark-theme",title:"Change theme to dark",description:"Change the theme of the site to Dark",section:"Theme",handler:()=>{setThemeSetting("dark")}},{id:"system-theme",title:"Use system default theme",description:"Change the theme of the site to System Default",section:"Theme",handler:()=>{setThemeSetting("system")}}];</script> <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script> </body> </html>
