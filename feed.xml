@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://iamnotphage.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://iamnotphage.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-09T15:13:45+00:00</updated><id>https://iamnotphage.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">my DBMS</title><link href="https://iamnotphage.github.io/blog/2024/myDBMS/" rel="alternate" type="text/html" title="my DBMS"/><published>2024-05-17T15:59:00+00:00</published><updated>2024-05-17T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/myDBMS</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/myDBMS/"><![CDATA[<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /$$$$$$  /$$   /$$ /$$$$$$$$ /$$   /$$      
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://iamnotphage.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://iamnotphage.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-23T06:35:30+00:00</updated><id>https://iamnotphage.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">my DBMS</title><link href="https://iamnotphage.github.io/blog/2024/myDBMS/" rel="alternate" type="text/html" title="my DBMS"/><published>2024-05-17T15:59:00+00:00</published><updated>2024-05-17T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/myDBMS</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/myDBMS/"><![CDATA[<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /$$$$$$  /$$   /$$ /$$$$$$$$ /$$   /$$      
  /$$__  $$| $$  | $$| $$_____/| $$$ | $$      
 | $$  \__/| $$  | $$| $$      | $$$$| $$      
 | $$      | $$$$$$$$| $$$$$   | $$ $$ $$      
@@ -786,7 +786,265 @@ exit
     <span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="西电相关"/><category term="项目"/><category term="c"/><category term="TI-RSLK"/><category term="嵌入式"/><summary type="html"><![CDATA[西电双创周小项目:自动循迹小车实现]]></summary></entry><entry><title type="html">CS:APP3e Arch Lab</title><link href="https://iamnotphage.github.io/blog/2022/CSAPP3eArch/" rel="alternate" type="text/html" title="CS:APP3e Arch Lab"/><published>2022-06-03T15:59:00+00:00</published><updated>2022-06-03T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2022/CSAPP3eArch</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2022/CSAPP3eArch/"><![CDATA[<p>首先是安装好需要的内容。</p> <p><code class="language-plaintext highlighter-rouge">flex</code>, <code class="language-plaintext highlighter-rouge">bison</code></p> <p><code class="language-plaintext highlighter-rouge">gcc</code>和<code class="language-plaintext highlighter-rouge">make</code>就不多说了。</p> <p>然后根据自己情况调整<code class="language-plaintext highlighter-rouge">Makefile</code>(sim各级目录下的<code class="language-plaintext highlighter-rouge">Makefile</code>)</p> <blockquote> <p>笔者遇到-lfl找不到的情况，前往Makefile把LEXLIB = -lfl改成空就行了</p> <p>此外就是GUI mode的情况，我懒得安装tcl/tk直接把Makefile相关的注释就行</p> </blockquote> <p>仔细阅读<code class="language-plaintext highlighter-rouge">writeup</code>和书本<code class="language-plaintext highlighter-rouge">chapter 4</code></p> <h1 id="part-a">Part A</h1> <p>工作在<code class="language-plaintext highlighter-rouge">arch/sim/misc</code>目录下</p> <p>仿照书本<code class="language-plaintext highlighter-rouge">figure 4-7</code>并对照<code class="language-plaintext highlighter-rouge">example.c</code>容易写出<code class="language-plaintext highlighter-rouge">sum.ys</code>:</p> <p>(最后一行空行构成EOF)</p> <p>然后<code class="language-plaintext highlighter-rouge">./yas sum.ys</code>和<code class="language-plaintext highlighter-rouge">./yis sum.yo</code>检查<code class="language-plaintext highlighter-rouge">Status</code>和<code class="language-plaintext highlighter-rouge">%rax</code>是否正常</p> <pre><code class="language-asm"># Execution begins at address 0
+</code></pre></div></div>]]></content><author><name></name></author><category term="西电相关"/><category term="项目"/><category term="c"/><category term="TI-RSLK"/><category term="嵌入式"/><summary type="html"><![CDATA[西电双创周小项目:自动循迹小车实现]]></summary></entry><entry><title type="html">CS:APP3e Cache Lab</title><link href="https://iamnotphage.github.io/blog/2022/CSAPP3eCache/" rel="alternate" type="text/html" title="CS:APP3e Cache Lab"/><published>2022-06-04T15:59:00+00:00</published><updated>2022-06-04T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2022/CSAPP3eCache</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2022/CSAPP3eCache/"><![CDATA[<p>在开始之前，先确保阅读CS:APPe3的第六章(尤其是<code class="language-plaintext highlighter-rouge">6.2</code>, <code class="language-plaintext highlighter-rouge">6.3</code>, <code class="language-plaintext highlighter-rouge">6.4</code>)</p> <p>(关于SRAM和DRAM部分的文字和我看过的国内教材神似，很难不怀疑是不是抄袭CSAPP的)</p> <p>然后就对高速缓存的结构有了新认识: (S, E, B, m)元组表示</p> <p>先阅读一下<code class="language-plaintext highlighter-rouge">writeup</code>发现有个内存调试工具<code class="language-plaintext highlighter-rouge">valgrind</code></p> <p>在docker运行的容器里面安装一下</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install </span>valgrind
+</code></pre></div></div> <h1 id="part-a">Part A</h1> <p>在<code class="language-plaintext highlighter-rouge">writeup</code>中给出了例子:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>root@5fd2dc6af315 cache]# ./csim-ref <span class="nt">-v</span> <span class="nt">-s</span> 4 <span class="nt">-E</span> 1 <span class="nt">-b</span> 4 <span class="nt">-t</span> traces/yi.trace 
+L 10,1 miss 
+M 20,1 miss hit 
+L 22,1 hit 
+S 18,1 hit 
+L 110,1 miss eviction 
+L 210,1 miss eviction 
+M 12,1 miss eviction hit 
+hits:4 misses:5 evictions:3
+</code></pre></div></div> <p>我们的程序<code class="language-plaintext highlighter-rouge">csim.c</code>就是要模拟cache的机制，统计上述的输出信息。</p> <p>首先来剖析一下这个输入输出</p> <p>输入参数给定了(S, E, B, m) = (16, 1, 16, 64)</p> <p>(m = 64bit 假设是64位机器)</p> <p>所以地址分段应该是这样:</p> <table> <thead> <tr> <th>t</th> <th>s</th> <th>b</th> </tr> </thead> <tbody> <tr> <td>56</td> <td>4</td> <td>4</td> </tr> </tbody> </table> <p>所以这个cache有16组，每组1行，一行的数据块有16个。</p> <p>第一个操作<code class="language-plaintext highlighter-rouge">L 10,1 miss</code>因为cache为空，加载地址<code class="language-plaintext highlighter-rouge">0x10</code>时，第1组第0块没内容，所以miss</p> <p>miss之后，将内存<code class="language-plaintext highlighter-rouge">0x10</code>开始的内容加载到cache中</p> <p>接下来就是<code class="language-plaintext highlighter-rouge">M 20,1 miss hit</code>此时第二组仍然是空，所以miss，加载地址<code class="language-plaintext highlighter-rouge">0x20</code>开始的内容到cache中</p> <p>之后修改，所以hit</p> <p>后续同理……</p> <hr/> <p>对于编写<code class="language-plaintext highlighter-rouge">csim.c</code>有以下要求:</p> <ul> <li>开头注释标明姓名和ID</li> <li>不能有任何警告</li> <li>对于任意参数s,E,b都能正确工作</li> <li>忽略<code class="language-plaintext highlighter-rouge">trace</code>中的所有取指信息(<code class="language-plaintext highlighter-rouge">I</code>开头的)</li> <li>最后必须调用<code class="language-plaintext highlighter-rouge">printSummary()</code>统计信息</li> <li>在本实验中，您应假设内存访问已正确对齐，因此单次内存访问绝不会跨越块边界。有了这个假设，你就可以忽略 valgrind 跟踪中的请求大小。</li> </ul> <p>而且eviction要满足LRU</p> <p>这不就是leetcode的LRU题么</p> <p>输入来自<code class="language-plaintext highlighter-rouge">valgrind</code>的trace信息，以及s, E, b参数，模拟cache行为并统计信息</p> <p>在Part A开始之前，<code class="language-plaintext highlighter-rouge">writeup</code>有几个建议:</p> <ul> <li>可以先在小的trace文件进行debug</li> <li>推荐实现<code class="language-plaintext highlighter-rouge">-v</code>选项，毕竟方便debug</li> <li>推荐使用<code class="language-plaintext highlighter-rouge">getopt.h</code>来解析参数(一般shell程序用这个来解析args)</li> <li>每次数据加载 (L) 或存储 (S) 操作最多只能导致一次cache miss。数据修改操作 (M) 被视为加载然后存储到同一地址的操作。因此，一个 M 操作可能会导致两次缓存hits，或一次miss和一次hit加上一次可能的eviction。</li> </ul> <p>解析参数参考一下<code class="language-plaintext highlighter-rouge">getopt()</code>函数很容易写出</p> <p>这里重点考虑构造cache的数据结构。</p> <p>首先是<code class="language-plaintext highlighter-rouge">cacheRow</code>的数据结构，包含一个<code class="language-plaintext highlighter-rouge">valid bit</code>和一个<code class="language-plaintext highlighter-rouge">tag</code> 由于不关注<code class="language-plaintext highlighter-rouge">block</code>的内容本身，所以<code class="language-plaintext highlighter-rouge">block</code>可以省略。</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">hits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">misses</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">evictions</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="cm">/**
+ * @brief This is a cache line, which line has a valid bit, tags and blocks. 
+ */</span>
+<span class="k">struct</span> <span class="n">cacheRow</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">valid</span><span class="p">;</span>  <span class="cm">/** valid bit */</span>
+    <span class="kt">int</span> <span class="n">tag</span><span class="p">;</span>    <span class="cm">/** tags */</span>
+<span class="p">};</span>
+
+<span class="cm">/**
+ * @brief The cache.
+ */</span>
+<span class="k">struct</span> <span class="n">cacheRow</span><span class="o">*</span> <span class="n">cache</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</code></pre></div></div> <p>其次是需要考虑<code class="language-plaintext highlighter-rouge">LRU</code>算法，如果<code class="language-plaintext highlighter-rouge">E</code> &gt; 1的话，就要考虑组内eviction</p> <p>如何手搓<code class="language-plaintext highlighter-rouge">LRU</code>也是有各种各样的解法，这里采用双向链表:</p> <p>越靠近<code class="language-plaintext highlighter-rouge">dummyHead</code>的结点表示越常用，当需要eviction时，一般替换靠近<code class="language-plaintext highlighter-rouge">dummyTail</code>的结点。(详见leetcode的LRU缓存)</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * @brief A node for constructing a deque.
+ */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">offset</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">prev</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+<span class="p">}</span><span class="n">node</span><span class="p">;</span>
+
+<span class="cm">/**
+ * @brief A deque, consist of a dummy head and a dummy tail.
+ */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">deque</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">capacity</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">tail</span><span class="p">;</span>
+<span class="p">}</span><span class="n">deque</span><span class="p">;</span>
+
+<span class="cm">/**
+ * @brief For each SET, we have a deque (2^s deques)
+ */</span>
+<span class="n">deque</span><span class="o">*</span> <span class="n">deques</span><span class="p">;</span>
+
+<span class="cm">/**
+ * @brief Add the node to head of a deque.
+ * 
+ * @param[in] dq deque
+ * @param[in] node node
+ */</span>
+<span class="kt">void</span> <span class="nf">addToHead</span><span class="p">(</span><span class="n">deque</span><span class="o">*</span> <span class="n">dq</span><span class="p">,</span> <span class="n">node</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">node</span><span class="o">*</span> <span class="n">head</span> <span class="o">=</span> <span class="n">dq</span> <span class="o">-&gt;</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">=</span> <span class="n">head</span> <span class="o">-&gt;</span> <span class="n">next</span><span class="p">;</span>
+    <span class="n">head</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">-&gt;</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+    <span class="n">head</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * @brief Remove a node from its deque.
+ * 
+ * @param[in] node node
+ */</span>
+<span class="kt">void</span> <span class="nf">removeNode</span><span class="p">(</span><span class="n">node</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">prev</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">=</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">next</span><span class="p">;</span>
+    <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">-&gt;</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">node</span> <span class="o">-&gt;</span> <span class="n">prev</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * @brief Move a node to its deque's head.
+ * 
+ * @param[in] dq deque
+ * @param[in] node node
+ */</span>
+<span class="kt">void</span> <span class="nf">moveToHead</span><span class="p">(</span><span class="n">deque</span><span class="o">*</span> <span class="n">dq</span><span class="p">,</span> <span class="n">node</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">removeNode</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+    <span class="n">addToHead</span><span class="p">(</span><span class="n">dq</span><span class="p">,</span> <span class="n">node</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * @brief Remove a tail from a deque.
+ * 
+ * @param[in] dq deque
+ * 
+ * @return the tail node
+ */</span>
+<span class="n">node</span><span class="o">*</span> <span class="nf">removeTail</span><span class="p">(</span><span class="n">deque</span><span class="o">*</span> <span class="n">dq</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">node</span><span class="o">*</span> <span class="n">res</span> <span class="o">=</span> <span class="n">dq</span> <span class="o">-&gt;</span> <span class="n">tail</span> <span class="o">-&gt;</span> <span class="n">prev</span><span class="p">;</span>
+    <span class="n">removeNode</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>顺便实现几个API方便后续LRU调用</p> <p>那么接下来就考虑<code class="language-plaintext highlighter-rouge">cache</code>的初始化，需要初始化各个组的deque:</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * @brief Initialize cache
+ * 
+ * @param[in] s set bits
+ * @param[in] E lines per line
+ */</span>
+<span class="kt">void</span> <span class="nf">initCache</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">E</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sets</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">;</span>
+
+    <span class="k">struct</span> <span class="n">cacheRow</span><span class="o">*</span> <span class="n">cacheLines</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">cacheRow</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">cacheRow</span><span class="p">)</span> <span class="o">*</span> <span class="n">sets</span> <span class="o">*</span> <span class="n">E</span><span class="p">);</span> <span class="c1">// 2^s * E lines of cache</span>
+
+    <span class="n">cache</span> <span class="o">=</span> <span class="n">cacheLines</span><span class="p">;</span>
+
+    <span class="n">deques</span> <span class="o">=</span> <span class="p">(</span><span class="n">deque</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">deque</span><span class="p">)</span> <span class="o">*</span> <span class="n">sets</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sets</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">node</span><span class="o">*</span> <span class="n">dummyHead</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">node</span><span class="p">));</span>
+        <span class="n">node</span><span class="o">*</span> <span class="n">dummyTail</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">node</span><span class="p">));</span>
+        <span class="n">dummyHead</span> <span class="o">-&gt;</span> <span class="n">offset</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">dummyTail</span> <span class="o">-&gt;</span> <span class="n">offset</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+        <span class="n">dummyHead</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">dummyTail</span><span class="p">;</span>
+        <span class="n">dummyTail</span><span class="o">-&gt;</span><span class="n">prev</span> <span class="o">=</span> <span class="n">dummyHead</span><span class="p">;</span>
+
+        <span class="n">deques</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">head</span> <span class="o">=</span> <span class="n">dummyHead</span><span class="p">;</span>
+        <span class="n">deques</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tail</span> <span class="o">=</span> <span class="n">dummyTail</span><span class="p">;</span>
+        <span class="n">deques</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">deques</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">E</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>对参数的提取就不多说了，利用<code class="language-plaintext highlighter-rouge">getopt</code>即可。</p> <p>然后是对<code class="language-plaintext highlighter-rouge">trace</code>每一行提取关键的信息，比如操作符<code class="language-plaintext highlighter-rouge">op</code>和<code class="language-plaintext highlighter-rouge">address</code>(hex format):</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * @brief The vital info about trace: operation and address.
+ */</span>
+<span class="k">struct</span> <span class="n">traceLine</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">op</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">address</span><span class="p">;</span>
+    <span class="c1">// int block;</span>
+<span class="p">};</span>
+
+<span class="cm">/**
+ * @brief Parse the trace line to get op and address.
+ * 
+ * @param[in] line a line of trace info
+ * 
+ * @return operation and address
+ */</span>
+<span class="k">struct</span> <span class="n">traceLine</span><span class="o">*</span> <span class="nf">parseTraces</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">line</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">' '</span><span class="p">)</span><span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">op</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// 'L' for load, 'M' for modify, 'S' for store</span>
+    <span class="kt">int</span> <span class="n">address</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="kt">char</span> <span class="n">hexAddr</span><span class="p">[</span><span class="mi">17</span><span class="p">];</span>  <span class="c1">// 存储十六进制地址，假设地址最多16位</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">// 提取逗号之前的十六进制字符串</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">','</span> <span class="o">&amp;&amp;</span> <span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">'\0'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">hexAddr</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">hexAddr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'\0'</span><span class="p">;</span> <span class="c1">// 确保字符串以 '\0' 结尾</span>
+
+    <span class="c1">// 使用 strtol 将十六进制字符串转换为整数</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">endptr</span><span class="p">;</span>
+    <span class="n">address</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">strtol</span><span class="p">(</span><span class="n">hexAddr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">endptr</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+
+    <span class="k">struct</span> <span class="n">traceLine</span><span class="o">*</span> <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">traceLine</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">traceLine</span><span class="p">));</span>
+    <span class="n">res</span> <span class="o">-&gt;</span> <span class="n">op</span> <span class="o">=</span> <span class="n">op</span><span class="p">;</span>
+    <span class="n">res</span> <span class="o">-&gt;</span> <span class="n">address</span> <span class="o">=</span> <span class="n">address</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>那么最核心的就是模拟<code class="language-plaintext highlighter-rouge">cache</code>的行为了:</p> <ol> <li>通过<code class="language-plaintext highlighter-rouge">address</code>的<code class="language-plaintext highlighter-rouge">s</code>字段获取组号</li> <li>对该组的每一行检查是否直接<code class="language-plaintext highlighter-rouge">hit</code> (<code class="language-plaintext highlighter-rouge">valid</code>且<code class="language-plaintext highlighter-rouge">tag</code>相同)</li> <li>如果直接<code class="language-plaintext highlighter-rouge">hit</code>那么直接返回，如果没有，那么继续</li> <li>找出空的<code class="language-plaintext highlighter-rouge">cache</code>行，如果该组内无空行，根据<code class="language-plaintext highlighter-rouge">deque</code>和LRU算法筛选出一行</li> <li>对选中的这行进行初始化<code class="language-plaintext highlighter-rouge">valid</code>和<code class="language-plaintext highlighter-rouge">tag</code>（加载到<code class="language-plaintext highlighter-rouge">cache</code>）并将对应的结点加入到<code class="language-plaintext highlighter-rouge">deque</code></li> <li>检查加入到<code class="language-plaintext highlighter-rouge">deque</code>后是否超出容量(<code class="language-plaintext highlighter-rouge">E</code>)并修正</li> <li>需要注意的是如果操作符是<code class="language-plaintext highlighter-rouge">M</code>则表示<code class="language-plaintext highlighter-rouge">L</code> + <code class="language-plaintext highlighter-rouge">S</code>只需要在最后的时候多一次<code class="language-plaintext highlighter-rouge">hit</code>即可</li> </ol> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * @brief Simulate cache
+ * 
+ * @param[in] line trace info
+ * @param[in] s set bits
+ * @param[in] E lines per set
+ * @param[in] b block bits
+ * @param[in] verbose verbose option
+ */</span>
+<span class="kt">void</span> <span class="nf">processCache</span><span class="p">(</span><span class="k">struct</span> <span class="n">traceLine</span><span class="o">*</span> <span class="n">line</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">E</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">verbose</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">address</span> <span class="o">=</span> <span class="n">line</span><span class="o">-&gt;</span><span class="n">address</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">op</span> <span class="o">=</span> <span class="n">line</span><span class="o">-&gt;</span><span class="n">op</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">whichSet</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">tag</span> <span class="o">=</span> <span class="n">address</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">deque</span><span class="o">*</span> <span class="n">dq</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">deques</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+
+    <span class="k">struct</span> <span class="n">cacheRow</span><span class="o">*</span> <span class="n">setStart</span> <span class="o">=</span> <span class="n">cache</span> <span class="o">+</span> <span class="n">index</span> <span class="o">*</span> <span class="n">E</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">cacheRow</span><span class="o">*</span> <span class="n">victimLine</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">node</span><span class="o">*</span> <span class="n">victimNode</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="c1">// Traverse the deque to find if cache hits</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">node</span><span class="o">*</span> <span class="n">n</span> <span class="o">=</span> <span class="n">dq</span><span class="o">-&gt;</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span> <span class="n">n</span> <span class="o">!=</span> <span class="n">dq</span><span class="o">-&gt;</span><span class="n">tail</span><span class="p">;</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">struct</span> <span class="n">cacheRow</span><span class="o">*</span> <span class="n">cacheLine</span> <span class="o">=</span> <span class="n">setStart</span> <span class="o">+</span> <span class="n">n</span><span class="o">-&gt;</span><span class="n">offset</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cacheLine</span><span class="o">-&gt;</span><span class="n">valid</span> <span class="o">&amp;&amp;</span> <span class="n">cacheLine</span><span class="o">-&gt;</span><span class="n">tag</span> <span class="o">==</span> <span class="n">tag</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Cache hit</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">op</span> <span class="o">==</span> <span class="sc">'L'</span> <span class="o">||</span> <span class="n">op</span> <span class="o">==</span> <span class="sc">'S'</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">hits</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">"hit</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">op</span> <span class="o">==</span> <span class="sc">'M'</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">hits</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">"hit hit</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">moveToHead</span><span class="p">(</span><span class="n">dq</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Cache miss: all the nodes in deque miss</span>
+    <span class="n">misses</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">op</span> <span class="o">==</span> <span class="sc">'L'</span> <span class="o">||</span> <span class="n">op</span> <span class="o">==</span> <span class="sc">'S'</span><span class="p">))</span> <span class="n">printf</span><span class="p">(</span><span class="s">"miss "</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span> <span class="o">&amp;&amp;</span> <span class="n">op</span> <span class="o">==</span> <span class="sc">'M'</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">"miss hit"</span><span class="p">);</span>
+
+    <span class="c1">// Find an empty line or prepare for eviction</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">E</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">struct</span> <span class="n">cacheRow</span><span class="o">*</span> <span class="n">cacheLine</span> <span class="o">=</span> <span class="n">setStart</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">cacheLine</span><span class="o">-&gt;</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">victimLine</span> <span class="o">=</span> <span class="n">cacheLine</span><span class="p">;</span>
+            <span class="n">victimNode</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// All lines are valid, so evict the LRU line</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">victimLine</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">evictions</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">verbose</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">"eviction"</span><span class="p">);</span>
+        <span class="n">victimNode</span> <span class="o">=</span> <span class="n">removeTail</span><span class="p">(</span><span class="n">dq</span><span class="p">);</span>
+        <span class="n">victimLine</span> <span class="o">=</span> <span class="n">setStart</span> <span class="o">+</span> <span class="n">victimNode</span><span class="o">-&gt;</span><span class="n">offset</span><span class="p">;</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">victimNode</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Update the victim line with new data</span>
+    <span class="n">victimLine</span><span class="o">-&gt;</span><span class="n">valid</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">victimLine</span><span class="o">-&gt;</span><span class="n">tag</span> <span class="o">=</span> <span class="n">tag</span><span class="p">;</span>
+
+    <span class="c1">// Add new node to head of deque</span>
+    <span class="n">node</span><span class="o">*</span> <span class="n">newNode</span> <span class="o">=</span> <span class="p">(</span><span class="n">node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">node</span><span class="p">));</span>
+    <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">offset</span> <span class="o">=</span> <span class="n">victimLine</span> <span class="o">-</span> <span class="n">setStart</span><span class="p">;</span>
+    <span class="n">addToHead</span><span class="p">(</span><span class="n">dq</span><span class="p">,</span> <span class="n">newNode</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">dq</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">&gt;</span> <span class="n">dq</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">removeTail</span><span class="p">(</span><span class="n">dq</span><span class="p">);</span>
+        <span class="o">--</span><span class="n">dq</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If operation is 'M', the second store operation is a hit</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">op</span> <span class="o">==</span> <span class="sc">'M'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">hits</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>最终运行<code class="language-plaintext highlighter-rouge">./test-csim</code>来检查结果即可:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                        Your simulator     Reference simulator
+Points (s,E,b)    Hits  Misses  Evicts    Hits  Misses  Evicts
+     3 (1,1,1)       9       8       6       9       8       6  traces/yi2.trace
+     3 (4,2,4)       4       5       2       4       5       2  traces/yi.trace
+     3 (2,1,4)       2       3       1       2       3       1  traces/dave.trace
+     3 (2,1,3)     167      71      67     167      71      67  traces/trans.trace
+     3 (2,2,3)     201      37      29     201      37      29  traces/trans.trace
+     3 (2,4,3)     212      26      10     212      26      10  traces/trans.trace
+     3 (5,1,5)     231       7       0     231       7       0  traces/trans.trace
+     6 (5,1,5)  265189   21775   21743  265189   21775   21743  traces/long.trace
+    27
+</code></pre></div></div> <p>27分就是满分, 到这里<code class="language-plaintext highlighter-rouge">part A</code>结束。</p> <p>要不是之前写过leetcode的LRU缓存，还真不好写这个part的LRU</p> <p>不过写完之后对<code class="language-plaintext highlighter-rouge">cache</code>的LRU机制又加深了理解，刀刻般的。</p> <p>完整代码查看<code class="language-plaintext highlighter-rouge">csim.c</code></p> <hr/> <h1 id="part-b">Part B</h1>]]></content><author><name></name></author><category term="CSAPP"/><category term="项目"/><category term="c"/><category term="csapp"/><category term="cache"/><category term="LRU"/><summary type="html"><![CDATA[Personal Crack on CS:APP3e Cache Lab]]></summary></entry><entry><title type="html">CS:APP3e Arch Lab</title><link href="https://iamnotphage.github.io/blog/2022/CSAPP3eArch/" rel="alternate" type="text/html" title="CS:APP3e Arch Lab"/><published>2022-06-03T15:59:00+00:00</published><updated>2022-06-03T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2022/CSAPP3eArch</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2022/CSAPP3eArch/"><![CDATA[<p>首先是安装好需要的内容。</p> <p><code class="language-plaintext highlighter-rouge">flex</code>, <code class="language-plaintext highlighter-rouge">bison</code></p> <p><code class="language-plaintext highlighter-rouge">gcc</code>和<code class="language-plaintext highlighter-rouge">make</code>就不多说了。</p> <p>然后根据自己情况调整<code class="language-plaintext highlighter-rouge">Makefile</code>(sim各级目录下的<code class="language-plaintext highlighter-rouge">Makefile</code>)</p> <blockquote> <p>笔者遇到-lfl找不到的情况，前往Makefile把LEXLIB = -lfl改成空就行了</p> <p>此外就是GUI mode的情况，我懒得安装tcl/tk直接把Makefile相关的注释就行</p> </blockquote> <p>仔细阅读<code class="language-plaintext highlighter-rouge">writeup</code>和书本<code class="language-plaintext highlighter-rouge">chapter 4</code></p> <h1 id="part-a">Part A</h1> <p>工作在<code class="language-plaintext highlighter-rouge">arch/sim/misc</code>目录下</p> <p>仿照书本<code class="language-plaintext highlighter-rouge">figure 4-7</code>并对照<code class="language-plaintext highlighter-rouge">example.c</code>容易写出<code class="language-plaintext highlighter-rouge">sum.ys</code>:</p> <p>(最后一行空行构成EOF)</p> <p>然后<code class="language-plaintext highlighter-rouge">./yas sum.ys</code>和<code class="language-plaintext highlighter-rouge">./yis sum.yo</code>检查<code class="language-plaintext highlighter-rouge">Status</code>和<code class="language-plaintext highlighter-rouge">%rax</code>是否正常</p> <pre><code class="language-asm"># Execution begins at address 0
         .pos 0
         irmovq stack, %rsp
         call main
@@ -2248,4 +2506,4 @@ NOTES:
   <span class="p">}</span>
 <span class="p">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="CSAPP"/><category term="项目"/><category term="c"/><category term="csapp"/><category term="bit"/><category term="IEEE"/><category term="float"/><summary type="html"><![CDATA[Personal Crack on CS:APP3e Data Lab]]></summary></entry><entry><title type="html">XDOJ全网最全_Iamnotphage的博客-CSDN博客</title><link href="https://iamnotphage.github.io/blog/2021/xdoj_iamnotphage-csdn/" rel="alternate" type="text/html" title="XDOJ全网最全_Iamnotphage的博客-CSDN博客"/><published>2021-11-16T00:00:00+00:00</published><updated>2021-11-16T00:00:00+00:00</updated><id>https://iamnotphage.github.io/blog/2021/xdoj_iamnotphage-csdn</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2021/xdoj_iamnotphage-csdn/"><![CDATA[]]></content><author><name></name></author><summary type="html"><![CDATA[数据结构-树,数据结构-串、数组、广义表,数据结构-栈和队列,c语言,算法,图论]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="CSAPP"/><category term="项目"/><category term="c"/><category term="csapp"/><category term="bit"/><category term="IEEE"/><category term="float"/><summary type="html"><![CDATA[Personal Crack on CS:APP3e Data Lab]]></summary></entry></feed>
