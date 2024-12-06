@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://iamnotphage.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://iamnotphage.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-26T09:38:58+00:00</updated><id>https://iamnotphage.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">my DBMS</title><link href="https://iamnotphage.github.io/blog/2024/myDBMS/" rel="alternate" type="text/html" title="my DBMS"/><published>2024-05-17T15:59:00+00:00</published><updated>2024-05-17T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/myDBMS</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/myDBMS/"><![CDATA[<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /$$$$$$  /$$   /$$ /$$$$$$$$ /$$   /$$      
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://iamnotphage.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://iamnotphage.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-12-06T03:21:41+00:00</updated><id>https://iamnotphage.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">SSH连接远程服务器终极教程</title><link href="https://iamnotphage.github.io/blog/2024/sshTutorial/" rel="alternate" type="text/html" title="SSH连接远程服务器终极教程"/><published>2024-12-05T15:59:00+00:00</published><updated>2024-12-05T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/sshTutorial</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/sshTutorial/"><![CDATA[<p>记录一下配置和使用ssh遇到的所有坑！</p> <p>本人测试设备:</p> <ul> <li>Macbook (Apple Silicon)</li> <li>Windows11 笔记本</li> </ul> <p>阅读并理解本文需要的前置知识或技能:</p> <ul> <li>Linux基础命令(<code class="language-plaintext highlighter-rouge">|</code>, <code class="language-plaintext highlighter-rouge">grep</code>等)</li> <li>科学上网</li> <li>清楚知道自己主机登陆账户和密码(Windows上不是PIN码，而是登陆密码!)</li> </ul> <h1 id="ssh-科普">SSH 科普</h1> <p>安全外壳协议（Secure Shell Protocol，简称SSH）是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。SSH通过在网络中建立安全隧道来实现SSH客户端与服务器之间的连接。SSH最常见的用途是远程登录系统，人们通常利用SSH来传输命令行界面和远程执行命令。</p> <p>比如你有一台不方便移动的主机，但是算力资源很好，你需要远程操控，那么就可以试试SSH</p> <p>事实上，很多企业以及实验室都是这么操作的，以及很多云服务器。</p> <p>因为大部分时候，作为开发者，并不需要太多图形化界面，只需要一个终端。</p> <h1 id="ssh教程">SSH教程</h1> <p>下面的教程步骤将基于<strong>Mac SSH Windows</strong>的需求来写。</p> <h2 id="windows-ssh-server安装">Windows SSH Server安装</h2> <p>一般都是用<code class="language-plaintext highlighter-rouge">OpenSSH-Server</code></p> <p>在Windows上安装<code class="language-plaintext highlighter-rouge">OpenSSH-Server</code>:</p> <p>安装方式还是挺多的，一个是打开<code class="language-plaintext highlighter-rouge">设置-系统-可选功能</code>然后查看是否有<code class="language-plaintext highlighter-rouge">OpenSSH</code>字样。</p> <p>一般都会有一个<code class="language-plaintext highlighter-rouge">OpenSSH Client</code>，但是这里Windows是作为服务器</p> <p>点击<code class="language-plaintext highlighter-rouge">添加功能</code>，搜索<code class="language-plaintext highlighter-rouge">OpenSSH Server</code>安装</p> <p>然后在<code class="language-plaintext highlighter-rouge">服务</code>中(运行<code class="language-plaintext highlighter-rouge">services.msc</code>)找到<code class="language-plaintext highlighter-rouge">OpenSSH 服务器</code>启动选项设置为<code class="language-plaintext highlighter-rouge">自动</code></p> <p>即可。</p> <hr/> <p>接下来采用命令行安装，如果前面没问题这里可以跳过。</p> <p>管理员身份打开<code class="language-plaintext highlighter-rouge">PowerShell</code>:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-WindowsCapability <span class="nt">-Online</span> | Where-Object Name <span class="nt">-like</span> <span class="s1">'OpenSSH*'</span>
+</code></pre></div></div> <p>如果返回</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Name  : OpenSSH.Client~~~~0.0.1.0
+ State : Installed
+
+ Name  : OpenSSH.Server~~~~0.0.1.0
+ State : Installed
+</code></pre></div></div> <p>那就是都安装好了，如果<code class="language-plaintext highlighter-rouge">Server</code>显示<code class="language-plaintext highlighter-rouge">Not Present</code>就是没安装<code class="language-plaintext highlighter-rouge">OpenSSH Server</code></p> <p>用下面的命令安装:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Add-WindowsCapability <span class="nt">-Online</span> <span class="nt">-Name</span> OpenSSH.Server~~~~0.0.1.0
+<span class="c"># 如果客户端也没安装，上面的Server改成Client</span>
+</code></pre></div></div> <p>接下来命令行启动ssh服务并设置相关启动选项和防火墙设置</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 启动sshd服务</span>
+Start-Service sshd
+
+<span class="c"># 设置启动选项</span>
+Set-Service <span class="nt">-Name</span> sshd <span class="nt">-StartupType</span> <span class="s1">'Automatic'</span>
+
+<span class="c"># 防火墙设置</span>
+<span class="k">if</span> <span class="o">(!(</span>Get-NetFirewallRule <span class="nt">-Name</span> <span class="s2">"OpenSSH-Server-In-TCP"</span> <span class="nt">-ErrorAction</span> SilentlyContinue | Select-Object Name, Enabled<span class="o">))</span> <span class="o">{</span>
+    Write-Output <span class="s2">"Firewall Rule 'OpenSSH-Server-In-TCP' does not exist, creating it..."</span>
+    New-NetFirewallRule <span class="nt">-Name</span> <span class="s1">'OpenSSH-Server-In-TCP'</span> <span class="nt">-DisplayName</span> <span class="s1">'OpenSSH Server (sshd)'</span> <span class="nt">-Enabled</span> True <span class="nt">-Direction</span> Inbound <span class="nt">-Protocol</span> TCP <span class="nt">-Action</span> Allow <span class="nt">-LocalPort</span> 22
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    Write-Output <span class="s2">"Firewall rule 'OpenSSH-Server-In-TCP' has been created and exists."</span>
+<span class="o">}</span>
+</code></pre></div></div> <hr/> <p>手动安装的方法略。</p> <h2 id="linux-ssh-server安装">Linux SSH Server安装</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status sshd <span class="c"># 查看sshd是否安装</span>
+apt <span class="nb">install </span>openssh-server <span class="c"># 没有的话就apt安装 或者你所常用的包管理工具</span>
+systemctl <span class="nb">enable </span>sshd <span class="nt">--now</span>
+systemctl status sshd <span class="c"># 确保安装</span>
+</code></pre></div></div> <h2 id="ssh-server端配置">SSH Server端配置</h2> <p>接下来配置服务器和客户端。</p> <p>安装好并启动之后，需要知道几个前置的内容。</p> <p>在服务器上，有两组文件夹需要注意:</p> <table> <thead> <tr> <th>特性</th> <th>C:\Users[name].ssh\</th> <th>C:\ProgramData\ssh</th> </tr> </thead> <tbody> <tr> <td>级别</td> <td>用户级别</td> <td>系统级别</td> </tr> <tr> <td>作用范围</td> <td>当前用户的 SSH 配置和密钥管理</td> <td>全局 SSH 服务与主机密钥管理</td> </tr> <tr> <td>配置文件</td> <td>config用户自定义 SSH 客户端配置</td> <td>sshd_config 服务端配置</td> </tr> <tr> <td>密钥</td> <td>用户的私钥、公钥（如 id_rsa）</td> <td>服务端主机密钥</td> </tr> <tr> <td>使用场景</td> <td>用户发起 SSH 连接时</td> <td>SSH 服务端运行和全局配置</td> </tr> </tbody> </table> <p>如果是linux-like的系统，第一个文件夹是<code class="language-plaintext highlighter-rouge">/home/[name]/.ssh</code>（实际上都是<code class="language-plaintext highlighter-rouge">~/.ssh</code>）；第二个文件是<code class="language-plaintext highlighter-rouge">/etc/ssh</code></p> <p>这里windows为例子，接下来继续。</p> <p>目前不太需要配置<code class="language-plaintext highlighter-rouge">sshd_config</code>文件，后续根据自己需求更改验证方式即可。</p> <h2 id="ssh-clinet端配置">SSH Clinet端配置</h2> <p>在我们的Mac上(也就是这里的客户端)，需要配置一些内容。</p> <p>这里跳过<code class="language-plaintext highlighter-rouge">ssh-keygen</code>的过程，如果你有用过github的话，基本上都已经生成过密钥了。</p> <p>(注意如果你之前在<code class="language-plaintext highlighter-rouge">ssh-keygen</code>过程中输入过密码的设置，后续你可能需要这个密码)</p> <p>那么这里就是第一次连接我们的服务器(Windows):</p> <h2 id="局域网ssh">局域网SSH</h2> <p>假设我windows的局域网ip是<code class="language-plaintext highlighter-rouge">192.168.0.194</code></p> <p>在mac上(or Linux)，打开终端。</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> ~/.ssh/id_rsa.pub
+</code></pre></div></div> <p>查看自己公钥，然后想办法保存到服务器的<code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code>中（没有就创建，注意没有后缀）</p> <p>或者直接用<code class="language-plaintext highlighter-rouge">ssh-copy-id -i ~/.ssh/id_rsa.pub username@ip</code>(username@ip根据自己实际情况改变)</p> <p>然后连接:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh username@192.168.0.194 <span class="c"># username根据自己情况</span>
+</code></pre></div></div> <p>首次连接会有连接过程。输入yes继续。</p> <p>不出意外的话可以连接上</p> <hr/> <p>但是每次都输入<code class="language-plaintext highlighter-rouge">username</code>和<code class="language-plaintext highlighter-rouge">ip</code>实在是太麻烦了</p> <p>可以在客户端上配置<code class="language-plaintext highlighter-rouge">config</code>文件</p> <p>在<code class="language-plaintext highlighter-rouge">/Users/[name]/.ssh</code>文件中</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>vim config
+</code></pre></div></div> <p>我的如下，可以参考:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host LAN-WIN
+	HostName 192.168.0.194
+	User	iamnotphage@gmail.com
+	Port	22
+	IdentityFile ~/.ssh/id_rsa
+</code></pre></div></div> <p>根据自己情况更改就好。</p> <p>后续只需要这样连接(局域网的话)</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh LAN-WIN
+</code></pre></div></div> <p>这样就不需要手动输入user@ip或者是指定端口了（不指定默认22）</p> <h2 id="内网穿透">内网穿透</h2> <p>我想大部分情况都不是局域网吧，所以需要内网穿透。</p> <p><em>让我想起小时候用蛤蟆吃联机 缅怀Hamachi。</em></p> <p>这里不多详解了，我个人用的是<code class="language-plaintext highlighter-rouge">Sakura FRP</code>这个软件</p> <p>FRP: Fast Reverse Proxy</p> <p>在服务器上配置一下，绑定端口22（如果你没修改的话）</p> <p>然后FRP的软件给你一个公网ip和端口。后续你就这么连接就行:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="nt">-p</span> <span class="o">[</span>port] user@ip
+</code></pre></div></div> <p>当然也可以配置<code class="language-plaintext highlighter-rouge">config</code>文件，避免后续重复输入</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Host myWindows
+	HostName 这里输入公网ip或域名
+	User	iamnotphage@gmail.com
+	Port	[port]
+	IdentityFile ~/.ssh/id_rsa
+</code></pre></div></div> <p>后续就是<code class="language-plaintext highlighter-rouge">ssh myWindows</code>就行了</p> <h1 id="问题汇总解决方案">问题汇总&amp;解决方案</h1> <h2 id="修改配置文件后权限改变">修改配置文件后权限改变</h2> <p>在Windows上，找到<code class="language-plaintext highlighter-rouge">OpenSSH</code>的安装目录。</p> <p>我这里是<code class="language-plaintext highlighter-rouge">D:\MyToolkit\OpenSSH-Win64</code></p> <p>然后在此目录下管理员权限打开<code class="language-plaintext highlighter-rouge">PowerShell</code>:</p> <p>该目录下有两个修复权限的脚本文件(<code class="language-plaintext highlighter-rouge">.ps1</code>后缀)</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./FixHostFilePermissions.ps1
+./FixUserFilePermissions.ps1
+</code></pre></div></div> <p>如果是linux系统的话<code class="language-plaintext highlighter-rouge">chmod</code>就行</p> <h2 id="发生系统错误-5">发生系统错误 5</h2> <p>孩子，管理员权限打开终端。</p> <h2 id="发生系统错误-1067">发生系统错误 1067</h2> <p>当在windows上试图重启sshd服务时，会出现</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>windows <span class="o">&gt;</span> net start sshd
+OpenSSH SSH Server 服务无法启动。
+
+系统出错。
+
+发生系统错误 1067。
+
+进程意外终止。
+</code></pre></div></div> <p><strong>解决方案</strong></p> <ol> <li>首先确保权限正确: 在<code class="language-plaintext highlighter-rouge">.\FixHostFilePermission.ps</code></li> <li>如果1不行那就删除<code class="language-plaintext highlighter-rouge">C:/ProgramData/ssh</code>文件夹，重新运行指令。</li> </ol> <h2 id="permission-denied">Permission Denied</h2> <p>一直没啥变化但是突然不行了</p> <p>客户端确保公钥正确上传到服务器的<code class="language-plaintext highlighter-rouge">authorized_keys</code></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-R</span> <span class="o">[</span>name] <span class="c"># 这里填写自己的域名</span>
+<span class="c"># 这里会清除 ~/.ssh/known_hosts的相关条目</span>
+</code></pre></div></div> <p>是在不行就删除<code class="language-plaintext highlighter-rouge">C:/ProgramData/ssh</code>文件夹重启sshd服务。</p>]]></content><author><name></name></author><category term="杂项"/><category term="ssh"/><category term="tutorial"/><summary type="html"><![CDATA[本文描述了ssh相关知识，ssh远程连接服务器步骤，以及所有坑的解决方案]]></summary></entry><entry><title type="html">my DBMS</title><link href="https://iamnotphage.github.io/blog/2024/myDBMS/" rel="alternate" type="text/html" title="my DBMS"/><published>2024-05-17T15:59:00+00:00</published><updated>2024-05-17T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2024/myDBMS</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2024/myDBMS/"><![CDATA[<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /$$$$$$  /$$   /$$ /$$$$$$$$ /$$   /$$      
  /$$__  $$| $$  | $$| $$_____/| $$$ | $$      
 | $$  \__/| $$  | $$| $$      | $$$$| $$      
 | $$      | $$$$$$$$| $$$$$   | $$ $$ $$      
@@ -2229,425 +2281,4 @@ fa 18 40 00 00 00 00 00 # touch3的入口
 value: 924 -&gt; 691 -&gt; 477 -&gt; 443 -&gt; 332 -&gt; 168
 </code></pre></div></div> <p>所以<code class="language-plaintext highlighter-rouge">7 - xi</code>的值应该是:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 4 5 6 1 2
 </code></pre></div></div> <p>所以最终答案<code class="language-plaintext highlighter-rouge">xi</code>是:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4 3 2 1 6 5
-</code></pre></div></div> <h1 id="summary">Summary</h1> <p>gdb确实掌握了不少。</p> <p>足够有趣，纯粹享受。</p>]]></content><author><name></name></author><category term="CSAPP"/><category term="项目"/><category term="c"/><category term="assembly"/><category term="csapp"/><category term="gdb"/><summary type="html"><![CDATA[Personal Crack on CS:APP3e Bomb Lab]]></summary></entry><entry><title type="html">CS:APP3e Data Lab</title><link href="https://iamnotphage.github.io/blog/2022/CSAPP3eData/" rel="alternate" type="text/html" title="CS:APP3e Data Lab"/><published>2022-05-31T15:59:00+00:00</published><updated>2022-05-31T15:59:00+00:00</updated><id>https://iamnotphage.github.io/blog/2022/CSAPP3eData</id><content type="html" xml:base="https://iamnotphage.github.io/blog/2022/CSAPP3eData/"><![CDATA[<p>环境安装好后的第一个lab</p> <p>位运算实现一些基础函数，加深补码和IEEE浮点数的理解。</p> <p>确保gcc和make成功安装就行</p> <h1 id="implementation">Implementation</h1> <p>太简单就不放详细说明了。具体看注释。</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 
- * CS:APP Data Lab 
- * 
- * &lt;Please put your name and userid here&gt;
- * 
- * bits.c - Source file with your solutions to the Lab.
- *          This is the file you will hand in to your instructor.
- *
- * WARNING: Do not include the &lt;stdio.h&gt; header; it confuses the dlc
- * compiler. You can still use printf for debugging without including
- * &lt;stdio.h&gt;, although you might get a compiler warning. In general,
- * it's not good practice to ignore compiler warnings, but in this
- * case it's OK.  
- */</span>
-
-<span class="c">#if 0
-/*
- * Instructions to Students:
- *
- * STEP 1: Read the following instructions carefully.
- */
-
-You will provide your solution to the Data Lab by
-editing the collection of functions in this source file.
-
-INTEGER CODING RULES:
- 
-  Replace the "return" statement in each function with one
-  or more lines of C code that implements the function. Your code 
-  must conform to the following style:
- 
-  int Funct(arg1, arg2, ...) {
-      /* brief description of how your implementation works */
-      int var1 = Expr1;
-      ...
-      int varM = ExprM;
-
-      varJ = ExprJ;
-      ...
-      varN = ExprN;
-      return ExprR;
-  }
-
-  Each "Expr" is an expression using ONLY the following:
-  1. Integer constants 0 through 255 (0xFF), inclusive. You are
-      not allowed to use big constants such as 0xffffffff.
-  2. Function arguments and local variables (no global variables).
-  3. Unary integer operations ! ~
-  4. Binary integer operations &amp; ^ | + &lt;&lt; &gt;&gt;
-    
-  Some of the problems restrict the set of allowed operators even further.
-  Each "Expr" may consist of multiple operators. You are not restricted to
-  one operator per line.
-
-  You are expressly forbidden to:
-  1. Use any control constructs such as if, do, while, for, switch, etc.
-  2. Define or use any macros.
-  3. Define any additional functions in this file.
-  4. Call any functions.
-  5. Use any other operations, such as &amp;&amp;, ||, -, or ?:
-  6. Use any form of casting.
-  7. Use any data type other than int.  This implies that you
-     cannot use arrays, structs, or unions.
-
- 
-  You may assume that your machine:
-  1. Uses 2s complement, 32-bit representations of integers.
-  2. Performs right shifts arithmetically.
-  3. Has unpredictable behavior when shifting if the shift amount
-     is less than 0 or greater than 31.
-
-
-EXAMPLES OF ACCEPTABLE CODING STYLE:
-  /*
-   * pow2plus1 - returns 2^x + 1, where 0 &lt;= x &lt;= 31
-   */
-  int pow2plus1(int x) {
-     /* exploit ability of shifts to compute powers of 2 */
-     return (1 &lt;&lt; x) + 1;
-  }
-
-  /*
-   * pow2plus4 - returns 2^x + 4, where 0 &lt;= x &lt;= 31
-   */
-  int pow2plus4(int x) {
-     /* exploit ability of shifts to compute powers of 2 */
-     int result = (1 &lt;&lt; x);
-     result += 4;
-     return result;
-  }
-
-FLOATING POINT CODING RULES
-
-For the problems that require you to implement floating-point operations,
-the coding rules are less strict.  You are allowed to use looping and
-conditional control.  You are allowed to use both ints and unsigneds.
-You can use arbitrary integer and unsigned constants. You can use any arithmetic,
-logical, or comparison operations on int or unsigned data.
-
-You are expressly forbidden to:
-  1. Define or use any macros.
-  2. Define any additional functions in this file.
-  3. Call any functions.
-  4. Use any form of casting.
-  5. Use any data type other than int or unsigned.  This means that you
-     cannot use arrays, structs, or unions.
-  6. Use any floating point data types, operations, or constants.
-
-
-NOTES:
-  1. Use the dlc (data lab checker) compiler (described in the handout) to 
-     check the legality of your solutions.
-  2. Each function has a maximum number of operations (integer, logical,
-     or comparison) that you are allowed to use for your implementation
-     of the function.  The max operator count is checked by dlc.
-     Note that assignment ('=') is not counted; you may use as many of
-     these as you want without penalty.
-  3. Use the btest test harness to check your functions for correctness.
-  4. Use the BDD checker to formally verify your functions
-  5. The maximum number of ops for each function is given in the
-     header comment for each function. If there are any inconsistencies 
-     between the maximum ops in the writeup and in this file, consider
-     this file the authoritative source.
-
-/*
- * STEP 2: Modify the following functions according the coding rules.
- * 
- *   IMPORTANT. TO AVOID GRADING SURPRISES:
- *   1. Use the dlc compiler to check that your solutions conform
- *      to the coding rules.
- *   2. Use the BDD checker to formally verify that your solutions produce 
- *      the correct answers.
- */
-
-
-#endif
-</span><span class="c1">//1</span>
-<span class="cm">/* 
- * bitXor - x^y using only ~ and &amp; 
- *   Example: bitXor(4, 5) = 1
- *   Legal ops: ~ &amp;
- *   Max ops: 14
- *   Rating: 1
- */</span>
-<span class="kt">int</span> <span class="nf">bitXor</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// bitXor：画出真值表，可以由两个与的结果进行或，而或可以利用德摩根律转换</span>
-  <span class="k">return</span> <span class="o">~</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="o">~</span><span class="n">x</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">y</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="cm">/* 
- * tmin - return minimum two's complement integer 
- *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 4
- *   Rating: 1
- */</span>
-<span class="kt">int</span> <span class="nf">tmin</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// tmin: 1000 0000 0000 0000 0000 0000 0000 0000</span>
-  <span class="k">return</span> <span class="mh">0x80</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">//2</span>
-<span class="cm">/*
- * isTmax - returns 1 if x is the maximum, two's complement number,
- *     and 0 otherwise 
- *   Legal ops: ! ~ &amp; ^ | +
- *   Max ops: 10
- *   Rating: 1
- */</span>
-<span class="kt">int</span> <span class="nf">isTmax</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// isTmax: x如果是tmax, ~x就是tmin, tmin的相反数(~tmin + 1 == tmin)等于本身</span>
-  <span class="c1">// 所以 判断equals(~(~x) + 1, ~x), 同时排除 x == -1 的情况即可</span>
-  <span class="c1">// equals可以用同或，同或可以用 !(A ^ B) 来实现</span>
-  <span class="k">return</span> <span class="o">!!</span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">!</span><span class="p">((</span><span class="o">~</span><span class="n">x</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="o">~</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
-<span class="p">}</span>
-<span class="cm">/* 
- * allOddBits - return 1 if all odd-numbered bits in word set to 1
- *   where bits are numbered from 0 (least significant) to 31 (most significant)
- *   Examples allOddBits(0xFFFFFFFD) = 0, allOddBits(0xAAAAAAAA) = 1
- *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 12
- *   Rating: 2
- */</span>
-<span class="kt">int</span> <span class="nf">allOddBits</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// 利用 0xAA 对x的每个8位判断，按位与的结果仍然是0xaa</span>
-  <span class="c1">// 最后与起来，与0xAA比较是否相等(!(A ^ B))同或</span>
-  <span class="k">return</span> <span class="o">!</span><span class="p">(((</span><span class="mh">0xaa</span> <span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> 
-         <span class="p">(</span><span class="mh">0xaa</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span>
-         <span class="p">(</span><span class="mh">0xaa</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span>
-         <span class="p">(</span><span class="mh">0xaa</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">))</span> <span class="o">^</span> <span class="mh">0xaa</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="cm">/* 
- * negate - return -x 
- *   Example: negate(1) = -1.
- *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 5
- *   Rating: 2
- */</span>
-<span class="kt">int</span> <span class="nf">negate</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="o">~</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">//3</span>
-<span class="cm">/* 
- * isAsciiDigit - return 1 if 0x30 &lt;= x &lt;= 0x39 (ASCII codes for characters '0' to '9')
- *   Example: isAsciiDigit(0x35) = 1.
- *            isAsciiDigit(0x3a) = 0.
- *            isAsciiDigit(0x05) = 0.
- *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 15
- *   Rating: 3
- */</span>
-<span class="kt">int</span> <span class="nf">isAsciiDigit</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// 0x30 &lt;= x &lt;= 0x39 : 也就是x等于 0x0011 0??? 或者 0x0011 100?</span>
-  <span class="c1">// ?表示0或1，所以只需要截取前面的来判断即可</span>
-  <span class="c1">// equals(x &gt;&gt; 3, 0x06) | equals(x &gt;&gt; 1, 0x1C)</span>
-  <span class="k">return</span> <span class="o">!</span><span class="p">((</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x06</span><span class="p">)</span> <span class="o">|</span> <span class="o">!</span><span class="p">((</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x1c</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="cm">/* 
- * conditional - same as x ? y : z 
- *   Example: conditional(2,4,5) = 4
- *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 16
- *   Rating: 3
- */</span>
-<span class="kt">int</span> <span class="nf">conditional</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// 先将非0的x统一转为1，也就是 !!x 即可</span>
-  <span class="c1">// !!x是1时，应该构造出 y | 0</span>
-  <span class="c1">// !!x是0时，应该构造出 0 | z</span>
-  <span class="c1">// 可以用 A = (!!x - 1) = (!!x + (-1)) = (!!x + (~1 + 1))</span>
-  <span class="c1">// !!x是1的时候，A = 0，!!x是0的时候，A = -1 = 0xFFFF FFFF</span>
-  <span class="kt">int</span> <span class="n">condition</span> <span class="o">=</span> <span class="o">!!</span><span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="o">~</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="k">return</span> <span class="p">(</span><span class="o">~</span><span class="n">condition</span> <span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">condition</span> <span class="o">&amp;</span> <span class="n">z</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="cm">/* 
- * isLessOrEqual - if x &lt;= y  then return 1, else return 0 
- *   Example: isLessOrEqual(4,5) = 1.
- *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 24
- *   Rating: 3
- */</span>
-<span class="kt">int</span> <span class="nf">isLessOrEqual</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// 判断 x &lt;= y, 可以考虑 y - x &gt;= 0</span>
-  <span class="c1">// 但同时，需要考虑 y + (~x + 1) 的溢出情况</span>
-  <span class="c1">// 补码加法判断溢出，两种情况：signX = 0 &amp;&amp; signY = 1 &amp;&amp; signSum = 0</span>
-  <span class="c1">// 或者 signX = 1 &amp;&amp; signY = 0 &amp;&amp; signSum = 1 即可</span>
-  <span class="c1">// (补码加法中，同号相加 获得 异号的和就是溢出了)</span>
-  <span class="c1">// 其余没有溢出的情况，直接判断 y - x 的符号位就行</span>
-  <span class="c1">// 最后借助上面的 conditional(x, y, z) 返回答案</span>
-  <span class="kt">int</span> <span class="n">negativeX</span> <span class="o">=</span> <span class="o">~</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">negativeX</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">signX</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">signY</span> <span class="o">=</span> <span class="n">y</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">signS</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">isOverflow</span> <span class="o">=</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">signX</span> <span class="o">^</span> <span class="n">signS</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">signY</span> <span class="o">^</span> <span class="n">signS</span><span class="p">);</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">isOverflow</span> <span class="o">&amp;</span> <span class="n">signS</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="o">~</span><span class="n">isOverflow</span> <span class="o">&amp;</span> <span class="o">!</span><span class="n">signS</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">//4</span>
-<span class="cm">/* 
- * logicalNeg - implement the ! operator, using all of 
- *              the legal operators except !
- *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1
- *   Legal ops: ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 12
- *   Rating: 4 
- */</span>
-<span class="kt">int</span> <span class="nf">logicalNeg</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// 相当于只有全0才输出1，其余输出0</span>
-  <span class="c1">// 可以取反后，全1输出1，其余输出0</span>
-  <span class="c1">// 判断全1，可以利用0xff进行与以及移位操作</span>
-  <span class="c1">// 如果全1，最后得到的仍然是0xff</span>
-  <span class="c1">// 最后的res一定是[0, 255]的8bit数，所以0xff + 1 一定"溢出"一位</span>
-  <span class="c1">// 而 res &lt; 0xff 的情况，res + 1的第8bit一定是0</span>
-  <span class="kt">int</span> <span class="n">reverseX</span> <span class="o">=</span> <span class="o">~</span><span class="n">x</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">reverseX</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">)</span> <span class="o">&amp;</span>
-            <span class="p">(</span><span class="n">reverseX</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span>
-            <span class="p">(</span><span class="n">reverseX</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span>
-            <span class="p">(</span><span class="n">reverseX</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">);</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">res</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="cm">/* howManyBits - return the minimum number of bits required to represent x in
- *             two's complement
- *  Examples: howManyBits(12) = 5
- *            howManyBits(298) = 10
- *            howManyBits(-5) = 4
- *            howManyBits(0)  = 1
- *            howManyBits(-1) = 1
- *            howManyBits(0x80000000) = 32
- *  Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *  Max ops: 90
- *  Rating: 4
- */</span>
-<span class="kt">int</span> <span class="nf">howManyBits</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// 先对输入的int x判断正负，比如-14 = 0b10010 =&gt; 5bit (~x) = 0b01101</span>
-  <span class="c1">// 而+14 = 0b01110 =&gt; 5bit 可以发现负数可以先按位取反转正数判断</span>
-  <span class="c1">// 对于任意正数，比如298 = 0x0000012a 首个1出现的位置是后面0x12a = 0b 1 0010 1010</span>
-  <span class="c1">// 需要 9 + 1 = 10bit 所以需要找出首个1的位置，最后答案是该长度加一</span>
-  <span class="c1">// 32bit二分查找，先查高16位，如果1在其中，再进一步查这16位的高8位......</span>
-  <span class="c1">// 判断是否存在1很容易,只需要利用 ! 运算 !!x &lt;=&gt; existsOne(x)</span>
-  <span class="c1">// 如果高16位存在1，说明至少长度是16位，可以先加上16，同时低16位不需要考虑，以此类推</span>
-  <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">absx</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">sign</span> <span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">sign</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">x</span><span class="p">);</span>
-  <span class="kt">int</span> <span class="n">b16</span><span class="p">,</span> <span class="n">b8</span><span class="p">,</span> <span class="n">b4</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b0</span><span class="p">;</span>
-
-  <span class="c1">// 高16位如果存在1，那么取x的高16位继续判断，否则x不截取</span>
-  <span class="n">b16</span> <span class="o">=</span> <span class="o">!!</span><span class="p">(</span><span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">;</span>
-  <span class="n">absx</span> <span class="o">=</span> <span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="n">b16</span><span class="p">;</span>
-
-  <span class="c1">// 高8位如果存在1，那么取x的高8位继续判断，否则x不截取</span>
-  <span class="n">b8</span> <span class="o">=</span> <span class="o">!!</span><span class="p">(</span><span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="n">absx</span> <span class="o">=</span> <span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="n">b8</span><span class="p">;</span>
-
-  <span class="c1">// 高4位如果存在1，那么取x的高4位继续判断，否则x不截取</span>
-  <span class="n">b4</span> <span class="o">=</span> <span class="o">!!</span><span class="p">(</span><span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="n">absx</span> <span class="o">=</span> <span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="n">b4</span><span class="p">;</span>
-
-  <span class="c1">// 高2位如果存在1，那么取x的高2位继续判断，否则x不截取</span>
-  <span class="n">b2</span> <span class="o">=</span> <span class="o">!!</span><span class="p">(</span><span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="n">absx</span> <span class="o">=</span> <span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="n">b2</span><span class="p">;</span>
-
-  <span class="c1">// 此时，应该只剩两位有效位，并且有至少有一位是1</span>
-  <span class="n">b1</span> <span class="o">=</span> <span class="o">!!</span><span class="p">(</span><span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n">absx</span> <span class="o">=</span> <span class="n">absx</span> <span class="o">&gt;&gt;</span> <span class="n">b1</span><span class="p">;</span>
-  
-  <span class="n">b0</span> <span class="o">=</span> <span class="n">absx</span><span class="p">;</span>
-
-  <span class="k">return</span> <span class="n">b16</span> <span class="o">+</span> <span class="n">b8</span> <span class="o">+</span> <span class="n">b4</span> <span class="o">+</span> <span class="n">b2</span> <span class="o">+</span> <span class="n">b1</span> <span class="o">+</span> <span class="n">b0</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c1">//float</span>
-<span class="cm">/* 
- * floatScale2 - Return bit-level equivalent of expression 2*f for
- *   floating point argument f.
- *   Both the argument and result are passed as unsigned int's, but
- *   they are to be interpreted as the bit-level representation of
- *   single-precision floating point values.
- *   When argument is NaN, return argument
- *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
- *   Max ops: 30
- *   Rating: 4
- */</span>
-<span class="kt">unsigned</span> <span class="nf">floatScale2</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">uf</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// float: 32bit表示 =&gt; sign exp frac =&gt; V = (-1)^s * 2^E * M</span>
-  <span class="c1">// sign 1bit; exp 8bit; frac 23bit;</span>
-  <span class="c1">// 如果是规格化的数，那么 E = exp - bias, M = 1 + f; 那么乘2相当于 exp + 1 即可</span>
-  <span class="c1">// 如果是非规格化的数，那么 E = 1 - bias, M = f; 那么乘2相当于 [exp frac] 左移1位</span>
-  <span class="c1">// 如果是NaN或者infinity, 那么exp == 255则直接返回 uf 即可</span>
-  <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">uf</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">exp</span> <span class="o">=</span> <span class="p">(</span><span class="n">uf</span> <span class="o">&amp;</span> <span class="mh">0x7f800000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">23</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="n">exp</span> <span class="o">&amp;&amp;</span> <span class="o">!!</span><span class="p">(</span><span class="n">exp</span> <span class="o">^</span> <span class="mh">0xff</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// Normalized</span>
-    <span class="n">exp</span> <span class="o">=</span> <span class="n">exp</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="n">uf</span> <span class="o">=</span> <span class="p">(</span><span class="n">uf</span> <span class="o">&amp;</span> <span class="mh">0x807fffff</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">exp</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">exp</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Denormalized</span>
-    <span class="n">uf</span> <span class="o">=</span> <span class="p">(</span><span class="n">uf</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">sign</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">uf</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="cm">/* 
- * floatFloat2Int - Return bit-level equivalent of expression (int) f
- *   for floating point argument f.
- *   Argument is passed as unsigned int, but
- *   it is to be interpreted as the bit-level representation of a
- *   single-precision floating point value.
- *   Anything out of range (including NaN and infinity) should return
- *   0x80000000u.
- *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
- *   Max ops: 30
- *   Rating: 4
- */</span>
-<span class="kt">int</span> <span class="nf">floatFloat2Int</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">uf</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// NaN和infinity最容易排除，直接判断exp是否等于0xff即可</span>
-  <span class="c1">// 其次是规格化的数，exp 属于 (0, 255)</span>
-  <span class="c1">// V = (-1)^s * M * 2^E</span>
-  <span class="c1">// E = exp - bias 可以根据E的大小来判断是否out of range</span>
-  <span class="c1">// E &lt; 0 则截断即可，直接返回0</span>
-  <span class="c1">// E 属于 [0, 31]则根据符号位返回就行</span>
-  <span class="c1">// E &gt;= 32 一定是溢出int的范围的，所以直接返回0x80000000u</span>
-  <span class="c1">// 对于非规格化的数，一定是 E = 1 - bias &lt; 0 所以直接返回0</span>
-  <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="n">uf</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">exp</span> <span class="o">=</span> <span class="p">(</span><span class="n">uf</span> <span class="o">&amp;</span> <span class="mh">0x7f800000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">23</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">bias</span> <span class="o">=</span> <span class="mi">127</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">exp</span> <span class="o">^</span> <span class="mh">0xff</span><span class="p">))</span> <span class="k">return</span> <span class="mh">0x80000000u</span><span class="p">;</span>
-
-  <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="n">exp</span> <span class="o">&amp;</span> <span class="o">!!</span><span class="p">(</span><span class="n">exp</span> <span class="o">^</span> <span class="mh">0xff</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// Normalized</span>
-    <span class="kt">int</span> <span class="n">E</span> <span class="o">=</span> <span class="n">exp</span> <span class="o">-</span> <span class="n">bias</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">E</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">E</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">E</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="p">){</span>
-      <span class="kt">int</span> <span class="n">absRes</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">E</span><span class="p">;</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">sign</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="o">~</span><span class="n">absRes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">absRes</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="mh">0x80000000u</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Denormalized</span>
-<span class="p">}</span>
-<span class="cm">/* 
- * floatPower2 - Return bit-level equivalent of the expression 2.0^x
- *   (2.0 raised to the power x) for any 32-bit integer x.
- *
- *   The unsigned value that is returned should have the identical bit
- *   representation as the single-precision floating-point number 2.0^x.
- *   If the result is too small to be represented as a denorm, return
- *   0. If too large, return +INF.
- * 
- *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while 
- *   Max ops: 30 
- *   Rating: 4
- */</span>
-<span class="kt">unsigned</span> <span class="nf">floatPower2</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">exp</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">126</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">127</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">exp</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">127</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">exp</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">126</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mh">0x7f800000</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="CSAPP"/><category term="项目"/><category term="c"/><category term="csapp"/><category term="bit"/><category term="IEEE"/><category term="float"/><summary type="html"><![CDATA[Personal Crack on CS:APP3e Data Lab]]></summary></entry></feed>
+</code></pre></div></div> <h1 id="summary">Summary</h1> <p>gdb确实掌握了不少。</p> <p>足够有趣，纯粹享受。</p>]]></content><author><name></name></author><category term="CSAPP"/><category term="项目"/><category term="c"/><category term="assembly"/><category term="csapp"/><category term="gdb"/><summary type="html"><![CDATA[Personal Crack on CS:APP3e Bomb Lab]]></summary></entry></feed>
